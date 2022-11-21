@@ -3,7 +3,13 @@
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
 @import "./components/navbar.scss";
+@import "./components/hero.scss";
+@import "./components/buttons.scss";
 
+@font-face {
+  font-family: "Sonder";
+  src: url("/fonts/SonderRegular.otf");
+}
 * {
   font-family: "Nunito", sans-serif;
 }
