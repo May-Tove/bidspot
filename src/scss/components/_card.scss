@@ -1,0 +1,34 @@
+.latest-listings {
+  background-color: #cbc7b7;
+}
+
+.listing-card {
+  color: $black;
+
+  & .img-container {
+    overflow: hidden;
+  }
+
+  &:hover {
+    color: $black;
+
+    & .listing-img {
+      transform: scale(1.1);
+    }
+  }
+
+  & .badge {
+    background-color: $secondary !important;
+    color: $black !important;
+  }
+
+  & .countdown,
+  .highest-bid {
+    color: $primary;
+    text-shadow: 0 0 2em $primary;
+  }
+
+  & .listing-img {
+    transition: 0.25s ease;
+  }
+}
