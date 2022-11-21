@@ -1,0 +1,19 @@
+.btn-primary {
+  background-color: $primary !important;
+  border: none !important;
+
+  &:hover {
+    background-color: #bc0c73 !important;
+  }
+}
+
+.btn-outline-primary {
+  border-color: $primary !important;
+  color: $primary !important;
+
+  &:hover {
+    background-color: #bc0c73 !important;
+    border-color: #bc0c73 !important;
+    color: $gray-100 !important;
+  }
+}

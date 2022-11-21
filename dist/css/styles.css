@@ -10789,6 +10789,44 @@ textarea.form-control-lg {
   font-weight: 700 !important;
 }
 
+.top-txt {
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+}
+
+.hero-title {
+  font-family: "Sonder", sans-serif;
+  color: #282827;
+}
+
+.hero-img {
+  width: 100%;
+  object-fit: cover;
+  max-height: 600px;
+}
+
+.btn-primary {
+  background-color: #ea0087 !important;
+  border: none !important;
+}
+.btn-primary:hover {
+  background-color: #bc0c73 !important;
+}
+
+.btn-outline-primary {
+  border-color: #ea0087 !important;
+  color: #ea0087 !important;
+}
+.btn-outline-primary:hover {
+  background-color: #bc0c73 !important;
+  border-color: #bc0c73 !important;
+  color: #f8f7f2 !important;
+}
+
+@font-face {
+  font-family: "Sonder";
+  src: url("/fonts/SonderRegular.otf");
+}
 * {
   font-family: "Nunito", sans-serif;
 }
