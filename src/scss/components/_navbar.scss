@@ -1,0 +1,22 @@
+.logo {
+  max-width: 70px;
+}
+
+.navbar,
+.offcanvas {
+  background-color: $gray-100 !important;
+}
+
+.navbar-nav {
+  & .nav-link {
+    &:hover {
+      color: $primary;
+      text-decoration: none;
+    }
+
+    &.active {
+      color: $primary !important;
+      font-weight: 700 !important;
+    }
+  }
+}
