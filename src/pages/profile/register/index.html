@@ -33,40 +33,57 @@
               class="d-flex flex-column align-items-center justify-content-center"
             >
               <img class="logo" src="/images/logo2.svg" alt="" />
-              <h4 class="mt-4 fw-bold">Login in to your BidSpot account</h4>
+              <h4 class="mt-4 fw-bold">Register an account at BidSpot</h4>
               <div class="small text-muted mb-4">
                 Or
-                <a class="link" href="../register/index.html">create account</a>
+                <a class="link" href="../login/index.html"
+                  >login to you account</a
+                >
               </div>
             </div>
             <div class="bg-white rounded p-4">
               <form class="d-flex flex-column">
                 <div class="mb-3">
-                  <label for="loginEmail">Email</label>
+                  <label for="registerName">Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="registerName"
+                    required
+                    pattern="^[\w]+$"
+                    title="Name must not contain punctuation symbols apart from underscore. Example: My_Username123"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="registerEmail">Email</label>
                   <input
                     type="email"
                     class="form-control"
-                    id="loginEmail"
+                    id="registerEmail"
                     required
                     pattern="^[\w\-.]+@(stud.)?noroff.no$"
                     title="Only users with a valid Noroff email account are allowed to login"
                   />
                 </div>
                 <div class="mb-3">
-                  <label for="loginPassword">Password</label>
+                  <label for="registerPassword">Password</label>
                   <input
                     type="password"
                     class="form-control"
-                    id="loginPassword"
+                    id="registerPassword"
                     required
                     minlength="8"
                     title="Password must be at least 8 characters long"
                   />
                 </div>
+                <div class="mb-3">
+                  <label for="registerAvatar">Avatar</label>
+                  <input type="url" class="form-control" id="registerAvatar" />
+                </div>
                 <button
                   class="btn btn-primary fw-bold d-flex align-items-center justify-content-center gap-1"
                 >
-                  <span>Login</span>
+                  <span>Register</span>
                   <i class="fa-solid fa-arrow-right-long"></i>
                 </button>
               </form>
