@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BidSpot</title>
+    <link rel="stylesheet" href="/dist/css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="/node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="https://use.typekit.net/lcg8ujg.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/lcg8ujg.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&family=Shrikhand&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/155738729b.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/index.html"
+            ><img
+              class="logo ms-lg-4"
+              src="/images/logo2.svg"
+              alt="BidSpot logo"
+          /></a>
+          <button
+            class="navbar-toggler p-1 border-0"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasLightNavbar"
+            aria-controls="offcanvasLightNavbar"
+          >
+            <span><i class="fa-solid fa-bars"></i></span>
+          </button>
+          <div
+            class="offcanvas offcanvas-end"
+            tabindex="-1"
+            id="offcanvasLightNavbar"
+            aria-labelledby="offcanvasLightNavbarLabel"
+          >
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasLightNavbarLabel">
+                <img
+                  class="logo ms-3"
+                  src="/images/logo2.svg"
+                  alt="BidSpot logo"
+                />
+              </h5>
+              <button
+                type="button"
+                class="btn-close btn-close-black"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul
+                class="navbar-nav justify-content-end align-items-lg-center flex-grow-1 pe-3"
+              >
+                <li class="nav-item px-3">
+                  <a class="nav-link" href="/index.html">Home</a>
+                </li>
+                <li class="nav-item px-3">
+                  <a class="nav-link" href="/src/pages/listings/index.html"
+                    >Listings</a
+                  >
+                </li>
+                <li class="nav-item px-3">
+                  <a
+                    class="mb-2 mb-lg-0 btn btn-primary btn-sm"
+                    href="src/pages/listings/create/index.html"
+                  >
+                    <i class="fa-solid fa-plus"></i> New Listing</a
+                  >
+                </li>
+                <li class="nav-item dropdown px-3">
+                  <button
+                    class="nav-link dropdown-toggle btn border-0 active"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <img
+                      class="img-thumbnail rounded-circle border-0 p-0"
+                      src="/images/alexander-hipp-iEEBWgY_6lA-unsplash.jpg"
+                      alt=""
+                    />
+                    James
+                  </button>
+                  <ul class="dropdown-menu border-0">
+                    <li>
+                      <a class="dropdown-item nav-link px-3" href="index.html"
+                        ><i class="fa-regular fa-user"></i> View Profile</a
+                      >
+                    </li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li>
+                      <a
+                        class="dropdown-item nav-link px-3"
+                        id="logoutBtn"
+                        href="/src/pages/profile/login/index.html"
+                        ><i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        Logout</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="container p-0 d-flex justify-content-center pt-5">
+        <!------ EDIT AVATAR FORM MODAL ------>
+        <div
+          class="modal fade"
+          id="editProfileModal"
+          tabindex="-1"
+          aria-labelledby="modalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="modalLabel">
+                  <i class="fa-regular fa-pen-to-square"></i> Edit Avatar
+                </h1>
+                <button
+                  class="btn"
+                  type="button"
+                  id="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <i class="fa-solid fa-xmark"></i>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form id="editProfile">
+                  <div class="mb-3">
+                    <label for="name">Name</label>
+                    <input
+                      class="form-control user-form"
+                      type="text"
+                      name="name"
+                      disabled
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="email">Email</label>
+                    <input
+                      class="form-control user-form"
+                      type="email"
+                      name="email"
+                      disabled
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="avatar">Avatar</label>
+                    <input
+                      class="form-control user-form"
+                      type="url"
+                      name="avatar"
+                    />
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="submit"
+                  form="editProfile"
+                  class="btn btn-primary"
+                  id="editBtn"
+                >
+                  Save
+                </button>
+                <button class="btn btn-light" data-bs-dismiss="modal">
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row w-100">
+          <!-- PROFILE DETAILS -->
+          <div class="col-md-4 col-lg-3">
+            <div class="bg-white rounded py-4 me-4">
+              <div
+                class="d-flex flex-column align-items-center justify-content-center mb-3"
+              >
+                <div class="position-relative">
+                  <img
+                    src="/images/alexander-hipp-iEEBWgY_6lA-unsplash.jpg"
+                    alt=""
+                    class="img-fluid profile-picture rounded-circle d-flex border-0 p-0"
+                  />
+                  <button
+                    class="btn btn-edit btn-primary rounded-circle position-absolute bottom-0 end-0"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="bottom"
+                    data-bs-title="Edit Profile Picture"
+                  >
+                    <span
+                      class="d-flex align-items-center justify-content-center"
+                      data-bs-toggle="modal"
+                      data-bs-target="#editProfileModal"
+                      id="editProfileBtn"
+                      ><i class="fa-regular fa-pen-to-square"></i
+                    ></span>
+                  </button>
+                </div>
+
+                <h5 class="mt-2 mb-0 fw-bold">James Hansen</h5>
+                <p class="text-muted">jameshansen@gmail.com</p>
+              </div>
+
+              <div
+                class="d-flex align-items-center justify-content-around p-2 mb-3"
+              >
+                <p class="m-0">
+                  <i class="fa-solid fa-coins"></i> Total Credit
+                </p>
+                <span class="fw-bold number">1000</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROFILE LISTINGS -->
+          <div class="col-md-8 col-lg-9">
+            <div>
+              <nav>
+                <div class="nav nav-tabs border-0" id="nav-tab" role="tablist">
+                  <button
+                    class="nav-link active border-0"
+                    id="nav-followers-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#nav-followers"
+                    type="button"
+                    role="tab"
+                    aria-controls="nav-followers"
+                    aria-selected="true"
+                  >
+                    Active Listings
+                    <span id="followerCount"></span>
+                  </button>
+                  <button
+                    class="nav-link border-0"
+                    id="nav-following-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#nav-following"
+                    type="button"
+                    role="tab"
+                    aria-controls="nav-following"
+                    aria-selected="false"
+                  >
+                    Wins
+                    <span id="followingCount"></span>
+                  </button>
+                  <button
+                    class="nav-link border-0"
+                    id="nav-ended-listing-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#nav-ended-listing"
+                    type="button"
+                    role="tab"
+                    aria-controls="nav-ended-listing"
+                    aria-selected="false"
+                  >
+                    Ended Listings
+                    <span id="followingCount"></span>
+                  </button>
+                </div>
+              </nav>
+              <div class="tab-content p-4 rounded" id="nav-tabContent">
+                <div
+                  class="tab-pane fade show active"
+                  id="nav-followers"
+                  role="tabpanel"
+                  aria-labelledby="nav-followers-tab"
+                  tabindex="0"
+                >
+                  <div class="d-flex flex-wrap">
+                    <div
+                      class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 px-0 py-2 px-md-2"
+                    >
+                      <a
+                        class="listing-card text-decoration-none"
+                        href="../listings/single-listing/index.html"
+                      >
+                        <div class="bg-white p-3 rounded shadow-sm">
+                          <div class="img-container rounded">
+                            <img
+                              src="/images/martin-pechy-bpg-ngqrPc8-unsplash.jpg"
+                              alt="Couch"
+                              class="listing-img img-fluid rounded"
+                            />
+                          </div>
+
+                          <div
+                            class="d-flex align-items-center justify-content-between border-bottom pt-3 pb-3"
+                          >
+                            <h5 class="fw-bold m-0 pe-2">Couch</h5>
+                            <span class="badge rounded-pill text-bg-primary"
+                              >Furniture</span
+                            >
+                          </div>
+                          <div class="d-flex justify-content-between pt-3">
+                            <div class="d-flex flex-column align-items-center">
+                              <p class="m-0">Auction Ends In</p>
+                              <span class="countdown fw-bold"
+                                >0d : 18h : 10m</span
+                              >
+                            </div>
+                            <div class="d-flex flex-column align-items-center">
+                              <p class="m-0">Highest Bid</p>
+                              <span class="highest-bid fw-bold">$30</span>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="tab-pane fade"
+                  id="nav-following"
+                  role="tabpanel"
+                  aria-labelledby="nav-following-tab"
+                  tabindex="0"
+                >
+                  <div class="d-flex flex-wrap">
+                    <div
+                      class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 px-0 py-2 px-md-2"
+                    >
+                      <a
+                        class="listing-card text-decoration-none"
+                        href="../listings/single-listing/index.html"
+                      >
+                        <div class="bg-white p-3 rounded shadow-sm">
+                          <div class="img-container rounded">
+                            <img
+                              src="/images/martin-pechy-bpg-ngqrPc8-unsplash.jpg"
+                              alt="Couch"
+                              class="listing-img img-fluid rounded"
+                            />
+                          </div>
+
+                          <div
+                            class="d-flex align-items-center justify-content-between border-bottom pt-3 pb-3"
+                          >
+                            <h5 class="fw-bold m-0 pe-2">Couch</h5>
+                            <span class="badge rounded-pill text-bg-primary"
+                              >Furniture</span
+                            >
+                          </div>
+                          <div class="d-flex justify-content-between pt-3">
+                            <div class="d-flex flex-column align-items-center">
+                              <p class="m-0">Auction Ends In</p>
+                              <span class="countdown fw-bold"
+                                >0d : 18h : 10m</span
+                              >
+                            </div>
+                            <div class="d-flex flex-column align-items-center">
+                              <p class="m-0">Highest Bid</p>
+                              <span class="highest-bid fw-bold">$30</span>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="tab-pane fade show"
+                  id="nav-ended-listing"
+                  role="tabpanel"
+                  aria-labelledby="nav-ended-listing-tab"
+                  tabindex="0"
+                >
+                  <div class="d-flex flex-wrap">
+                    <div
+                      class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 px-0 py-2 px-md-2"
+                    >
+                      <a
+                        class="listing-card text-decoration-none"
+                        href="../listings/single-listing/index.html"
+                      >
+                        <div class="bg-white p-3 rounded shadow-sm">
+                          <div class="img-container rounded">
+                            <img
+                              src="/images/martin-pechy-bpg-ngqrPc8-unsplash.jpg"
+                              alt="Couch"
+                              class="listing-img img-fluid rounded"
+                            />
+                          </div>
+
+                          <div
+                            class="d-flex align-items-center justify-content-between border-bottom pt-3 pb-3"
+                          >
+                            <h5 class="fw-bold m-0 pe-2">Couch</h5>
+                            <span class="badge rounded-pill text-bg-primary"
+                              >Furniture</span
+                            >
+                          </div>
+                          <div class="d-flex justify-content-between pt-3">
+                            <div class="d-flex flex-column align-items-center">
+                              <p class="m-0">Auction Ends In</p>
+                              <span class="countdown fw-bold"
+                                >0d : 18h : 10m</span
+                              >
+                            </div>
+                            <div class="d-flex flex-column align-items-center">
+                              <p class="m-0">Highest Bid</p>
+                              <span class="highest-bid fw-bold">$30</span>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
+  </body>
+</html>
