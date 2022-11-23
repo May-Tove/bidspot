@@ -1,0 +1,11 @@
+.tab-content {
+  background-color: $gray-500;
+}
+
+.nav-tabs {
+  & .nav-link {
+    &.active {
+      background-color: $gray-500 !important;
+    }
+  }
+}
