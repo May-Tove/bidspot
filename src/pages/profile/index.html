@@ -78,41 +78,40 @@
                   >
                 </li>
                 <li class="nav-item px-3" id="newListingBtn">
-                  <a
-                    class="mb-2 mb-lg-0 btn btn-primary btn-sm"
-                    href="src/pages/listings/create/index.html"
+                  <button
+                    class="new-listing mb-2 mb-lg-0 btn btn-primary btn-sm"
+                    disabled
                   >
-                    <i class="fa-solid fa-plus"></i> New Listing</a
-                  >
+                    <i class="fa-solid fa-plus"></i> New Listing
+                  </button>
                 </li>
                 <li class="nav-item dropdown px-3" id="profileNav">
                   <button
+                    id="profileDetail"
                     class="nav-link dropdown-toggle btn border-0 active"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    <img
-                      class="img-thumbnail rounded-circle border-0 p-0"
-                      src="${profile.avatar}"
-                      alt=""
-                    />
-                    ${profile.name}
+                    <!-- Content rendered in JS -->
                   </button>
                   <ul class="dropdown-menu border-0">
                     <li>
-                      <a class="dropdown-item nav-link px-3" href="index.html"
-                        ><i class="fa-regular fa-user"></i> View Profile</a
+                      <a
+                        class="dropdown-item nav-link px-3"
+                        href="/src/pages/profile/index.html"
                       >
+                        <i class="fa-regular fa-circle-user"></i> View Profile
+                      </a>
                     </li>
                     <li><hr class="dropdown-divider" /></li>
                     <li>
-                      <a
+                      <button
                         class="dropdown-item nav-link px-3"
                         id="logoutBtn"
-                        href="/src/pages/profile/login/index.html"
-                        ><i class="fa-solid fa-arrow-right-from-bracket"></i>
-                        Logout</a
                       >
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        Logout
+                      </button>
                     </li>
                   </ul>
                 </li>
@@ -264,5 +263,13 @@
       </div>
     </main>
     <footer></footer>
+    <script>
+      const tooltipTriggerList = document.querySelectorAll(
+        '[data-bs-toggle="tooltip"]'
+      );
+      const tooltipList = [...tooltipTriggerList].map(
+        (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
+      );
+    </script>
   </body>
 </html>

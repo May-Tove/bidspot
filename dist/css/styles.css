@@ -10857,6 +10857,14 @@ textarea.form-control-lg {
   height: 35px;
 }
 
+.new-listing {
+  pointer-events: all !important;
+  cursor: not-allowed !important;
+}
+.new-listing:hover {
+  background-color: #ea0087 !important;
+}
+
 .link {
   color: #ea0087;
   text-decoration: none;
@@ -10867,13 +10875,14 @@ textarea.form-control-lg {
 
 .img-thumbnail {
   width: 30px;
-  height: 30px;
+  height: 30px !important;
+  object-fit: cover;
 }
 
 .profile-picture {
   width: 120px;
   height: 120px;
-  object-fit: cover !important;
+  object-fit: cover;
 }
 
 .tab-content {
