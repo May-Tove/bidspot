@@ -10,9 +10,7 @@ export async function renderProfile() {
   const profileListings = document.querySelector("#profileListings");
   const winListings = document.querySelector("#winListings");
 
-  if (!isLoggedIn()) {
-    location.href = "/src/pages/profile/login/index.html";
-  } else {
+  if (isLoggedIn()) {
     const profile = await getProfile();
 
     if (profile) {
