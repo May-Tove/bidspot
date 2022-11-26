@@ -10879,6 +10879,11 @@ textarea.form-control-lg {
   object-fit: cover;
 }
 
+.seller-thumbnail {
+  width: 60px;
+  height: 60px;
+}
+
 .profile-picture {
   width: 120px;
   height: 120px;
