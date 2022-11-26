@@ -2,6 +2,7 @@ import { getListing } from "../api/listings/getListing.js";
 import { renderAllBids } from "./allBids.js";
 import { renderListingImg } from "./listingImg.js";
 import { renderTags } from "./tags.js";
+import { displayListingOptions } from "./options.js";
 import * as templates from "../templates/listings/index.js";
 
 /**
@@ -24,5 +25,6 @@ export async function renderListingDetails() {
     renderAllBids();
     renderListingImg();
     renderTags();
+    displayListingOptions(result.seller.name);
   }
 }
