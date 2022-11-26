@@ -17,7 +17,8 @@ export const listingDetails = (listing) => {
     highestBid = listing.bids.pop().amount;
   }
 
-  return ` <div class="col-12 col-lg-5">
+  return ` 
+  <div class="col-12 col-lg-5">
   <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner"  id="carouselContainer">
 
@@ -34,11 +35,13 @@ export const listingDetails = (listing) => {
   </div>
   <div class="col">
     <div class="bg-white p-3 rounded">
+    <div class="d-flex align-items-center justify-content-between">
       <div class="border-bottom pt-3 pb-2">
         <h4 class="fw-bold">${listing.title}</h4>
         <p class="text-muted">Listing ID: ${listing.id}</p>
       </div>
-
+      <div id="dropdownContainer"></div>
+    </div>
       <div
         class="bg-light rounded p-4 d-flex flex-column gap-4 flex-lg-row align-items-center justify-content-around my-4"
       >
