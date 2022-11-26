@@ -147,6 +147,139 @@
         >
           <!-- Content rendered in JS -->
         </div>
+
+        <!------ EDIT POST FORM MODAL ------>
+        <div
+          class="modal fade"
+          id="editListingModal"
+          tabindex="-1"
+          aria-labelledby="editListingModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="editListingModalLabel">
+                  <i class="fa-regular fa-pen-to-square"></i> Edit Listing
+                </h1>
+                <button
+                  type="button"
+                  id="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <i class="fa-solid fa-xmark"></i>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form id="editListingForm" class="w-100">
+                  <div class="mb-3">
+                    <label for="title">Title</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="title"
+                      required
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="media">Image</label>
+                    <input
+                      type="url"
+                      class="form-control"
+                      name="media[]"
+                      placeholder="Add image url"
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="tags">Tags</label>
+                    <input type="text" class="form-control" name="tags[]" />
+                  </div>
+                  <div class="mb-3">
+                    <label for="endsAt">Due Date</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="endsAt"
+                      placeholder="Due Date"
+                      required
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="description">Description</label>
+                    <textarea
+                      rows="4"
+                      class="form-control"
+                      placeholder="Description"
+                      name="description"
+                    ></textarea>
+                  </div>
+                </form>
+              </div>
+              <div
+                class="modal-footer d-flex flex-column flex-sm-row justify-content-end"
+              >
+                <div>
+                  <button
+                    type="submit"
+                    class="btn btn-primary"
+                    form="editListingForm"
+                  >
+                    Save
+                  </button>
+                  <button class="btn btn-light" data-bs-dismiss="modal">
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!------ DELETE LISTING MODAL ------>
+        <div
+          class="modal fade"
+          id="deleteModal"
+          tabindex="-1"
+          aria-labelledby="deleteModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="deleteModalLabel">
+                  <i class="fa-regular fa-trash-can"></i> Delete listing
+                </h1>
+                <button
+                  type="button"
+                  id="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <i class="fa-solid fa-xmark"></i>
+                </button>
+              </div>
+              <div class="modal-body">
+                <h5 class="text-center">
+                  Are you sure you want to delete this listing?
+                </h5>
+                <p class="text-center">Action can not be undone</p>
+                <div class="d-flex align-items-center justify-content-center">
+                  <button
+                    type="button"
+                    class="btn btn-danger btn-sm me-2 text-light"
+                    id="deleteBtn"
+                  >
+                    Delete
+                  </button>
+                  <button class="btn btn-light btn-sm" data-bs-dismiss="modal">
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
     <footer></footer>
