@@ -34,6 +34,6 @@ export async function login(profile) {
     responseContainer.classList.remove("d-none");
     responseContainer.innerHTML = "Invalid email or password";
   } else {
-    location.href = "/src/pages/profile/index.html";
+    location.href = "/src/pages/listings/index.html";
   }
 }
