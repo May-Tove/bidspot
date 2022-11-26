@@ -5,7 +5,7 @@ const endpoint = "/listings";
  * Get all listings from API using GET method(default)
  */
 export async function getListings() {
-  const getListingsUrl = `${api_auction_url}${endpoint}?sort=created&sortOrder=desc`;
+  const getListingsUrl = `${api_auction_url}${endpoint}?sort=created&sortOrder=desc&_seller=true&_bids=true`;
   const response = await fetch(getListingsUrl);
 
   if (response.ok) {

@@ -14,7 +14,7 @@ export const listingCard = (listing) => {
   return `<div class="col-12 col-xs-12 col-sm-6 col-md-6 col-lg-4 px-0 py-2 px-sm-2">
     <a
       class="listing-card text-decoration-none"
-      href="../listings/details/index.html"
+      href="/src/pages/listings/details/index.html?id=${listing.id}"
     >
       <div class="bg-white p-3 rounded">
         <div class="img-container rounded">

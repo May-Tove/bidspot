@@ -1,5 +1,6 @@
 import { getProfile } from "../api/profile/index.js";
 import { isLoggedIn } from "../api/auth/state.js";
+import { renderProfileListings } from "./profileListings.js";
 import * as templates from "../templates/index.js";
 
 /**
@@ -7,34 +8,46 @@ import * as templates from "../templates/index.js";
  */
 export async function renderProfile() {
   const profileContainer = document.querySelector("#profileDetailContainer");
-  const profileListings = document.querySelector("#profileListings");
   const winListings = document.querySelector("#winListings");
+  const listingsCount = document.querySelector("#listingsCount");
+  const winCount = document.querySelector("#winCount");
 
-  if (isLoggedIn()) {
-    const profile = await getProfile();
+  const url = new URL(location.href);
+  const name = url.searchParams.get("name");
+
+  if (isLoggedIn) {
+    const profile = await getProfile(name);
+    listingsCount.innerHTML = `(${profile._count.listings})`;
+    winCount.innerHTML = `(${profile.wins.length})`;
+    console.log(profile);
+
+    renderProfileListings();
+
+    if (winListings) {
+      if (profile.wins.length === 0) {
+        winListings.innerHTML = "No wins yet";
+      } else {
+        winListings.innerHTML = `<table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Listing ID</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>${profile.wins[0]}</td>
+          </tr>
+        </tbody>
+      </table>`;
+      }
+    }
 
     if (profile) {
       if (profileContainer) {
         profileContainer.innerHTML = templates.profilePage(profile);
       }
-
-      if (profileListings) {
-        if (profile._count.listings === 0) {
-          profileListings.innerHTML = "No listings yet";
-        } else {
-          profileListings.innerHTML = templates.listingCard(profile);
-        }
-      }
-
-      if (winListings) {
-        if (profile.wins.length === 0) {
-          winListings.innerHTML = "No wins yet";
-        } else {
-          winListings.innerHTML = templates.listingCard(profile);
-        }
-      }
     }
-
-    console.log(profile);
   }
 }
