@@ -1,4 +1,3 @@
-import { get } from "../../storage/index.js";
 import { api_profile_url } from "../constants.js";
 import { fetchWithAuth } from "../fetchWithToken.js";
 
@@ -16,7 +15,7 @@ import { fetchWithAuth } from "../fetchWithToken.js";
  * }
  * ```
  */
-export async function getProfile(name = get("user").name) {
+export async function getProfile(name) {
   if (!name) {
     throw new Error("Get requires a name");
   }
