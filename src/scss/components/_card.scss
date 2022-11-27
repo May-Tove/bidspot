@@ -7,6 +7,13 @@
 
   & .img-container {
     overflow: hidden;
+    height: 200px;
+  }
+
+  & .listing-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
   }
 
   &:hover {
@@ -25,7 +32,6 @@
   & .countdown,
   .highest-bid {
     color: $primary;
-    text-shadow: 0 0 2em $primary;
   }
 
   & .listing-img {

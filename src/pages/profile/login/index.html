@@ -23,6 +23,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" defer src="/src/js/main.js"></script>
   </head>
   <body>
     <main>
@@ -40,30 +41,32 @@
               </div>
             </div>
             <div class="bg-white rounded p-4">
-              <form class="d-flex flex-column">
+              <form class="d-flex flex-column" id="loginForm">
                 <div class="mb-3">
-                  <label for="loginEmail">Email</label>
+                  <label for="email">Email</label>
                   <input
                     type="email"
                     class="form-control"
-                    id="loginEmail"
+                    name="email"
                     required
                     pattern="^[\w\-.]+@(stud.)?noroff.no$"
                     title="Only users with a valid Noroff email account are allowed to login"
                   />
                 </div>
                 <div class="mb-3">
-                  <label for="loginPassword">Password</label>
+                  <label for="password">Password</label>
                   <input
                     type="password"
                     class="form-control"
-                    id="loginPassword"
+                    name="password"
                     required
                     minlength="8"
                     title="Password must be at least 8 characters long"
                   />
                 </div>
+                <div class="response-container"></div>
                 <button
+                  type="submit"
                   class="btn btn-primary fw-bold d-flex align-items-center justify-content-center gap-1"
                 >
                   <span>Login</span>
