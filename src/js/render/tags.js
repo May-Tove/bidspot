@@ -13,7 +13,7 @@ export async function renderTags() {
 
   if (tagContainer) {
     if (allTags.length === 0) {
-      tagContainer.innerHTML = "N/A";
+      tagContainer.innerHTML = " ";
     } else {
       tagContainer.innerHTML = output.join("");
     }

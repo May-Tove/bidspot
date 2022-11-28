@@ -1,21 +1,41 @@
 import { createListing } from "../../api/listings/index.js";
 
-/**
- * Event listener that creates a new form when submitting form
- */
+const form = document.querySelector("#createForm");
+
+function populateForm(listing) {
+  form.title.value = listing.title;
+  form.description.value = listing.description;
+  form.endsAt.value = listing.endsAt;
+  form.media.value = listing.media.join(", ");
+  form.tags.value = listing.tags.join(", ");
+}
+
 export function createListingFormListener() {
-  const form = document.querySelector("#createForm");
-
   if (form) {
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
+    form.addEventListener("input", () => {
+      const listing = {
+        title: form.title.value,
+        description: form.description.value,
+        endsAt: form.endsAt.value,
+        media: form.media.value.split(", "),
+        tags: form.tags.value.split(", "),
+      };
+      populateForm(listing);
+    });
 
-      const form = e.target;
-      const formData = new FormData(form);
-      const listing = Object.fromEntries(formData.entries());
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const form = event.target;
+      const data = new FormData(form);
+      const title = data.get("title");
+      const description = data.get("description");
+      const endsAt = data.get("endsAt");
+      const media = data.get("media").split(", ");
+      const tags = data.get("tags").split(", ");
+
+      const listing = { title, description, endsAt, media, tags };
 
       createListing(listing);
-      console.log(listing);
     });
   }
 }

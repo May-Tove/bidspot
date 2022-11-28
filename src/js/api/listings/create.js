@@ -20,12 +20,12 @@ export async function createListing(listingData) {
   console.log(response);
 
   // if response is OK, reload the page and reset the form
-  /*const form = document.querySelector("#createForm");
+  const form = document.querySelector("#createForm");
   if (response.ok) {
     window.alert("Listing successfully created");
     form.reset();
     location.href = "/src/pages/listings/index.html";
-  }*/
+  }
 
   return await response.json();
 }

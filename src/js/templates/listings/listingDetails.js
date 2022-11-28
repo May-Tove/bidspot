@@ -36,7 +36,7 @@ export const listingDetails = (listing) => {
         <div>
         <img
         src="${listing.media[0]}"
-        alt="Table Full of Spices"
+        alt="Image of ${listing.title}"
         class="w-100 mb-2 mb-md-4 shadow-1-strong rounded"/>
         </div>
         <div class="d-flex align-items-center justify-content-center gap-1" id="carouselContainer"></div>
@@ -44,7 +44,7 @@ export const listingDetails = (listing) => {
   </div>
   <div class="col">
     <div class="bg-white p-3 rounded">
-    <div class="d-flex align-items-center justify-content-between py-3">
+    <div class="d-flex align-items-top justify-content-between py-3">
       <div>
         <h1 class="fw-bold fs-3">${listing.title}</h1>
         <a href="/src/pages/profile/index.html?name=${listing.seller.name}" class="d-flex align-items-center text-decoration-none">

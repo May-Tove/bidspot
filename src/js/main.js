@@ -12,3 +12,4 @@ handlers.updateProfileListener();
 handlers.logoutListener();
 handlers.createListingFormListener();
 handlers.removeListingListener();
+handlers.updateListingListener();

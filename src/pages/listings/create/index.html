@@ -132,7 +132,10 @@
                     type="text"
                     class="form-control"
                     name="title"
+                    id="title"
                     required
+                    maxlength="280"
+                    title="Please write a suitable title for your listing"
                   />
                 </div>
                 <div class="mb-3">
@@ -141,21 +144,38 @@
                     type="url"
                     class="form-control"
                     name="media"
-                    placeholder="Add image url"
+                    id="media"
+                    required
+                    title="Image is required, a maximum of 8 photos can be added and it must be a valid URL"
                   />
+                  <div class="form-text">
+                    Each image URL must be separated by a comma, maximum 8
+                    photos
+                  </div>
                 </div>
                 <div class="mb-3">
                   <label for="tags">Tags</label>
-                  <input type="text" class="form-control" name="tags" />
-                </div>
-                <div class="mb-3">
-                  <label for="endsAt">Due Date</label>
                   <input
                     type="text"
                     class="form-control"
+                    name="tags"
+                    id="tags"
+                    title="Maximum 8 tags can be added"
+                  />
+                  <div class="form-text">
+                    Each tag must be separated by a comma, maximum 8 tags
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="dueDate">Due Date</label>
+                  <input
+                    type="date"
+                    class="form-control"
                     name="endsAt"
+                    id="dueDate"
                     placeholder="Due Date"
                     required
+                    title="A due date for this listing must be added. For example 2022-12-3"
                   />
                 </div>
                 <div class="mb-3">
@@ -163,9 +183,11 @@
                   <textarea
                     rows="4"
                     class="form-control"
-                    placeholder="Description"
                     name="description"
+                    id="description"
+                    maxlength="280"
                   ></textarea>
+                  <div class="form-text">Maximum of 280 characters</div>
                 </div>
                 <button type="submit" class="btn btn-primary">Create</button>
               </form>
