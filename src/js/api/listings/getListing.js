@@ -24,6 +24,5 @@ export async function getListing(id) {
   const getListingUrl = `${api_auction_url}${endpoint}/${id}?_seller=true&_bids=true`;
 
   const response = await fetchWithAuth(getListingUrl);
-  console.log(response);
   return await response.json();
 }
