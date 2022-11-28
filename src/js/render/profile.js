@@ -12,14 +12,17 @@ export async function renderProfile() {
   const listingsCount = document.querySelector("#listingsCount");
   const winCount = document.querySelector("#winCount");
 
-  const url = new URL(location.href);
-  const name = url.searchParams.get("name");
+  if (isLoggedIn && profileContainer) {
+    const url = new URL(location.href);
+    const name = url.searchParams.get("name");
 
-  if (isLoggedIn) {
     const profile = await getProfile(name);
+
     listingsCount.innerHTML = `(${profile._count.listings})`;
     winCount.innerHTML = `(${profile.wins.length})`;
     console.log(profile);
+
+    profileContainer.innerHTML = templates.profilePage(profile);
 
     renderProfileListings();
 
@@ -28,25 +31,19 @@ export async function renderProfile() {
         winListings.innerHTML = "No wins yet";
       } else {
         winListings.innerHTML = `<table class="table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Listing ID</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>${profile.wins[0]}</td>
-          </tr>
-        </tbody>
-      </table>`;
-      }
-    }
-
-    if (profile) {
-      if (profileContainer) {
-        profileContainer.innerHTML = templates.profilePage(profile);
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Listing ID</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>${profile.wins[0]}</td>
+            </tr>
+          </tbody>
+        </table>`;
       }
     }
   }

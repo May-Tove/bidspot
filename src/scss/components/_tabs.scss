@@ -1,11 +1,17 @@
 .tab-content {
-  background-color: $gray-500;
+  background-color: $white;
 }
 
 .nav-tabs {
   & .nav-link {
+    color: $gray-600;
+
+    &:hover {
+      color: $primary;
+    }
     &.active {
-      background-color: $gray-500 !important;
+      color: $primary !important;
+      background-color: $white !important;
     }
   }
 }

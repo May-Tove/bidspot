@@ -1,6 +1,14 @@
 import { get } from "../../storage/index.js";
 
 export const profilePage = (profile) => {
+  // avatar placeholder
+  let avatar = "";
+  if (profile.avatar === "") {
+    avatar = "../../../../images/avatar-placeholder.jpg";
+  } else {
+    avatar = profile.avatar;
+  }
+
   const loggedInUser = get("user").name;
   let editBtn = "";
 
@@ -25,13 +33,13 @@ export const profilePage = (profile) => {
   </button>`;
   }
 
-  return `<div class="bg-white rounded py-4">
+  return `<div class="bg-white rounded p-4">
 <div
   class="d-flex flex-column align-items-center justify-content-center mb-3"
 >
   <div class="position-relative">
     <img
-      src="${profile.avatar}"
+      src="${avatar}"
       alt="Profile picture of ${profile.name}"
       class="profile-picture rounded-circle"
     />
@@ -41,21 +49,19 @@ export const profilePage = (profile) => {
   <h5 class="mt-2 mb-0 fw-bold">${profile.name}</h5>
   <p class="text-muted">${profile.email}</p>
 </div>
-<div
-  class="d-flex align-items-center justify-content-around p-2"
->
-  <p class="m-0">
-    <i class="fa-solid fa-coins"></i> Total Credit
-  </p>
-  <span class="fw-bold number">${profile.credits}</span>
+<div class="d-flex flex-row flex-md-column flex-lg-row align-items-center justify-content-around p-3 bg-light rounded">
+  <div class="d-flex flex-column align-items-center">
+    <p class="m-0 small text-muted">Credit</p>
+    <span class="fw-bold number">${profile.credits}</span>
+  </div>
+  <div class="d-flex flex-column align-items-center">
+  <p class="m-0 small text-muted">Listings</p>
+  <span class="fw-bold number">${profile._count.listings}</span>
 </div>
-<div
-  class="d-flex align-items-center justify-content-around p-2 mb-3"
->
-  <p class="m-0">
-  <i class="fa-solid fa-medal"></i> Wins
-  </p>
-  <span class="fw-bold number">${profile.wins.length}</span>
+<div class="d-flex flex-column align-items-center">
+<p class="m-0 small text-muted">Wins</p>
+<span class="fw-bold number">${profile.wins.length}</span>
+</div>
 </div>
 </div>`;
 };

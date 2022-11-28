@@ -11,36 +11,40 @@ export const listingCard = (listing) => {
     options
   );
 
-  return `<div class="col-12 col-xs-12 col-sm-6 col-md-6 col-lg-4 px-0 py-2 px-sm-2">
+  // Get the highest bid from the array (last bid)
+  let highestBid = "0";
+  if (listing._count.bids !== 0) {
+    highestBid = listing.bids.pop().amount;
+  }
+
+  return `<div class="col-12 col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 py-3 px-2">
     <a
       class="listing-card text-decoration-none"
       href="/src/pages/listings/details/index.html?id=${listing.id}"
     >
-      <div class="bg-white p-3 rounded">
+      <div class="bg-white rounded p-2 shadow-sm">
         <div class="img-container rounded">
           <img
             src="${listing.media[0]}"
             alt="${listing.title}"
             class="listing-img img-fluid rounded"
           />
+  
         </div>
-
-        <div
-          class=" border-bottom pt-3 pb-3"
-        >
-          <h5 class="fw-bold m-0 pe-2">${listing.title}</h5>
-
-        </div>
-        <div class="d-flex justify-content-between pt-3">
-          <div class="d-flex flex-column align-items-center">
-            <p class="m-0">Auction Ends</p>
-            <span class="countdown fw-bold">${listingEnds}</span>
+        <div>
+          <h6 class="fw-bold m-0 py-2 border-bottom">${listing.title}</h6>
+            <div class="d-flex align-items-center justify-content-between pt-2 rounded" id="cardDetails">
+            <div class="d-flex flex-column">
+            <p class="m-0 small text-muted">Auction Ends</p>
+            <span>${listingEnds}</span>
           </div>
-          <div class="d-flex flex-column align-items-center">
-            <p class="m-0">Bids</p>
-            <span class="highest-bid fw-bold">${listing._count.bids}</span>
+            <div class="d-flex flex-column">
+              <p class="m-0 small text-muted">Highest Bid</p>
+              <span>${highestBid} $</span>
+            </div>
           </div>
         </div>
+
       </div>
     </a>
     </div>`;

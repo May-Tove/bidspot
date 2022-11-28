@@ -4,13 +4,20 @@
   object-fit: cover;
 }
 
-.seller-thumbnail {
-  width: 60px;
-  height: 60px;
+.img-thumbnail-small {
+  width: 20px;
+  height: 20px !important;
+  object-fit: cover;
 }
 
 .profile-picture {
   width: 120px;
   height: 120px;
+  object-fit: cover;
+}
+
+.small-img {
+  width: 80px !important;
+  height: 80px !important;
   object-fit: cover;
 }
