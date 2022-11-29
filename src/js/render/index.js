@@ -4,3 +4,4 @@ export * from "./navbar.js";
 export * from "./listing.js";
 export * from "./listingImg.js";
 export * from "./profileListings.js";
+export * from "./bidForm.js";

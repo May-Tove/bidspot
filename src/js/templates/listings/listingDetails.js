@@ -81,18 +81,8 @@ export const listingDetails = (listing) => {
         </div>
       </div>
       <div class="my-3">
-        <h2 class="fw-bold fs-5">Place a bid</h2>
-        <form class="d-flex align-items-center gap-2">
-          <div class="w-100">
-            <input
-              class="form-control"
-              type="text"
-              aria-label="Place a bid"
-              placeholder="Enter amount"
-            />
-          </div>
-            <button class="btn btn-primary text-nowrap" type="submit">Place bid</button>
-        </form>
+        <h2 class="fw-bold fs-5" id="bidFormContainer">Place a bid</h2>
+
       </div>
 
       <div class="d-flex flex-column mt-4">
