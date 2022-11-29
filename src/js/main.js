@@ -14,3 +14,4 @@ handlers.createListingFormListener();
 handlers.removeListingListener();
 handlers.updateListingListener();
 handlers.handleSearch();
+handlers.sortListings();

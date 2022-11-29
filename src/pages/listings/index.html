@@ -148,7 +148,7 @@
 
             <nav class="navbar-expand-lg">
               <button
-                class="d-lg-none btn btn-primary text-nowrap"
+                class="d-lg-none btn btn-sm btn-primary text-nowrap"
                 type="button"
                 data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasFilters"
@@ -164,7 +164,7 @@
               >
                 <div class="offcanvas-header">
                   <h5 class="offcanvas-title" id="offcanvasFiltersLabel">
-                    Filters
+                    Categories and Filter
                   </h5>
                   <button
                     type="button"
@@ -182,118 +182,49 @@
                       class="form-check-input"
                       type="checkbox"
                       value=""
-                      id="flexCheckChecked"
+                      id="all"
                       checked
                     />
-                    <label class="form-check-label" for="flexCheckChecked">
-                      All
-                    </label>
+                    <label class="form-check-label" for="all"> All </label>
                   </div>
                   <div class="form-check">
                     <input
                       class="form-check-input"
                       type="checkbox"
                       value=""
-                      id="flexCheckDefault"
+                      id="art"
                     />
-                    <label class="form-check-label" for="flexCheckDefault">
-                      Furniture
-                    </label>
+                    <label class="form-check-label" for="art"> Art </label>
                   </div>
                   <div class="form-check">
                     <input
                       class="form-check-input"
                       type="checkbox"
                       value=""
-                      id="flexCheckDefault"
+                      id="cars"
                     />
-                    <label class="form-check-label" for="flexCheckDefault">
-                      Art
-                    </label>
+                    <label class="form-check-label" for="cars"> Cars </label>
                   </div>
                   <div class="form-check">
                     <input
                       class="form-check-input"
                       type="checkbox"
                       value=""
-                      id="flexCheckDefault"
+                      id="books"
                     />
-                    <label class="form-check-label" for="flexCheckDefault">
-                      Cars
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      value=""
-                      id="flexCheckDefault"
-                    />
-                    <label class="form-check-label" for="flexCheckDefault">
-                      Accessories
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      value=""
-                      id="flexCheckDefault"
-                    />
-                    <label class="form-check-label" for="flexCheckDefault">
-                      Fashion
-                    </label>
+                    <label class="form-check-label" for="books"> Books </label>
                   </div>
                   <h6 class="fw-bold pt-3">Filter</h6>
-
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="radio"
-                      name="flexRadioDefault"
-                      id="flexRadioDefault2"
-                      checked
-                    />
-                    <label class="form-check-label" for="flexRadioDefault2">
-                      Newest
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="radio"
-                      name="flexRadioDefault"
-                      id="flexRadioDefault1"
-                    />
-                    <label class="form-check-label" for="flexRadioDefault1">
-                      Oldest
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="radio"
-                      name="flexRadioDefault"
-                      id="flexRadioDefault1"
-                    />
-                    <label class="form-check-label" for="flexRadioDefault1">
-                      Highest Bid
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="radio"
-                      name="flexRadioDefault"
-                      id="flexRadioDefault1"
-                    />
-                    <label class="form-check-label" for="flexRadioDefault1">
-                      Lowest Bid
-                    </label>
-                  </div>
-                  <button class="btn btn-sm btn-secondary mt-3">
-                    <i class="fa-regular fa-circle-xmark"></i> Clear
-                  </button>
+                  <select
+                    name="sort-listings"
+                    id="sortListings"
+                    class="form-select w-auto"
+                    aria-label="Filter Listings"
+                  >
+                    <option value="newest" selected>Newest</option>
+                    <option value="oldest">Oldest</option>
+                    <option value="ending">Ending Soon</option>
+                  </select>
                 </div>
               </div>
             </nav>
