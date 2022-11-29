@@ -7,7 +7,7 @@ export function logout() {
   const token = get("token");
   const user = get("user");
   if (token === null && user === null) {
-    location.href = "/src/pages/profile/login/index.html";
+    location.href = "/index.html";
   } else {
     alert("There was a problem logging out");
   }

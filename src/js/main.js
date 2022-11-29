@@ -9,7 +9,6 @@ render.renderListingDetails();
 handlers.registerFormListener();
 handlers.loginFormListener();
 handlers.updateProfileListener();
-handlers.logoutListener();
 handlers.createListingFormListener();
 handlers.removeListingListener();
 handlers.updateListingListener();
