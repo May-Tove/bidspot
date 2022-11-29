@@ -1,11 +1,11 @@
-import { getListing } from "../api/listings/getListing.js";
-import { renderAllBids } from "./allBids.js";
-import { renderListingImg } from "./listingImg.js";
+import { getListing } from "../../api/listings/getListing.js";
+import { renderAllBids } from "./bids.js";
+import { renderListingImg } from "./images.js";
 import { renderTags } from "./tags.js";
 import { displayListingOptions } from "./options.js";
-import * as templates from "../templates/listings/index.js";
+import * as templates from "../../templates/listings/index.js";
 import { displayBidForm } from "./bidForm.js";
-import { createBidListener } from "../handlers/index.js";
+import { createBidListener } from "../../handlers/index.js";
 
 /**
  * Displaying a single post details on the page using API call

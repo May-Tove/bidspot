@@ -1,5 +1,5 @@
-import { getProfileListings } from "../api/profile/getProfileListings.js";
-import { listingCard } from "../templates/index.js";
+import { getProfileListings } from "../../api/profile/getProfileListings.js";
+import { listingCard } from "../../templates/index.js";
 
 export async function renderProfileListings() {
   const profileListingsContainer = document.querySelector("#profileListings");

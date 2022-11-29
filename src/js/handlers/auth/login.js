@@ -1,10 +1,10 @@
-import { register } from "../api/auth/register.js";
+import { login } from "../../api/auth/login.js";
 
 /**
- * Event listener that register new users on submit
+ * This will log in a registered user when clicking the log in button
  */
-export function registerFormListener() {
-  const form = document.querySelector("#registerForm");
+export function loginFormListener() {
+  const form = document.querySelector("#loginForm");
 
   if (form) {
     form.addEventListener("submit", (e) => {
@@ -13,7 +13,7 @@ export function registerFormListener() {
       const formData = new FormData(form);
       const user = Object.fromEntries(formData.entries());
 
-      register(user);
+      login(user);
       console.log(user);
     });
   }

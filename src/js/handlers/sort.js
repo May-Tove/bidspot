@@ -1,4 +1,4 @@
-import { getListings } from "../api/listings/get.js";
+import { getListings } from "../api/listings/getAllListings.js";
 import { listingCard } from "../templates/index.js";
 
 const sortSelector = document.querySelector("#sortListings");

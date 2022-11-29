@@ -1,5 +1,5 @@
-import { getListing } from "../api/listings/getListing.js";
-import { allBids } from "../templates/listings/allBids.js";
+import { getListing } from "../../api/listings/index.js";
+import { allBids } from "../../templates/index.js";
 
 export async function renderAllBids() {
   const url = new URL(location.href);

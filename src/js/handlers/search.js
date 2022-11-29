@@ -1,5 +1,5 @@
 import { listingCard } from "../templates/index.js";
-import { getListings } from "../api/listings/get.js";
+import { getListings } from "../api/listings/getAllListings.js";
 
 const searchInput = document.querySelector("#search-input");
 

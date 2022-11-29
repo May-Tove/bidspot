@@ -1,7 +1,7 @@
-import { getProfile } from "../api/profile/index.js";
-import { isLoggedIn } from "../api/auth/state.js";
+import { getProfile } from "../../api/profile/index.js";
+import { isLoggedIn } from "../../api/auth/state.js";
 import { renderProfileListings } from "./profileListings.js";
-import * as templates from "../templates/index.js";
+import * as templates from "../../templates/index.js";
 
 /**
  * Displaying the profile details on the page using API call

@@ -1,4 +1,4 @@
-export * from "./get.js";
+export * from "./getAllListings.js";
 export * from "./getListing.js";
 export * from "./create.js";
 export * from "./remove.js";

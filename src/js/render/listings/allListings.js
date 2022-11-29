@@ -1,5 +1,5 @@
-import { getListings } from "../api/listings/get.js";
-import { listingCard } from "../templates/listings/listingCard.js";
+import { getListings } from "../../api/listings/getAllListings.js";
+import { listingCard } from "../../templates/listings/listingCard.js";
 
 export async function renderListings() {
   const listings = await getListings();

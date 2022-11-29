@@ -1,5 +1,5 @@
-import { getListing } from "../api/listings/getListing.js";
-import { listingImg } from "../templates/index.js";
+import { getListing } from "../../api/listings/getListing.js";
+import { listingImg } from "../../templates/index.js";
 
 export async function renderListingImg() {
   const url = new URL(location.href);

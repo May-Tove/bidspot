@@ -1,5 +1,5 @@
-import { getListing } from "../api/listings/getListing.js";
-import { tags } from "../templates/listings/tags.js";
+import { getListing } from "../../api/listings/getListing.js";
+import { tags } from "../../templates/listings/tags.js";
 
 export async function renderTags() {
   const url = new URL(location.href);
