@@ -15,6 +15,11 @@ export async function renderListingDetails() {
 
     const listingContainer = document.querySelector("#listingContainer");
     const currentPage = document.querySelector("#currentPage");
+    const listingTitle = document.querySelector("#listingTitle");
+
+    if (listingTitle) {
+      listingTitle.innerHTML = `BidSpot | ${result.title}`;
+    }
 
     if (listingContainer) {
       listingContainer.innerHTML = templates.listingDetails(result);

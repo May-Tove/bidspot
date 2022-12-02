@@ -6,6 +6,7 @@ export const bidForm = () => {
         class="form-control"
         type="number"
         name="amount"
+        id="bidInput"
         aria-label="Place a bid"
         placeholder="Enter amount"/>
     </div>
