@@ -8,9 +8,20 @@ export async function updateListingListener() {
 
   if (form) {
     const currentListing = await getListing(id);
+    const options = {
+      day: "numeric",
+      month: "numeric",
+      year: "numeric",
+    };
+
+    const endDate = new Date(currentListing.endsAt).toLocaleDateString(
+      "en-GB",
+      options
+    );
+
     form.title.value = currentListing.title;
     form.description.value = currentListing.description;
-    form.endsAt.value = currentListing.endsAt;
+    form.endsAt.value = endDate;
     form.media.value = currentListing.media.join(", ");
     form.tags.value = currentListing.tags.join(", ");
 
