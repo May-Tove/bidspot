@@ -1,5 +1,6 @@
 import { listingCard } from "../templates/index.js";
 import { getListings } from "../api/listings/getAllListings.js";
+import { noResultError } from "../error/error.js";
 
 const searchInput = document.querySelector("#search-input");
 
@@ -12,20 +13,23 @@ const searchInput = document.querySelector("#search-input");
  * ```
  */
 export async function handleSearch(e) {
-  const inputValue = e.target.value.toLowerCase();
-
-  const listings = await getListings();
-
-  const searchResult = listings.filter((listing) =>
-    listing.title.toLowerCase().includes(inputValue)
-  );
-  const output = searchResult.map(listingCard);
-
   const listingsContainer = document.querySelector("#listingsContainer");
-  if (searchResult.length === 0) {
-    listingsContainer.innerHTML = "No results found";
-  } else {
-    listingsContainer.innerHTML = output.join("");
+
+  if (listingsContainer) {
+    const inputValue = e.target.value.toLowerCase();
+
+    const listings = await getListings();
+
+    const searchResult = listings.filter((listing) =>
+      listing.title.toLowerCase().includes(inputValue)
+    );
+    const output = searchResult.map(listingCard);
+
+    if (searchResult.length === 0) {
+      listingsContainer.innerHTML = noResultError("No results found");
+    } else {
+      listingsContainer.innerHTML = output.join("");
+    }
   }
 }
 

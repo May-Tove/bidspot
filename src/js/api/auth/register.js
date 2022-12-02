@@ -1,8 +1,8 @@
+import { authError } from "../../error/error.js";
 import { api_auction_url } from "../constants.js";
 
 const endpoint = "/auth/register";
 const method = "post";
-const responseContainer = document.querySelector(".response-container");
 
 /**
  * API call that register new users
@@ -23,9 +23,13 @@ export async function register(profile) {
   console.log(response);
 
   //Show error message if register failed or be redirected to login if register succeed
+  const responseContainer = document.querySelector(".response-container");
+
   if (!response.ok) {
-    responseContainer.classList.remove("d-none");
-    responseContainer.innerHTML = "User already exists";
+    if (responseContainer) {
+      responseContainer.classList.remove("d-none");
+      responseContainer.innerHTML = authError("User already exists");
+    }
   } else {
     window.location = "/src/pages/profile/login/index.html";
   }
