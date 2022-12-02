@@ -14,7 +14,6 @@ export function registerFormListener() {
       const user = Object.fromEntries(formData.entries());
 
       register(user);
-      console.log(user);
     });
   }
 }

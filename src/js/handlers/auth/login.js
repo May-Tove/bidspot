@@ -14,7 +14,6 @@ export function loginFormListener() {
       const user = Object.fromEntries(formData.entries());
 
       login(user);
-      console.log(user);
     });
   }
 }
