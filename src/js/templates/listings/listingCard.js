@@ -1,9 +1,9 @@
 export const listingCard = (listing) => {
   // formatting date
   const options = {
-    weekday: "short",
-    month: "short",
     day: "numeric",
+    month: "numeric",
+    year: "numeric",
   };
 
   const listingEnds = new Date(listing.endsAt).toLocaleDateString(
@@ -17,6 +17,14 @@ export const listingCard = (listing) => {
     highestBid = listing.bids.pop().amount;
   }
 
+  // image placeholder
+  let image = "";
+  if (listing.media.length === 0) {
+    image = "/images/img-placeholder.jpeg";
+  } else {
+    image = listing.media[0];
+  }
+
   return `<div class="col-12 col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 py-3 px-2">
     <a
       class="listing-card text-decoration-none"
@@ -25,7 +33,7 @@ export const listingCard = (listing) => {
       <div class="bg-white rounded p-2 shadow-sm">
         <div class="img-container rounded">
           <img
-            src="${listing.media[0]}"
+            src="${image}"
             alt="${listing.title}"
             class="listing-img img-fluid rounded"
           />

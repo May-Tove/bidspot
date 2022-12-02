@@ -9,9 +9,9 @@ export const listingDetails = (listing) => {
 
   // formatting date
   const options = {
-    weekday: "short",
-    month: "short",
     day: "numeric",
+    month: "numeric",
+    year: "numeric",
   };
 
   const listingCreated = new Date(listing.created).toLocaleDateString(
@@ -33,13 +33,24 @@ export const listingDetails = (listing) => {
   return ` 
   <div class="col-12 col-lg-5">
     <div class="row">
-        <div>
-        <img
-        src="${listing.media[0]}"
-        alt="Image of ${listing.title}"
-        class="w-100 mb-2 mb-md-4 shadow-1-strong rounded"/>
-        </div>
-        <div class="d-flex align-items-center justify-content-center gap-1" id="carouselContainer"></div>
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+
+            <div class="carousel-inner" id="carouselContainer">
+
+
+            </div>
+            <div class="d-flex align-items-center justify-content-center gap-1 mt-2 img-indicator" id="imagesSmall"></div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev" id="prevBtn">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next" id="nextBtn">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+        </button>
+  </div>
+
     </div>
   </div>
   <div class="col">
