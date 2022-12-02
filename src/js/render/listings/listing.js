@@ -1,10 +1,6 @@
 import { getListing } from "../../api/listings/getListing.js";
-import { renderAllBids } from "./bids.js";
-import { renderListingImg } from "./images.js";
-import { renderTags } from "./tags.js";
-import { displayListingOptions } from "./options.js";
+import * as render from "../../render/index.js";
 import * as templates from "../../templates/listings/index.js";
-import { displayBidForm } from "./bidForm.js";
 import { createBidListener } from "../../handlers/index.js";
 
 /**
@@ -23,14 +19,15 @@ export async function renderListingDetails() {
     if (listingContainer) {
       listingContainer.innerHTML = templates.listingDetails(result);
       currentPage.innerHTML = `${result.title}`;
-    }
-    renderAllBids();
-    renderListingImg();
-    renderTags();
-    displayListingOptions(result.seller.name);
-    displayBidForm(result.seller.name);
 
-    // calling function to create a bid after HTML bid form has been rendered together with listing details
-    createBidListener();
+      render.renderAllBids();
+      render.renderListingImg();
+      render.renderTags();
+      render.displayListingOptions(result.seller.name);
+      render.displayBidForm(result.seller.name);
+
+      // calling function to create a bid after HTML bid form has been rendered together with listing details
+      createBidListener();
+    }
   }
 }

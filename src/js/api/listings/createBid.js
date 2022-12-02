@@ -5,7 +5,7 @@ const endpoint = "/listings";
 const method = "post";
 
 export async function createBid(id, bidData) {
-  const createBidUrl = `${api_auction_url}${endpoint}/${id}/bids?_seller=true&_bids=true`;
+  const createBidUrl = `${api_auction_url}${endpoint}/${id}/bids`;
 
   const response = await fetchWithAuth(createBidUrl, {
     method,
@@ -15,8 +15,8 @@ export async function createBid(id, bidData) {
   console.log(response);
   const form = document.querySelector("#bidForm");
   if (response.ok) {
-    form.reset();
     location.reload();
+    form.reset();
     return await response.json();
   }
 
