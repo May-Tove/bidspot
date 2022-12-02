@@ -117,6 +117,57 @@
           id="listingContainer"
         >
           <!-- Content rendered in JS -->
+          <!-- Loading animation -->
+          <div class="col-12 col-lg-5" aria-hidden="true">
+            <div class="row">
+              <div class="placeholder-glow">
+                <img
+                  src=" "
+                  alt=" "
+                  class="listing-img w-100 rounded placeholder"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="bg-white p-3 rounded">
+              <div
+                class="d-flex align-items-top justify-content-between py-3 placeholder-glow"
+              >
+                <span class="placeholder col-9"></span>
+              </div>
+              <div
+                class="bg-light rounded p-4 d-flex flex-column gap-4 flex-sm-row align-items-center justify-content-around my-4 placeholder-glow"
+              >
+                <span class="placeholder col-4"></span>
+
+                <span class="placeholder col-4"></span>
+
+                <span class="placeholder col-4"></span>
+              </div>
+              <div class="my-3 placeholder-glow">
+                <form class="d-flex align-items-center gap-2">
+                  <div class="w-100">
+                    <input class="form-control placeholder col-10" />
+                  </div>
+                  <a
+                    href="#"
+                    tabindex="-1"
+                    class="btn btn-primary disabled placeholder col-1"
+                  ></a>
+                </form>
+              </div>
+
+              <div class="d-flex flex-column mt-4 gap-2 placeholder-glow">
+                <span class="placeholder col-8"></span>
+                <span class="placeholder col-6"></span>
+                <span class="placeholder col-4"></span>
+                <span class="placeholder col-6"></span>
+                <span class="placeholder col-3"></span>
+              </div>
+            </div>
+          </div>
+          <!-- End of loading animation -->
         </div>
 
         <!------ EDIT POST FORM MODAL ------>
@@ -192,9 +243,7 @@
                       class="form-control"
                       name="endsAt"
                       id="dueDate"
-                      placeholder="Due Date"
-                      required
-                      title="A due date for this listing must be added. For example 2022-12-3"
+                      disabled
                     />
                   </div>
                   <div class="mb-3">
