@@ -1,6 +1,6 @@
 .img-thumbnail {
-  width: 30px;
-  height: 30px !important;
+  width: 35px;
+  height: 35px !important;
   object-fit: cover;
 }
 
@@ -19,5 +19,10 @@
 .small-img {
   width: 80px !important;
   height: 80px !important;
+  object-fit: cover;
+}
+
+.listing-img {
+  height: 500px;
   object-fit: cover;
 }

@@ -10887,9 +10887,6 @@ textarea.form-control-lg {
   height: 80px !important;
   object-fit: cover;
 }
-.small-img.active {
-  border: 2px solid red;
-}
 
 .listing-img {
   height: 500px;
