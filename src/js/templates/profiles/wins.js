@@ -1,21 +1,13 @@
-export const profileWins = (wins) => {
-  return `<table class="table">
-    <thead>
+export const profileWins = (wins, index) => {
+  const winNumber = index + 1;
+  return `
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">Listing ID</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
+        <th scope="row">${winNumber}</th>
         <td><a
         href="/src/pages/listings/details/index.html?id=${wins}"
       >
       ${wins}
       </a>
       </td>
-      </tr>
-    </tbody>
-  </table>`;
+      </tr>`;
 };

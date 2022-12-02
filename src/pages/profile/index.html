@@ -345,11 +345,18 @@
                   aria-labelledby="nav-win-tab"
                   tabindex="0"
                 >
-                  <div class="d-flex justify-content-center" id="winListings">
-                    <div class="spinner-border mt-5" role="status">
-                      <span class="visually-hidden">Loading...</span>
-                    </div>
-                    <!-- Content rendered in JS -->
+                  <div class="d-flex justify-content-center">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Listing ID</th>
+                        </tr>
+                      </thead>
+                      <tbody id="winListings">
+                        <!-- Content rendered in JS -->
+                      </tbody>
+                    </table>
                   </div>
                 </div>
               </div>
