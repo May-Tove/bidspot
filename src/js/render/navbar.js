@@ -1,25 +1,21 @@
 import { getProfile } from "../api/profile/index.js";
 import { isLoggedIn } from "../api/auth/index.js";
 import { get } from "../storage/index.js";
+import { logoutListener } from "../handlers/auth/logout.js";
 import * as templates from "../templates/index.js";
 
 export async function navbar() {
   const newListingBtn = document.querySelector("#newListingBtn");
-  const notLoggedIn = document.querySelector("#profileNav");
-  const profileDetail = document.querySelector("#profileDetail");
-  const myPageLink = document.querySelector("#myPageLink");
-  const currentUser = get("user").name;
+  const profileNav = document.querySelector("#profileNav");
 
   if (!isLoggedIn()) {
-    notLoggedIn.innerHTML = `<a class="nav-link" href="/src/pages/profile/login/index.html"><i class="fa-regular fa-circle-user"></i> Login</a>`;
+    profileNav.innerHTML = templates.loginLink();
   } else {
-    const loggedInUser = await getProfile(currentUser);
+    const loggedInUser = await getProfile(get("user").name);
 
-    profileDetail.innerHTML = templates.profileNav(loggedInUser);
-    myPageLink.innerHTML = `
-    <a href="/src/pages/profile/index.html?name=${currentUser}">
-        <i class="fa-regular fa-circle-user"></i> View Profile
-    </a>`;
+    profileNav.innerHTML = templates.profileLink(loggedInUser);
     newListingBtn.innerHTML = templates.newListingBtn();
+
+    logoutListener();
   }
 }

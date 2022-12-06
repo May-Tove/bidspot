@@ -1,5 +1,5 @@
-import { getProfile, updateProfile } from "../api/profile/index.js";
-import { get } from "../storage/index.js";
+import { getProfile, updateProfile } from "../../api/profile/index.js";
+import { get } from "../../storage/index.js";
 
 /**
  * Event listener to update profile media details on form submit
@@ -16,7 +16,7 @@ export async function updateProfileListener() {
 
     form.avatar.value = profile.avatar;
 
-    form.addEventListener("submit", (e) => {
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
       const form = e.target;
       const formData = new FormData(form);
@@ -25,7 +25,13 @@ export async function updateProfileListener() {
       profile.name = name;
       profile.email = email;
 
-      updateProfile(profile);
+      try {
+        await updateProfile(profile);
+      } catch {
+        return alert(
+          "There was a problem updating your profile picture, please refresh the page and try again"
+        );
+      }
     });
   }
 }

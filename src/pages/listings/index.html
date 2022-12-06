@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BidSpot</title>
+    <meta
+      name="description"
+      content="Find your next deal, search through all listings and find a listing to place your bid on"
+    />
+    <title>BidSpot | Listings</title>
     <link rel="stylesheet" href="/dist/css/styles.css" />
     <link
       rel="stylesheet"
@@ -86,36 +90,7 @@
                     <i class="fa-solid fa-plus"></i> New Listing
                   </button>
                 </li>
-                <li class="nav-item dropdown px-3" id="profileNav">
-                  <button
-                    id="profileDetail"
-                    class="nav-link dropdown-toggle btn border-0"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    <!-- Content rendered in JS -->
-                  </button>
-                  <ul class="dropdown-menu border-0">
-                    <li>
-                      <button
-                        class="dropdown-item nav-link px-3"
-                        id="myPageLink"
-                      >
-                        <!-- Link rendered in JS -->
-                      </button>
-                    </li>
-                    <li><hr class="dropdown-divider" /></li>
-                    <li>
-                      <button
-                        class="dropdown-item nav-link px-3"
-                        id="logoutBtn"
-                      >
-                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                        Logout
-                      </button>
-                    </li>
-                  </ul>
-                </li>
+                <li class="nav-item dropdown px-3" id="profileNav"></li>
               </ul>
             </div>
           </div>
@@ -124,7 +99,17 @@
     </header>
     <main>
       <!-- ALL LISTINGS -->
-      <div class="container-fluid my-5 p-sm-5">
+      <div class="container-fluid my-5">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a class="link" href="/index.html">Home</a>
+            </li>
+            <li class="breadcrumb-item">
+              <a class="link active" href="index.html">Listings</a>
+            </li>
+          </ol>
+        </nav>
         <div class="row">
           <h1 class="fw-bold border-bottom pb-4">Listings</h1>
           <!--  SEARCH, CATEGORIES AND FILTER -->
@@ -148,7 +133,7 @@
 
             <nav class="navbar-expand-lg">
               <button
-                class="d-lg-none btn btn-primary text-nowrap"
+                class="d-lg-none btn btn-sm btn-primary text-nowrap"
                 type="button"
                 data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasFilters"
@@ -164,7 +149,7 @@
               >
                 <div class="offcanvas-header">
                   <h5 class="offcanvas-title" id="offcanvasFiltersLabel">
-                    Filters
+                    Sort
                   </h5>
                   <button
                     type="button"
@@ -176,124 +161,17 @@
                 <div
                   class="offcanvas-body d-flex flex-column align-items-start"
                 >
-                  <h6 class="fw-bold">Categories</h6>
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      value=""
-                      id="flexCheckChecked"
-                      checked
-                    />
-                    <label class="form-check-label" for="flexCheckChecked">
-                      All
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      value=""
-                      id="flexCheckDefault"
-                    />
-                    <label class="form-check-label" for="flexCheckDefault">
-                      Furniture
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      value=""
-                      id="flexCheckDefault"
-                    />
-                    <label class="form-check-label" for="flexCheckDefault">
-                      Art
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      value=""
-                      id="flexCheckDefault"
-                    />
-                    <label class="form-check-label" for="flexCheckDefault">
-                      Cars
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      value=""
-                      id="flexCheckDefault"
-                    />
-                    <label class="form-check-label" for="flexCheckDefault">
-                      Accessories
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      value=""
-                      id="flexCheckDefault"
-                    />
-                    <label class="form-check-label" for="flexCheckDefault">
-                      Fashion
-                    </label>
-                  </div>
-                  <h6 class="fw-bold pt-3">Filter</h6>
-
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="radio"
-                      name="flexRadioDefault"
-                      id="flexRadioDefault2"
-                      checked
-                    />
-                    <label class="form-check-label" for="flexRadioDefault2">
-                      Newest
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="radio"
-                      name="flexRadioDefault"
-                      id="flexRadioDefault1"
-                    />
-                    <label class="form-check-label" for="flexRadioDefault1">
-                      Oldest
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="radio"
-                      name="flexRadioDefault"
-                      id="flexRadioDefault1"
-                    />
-                    <label class="form-check-label" for="flexRadioDefault1">
-                      Highest Bid
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="radio"
-                      name="flexRadioDefault"
-                      id="flexRadioDefault1"
-                    />
-                    <label class="form-check-label" for="flexRadioDefault1">
-                      Lowest Bid
-                    </label>
-                  </div>
-                  <button class="btn btn-sm btn-secondary mt-3">
-                    <i class="fa-regular fa-circle-xmark"></i> Clear
-                  </button>
+                  <h6 class="fw-bold pt-3">Sort</h6>
+                  <select
+                    name="sort-listings"
+                    id="sortListings"
+                    class="form-select w-auto"
+                    aria-label="Filter Listings"
+                  >
+                    <option value="newest" selected>Newest</option>
+                    <option value="oldest">Oldest</option>
+                    <option value="ending">Ending Soon</option>
+                  </select>
                 </div>
               </div>
             </nav>
@@ -301,9 +179,88 @@
 
           <!-- LISTINGS -->
           <div class="col">
-            <div class="d-flex flex-wrap" id="listingsContainer">
-              <div class="spinner-border mt-5" role="status">
-                <span class="visually-hidden">Loading...</span>
+            <div class="d-flex flex-wrap mb-4" id="listingsContainer">
+              <!-- Content rendered in JS -->
+              <!-- Loading animation -->
+              <div
+                class="col-12 col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 py-3 px-2"
+                aria-hidden="true"
+              >
+                <div class="bg-white rounded p-2 shadow-sm placeholder-glow">
+                  <div class="placeholder-glow">
+                    <img
+                      src=" "
+                      alt=" "
+                      class="profile-picture w-100 rounded placeholder"
+                    />
+                  </div>
+
+                  <div class="d-flex flex-column placeholder-glow">
+                    <span class="placeholder col-8 mt-2"></span>
+                    <span class="placeholder col-6 mt-2"></span>
+                    <span class="placeholder col-4 mt-2"></span>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="col-12 col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 py-3 px-2"
+                aria-hidden="true"
+              >
+                <div class="bg-white rounded p-2 shadow-sm placeholder-glow">
+                  <div class="placeholder-glow">
+                    <img
+                      src=" "
+                      alt=" "
+                      class="profile-picture w-100 rounded placeholder"
+                    />
+                  </div>
+
+                  <div class="d-flex flex-column placeholder-glow">
+                    <span class="placeholder col-8 mt-2"></span>
+                    <span class="placeholder col-6 mt-2"></span>
+                    <span class="placeholder col-4 mt-2"></span>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="col-12 col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 py-3 px-2"
+                aria-hidden="true"
+              >
+                <div class="bg-white rounded p-2 shadow-sm placeholder-glow">
+                  <div class="placeholder-glow">
+                    <img
+                      src=" "
+                      alt=" "
+                      class="profile-picture w-100 rounded placeholder"
+                    />
+                  </div>
+
+                  <div class="d-flex flex-column placeholder-glow">
+                    <span class="placeholder col-8 mt-2"></span>
+                    <span class="placeholder col-6 mt-2"></span>
+                    <span class="placeholder col-4 mt-2"></span>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="col-12 col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 py-3 px-2"
+                aria-hidden="true"
+              >
+                <div class="bg-white rounded p-2 shadow-sm placeholder-glow">
+                  <div class="placeholder-glow">
+                    <img
+                      src=" "
+                      alt=" "
+                      class="profile-picture w-100 rounded placeholder"
+                    />
+                  </div>
+
+                  <div class="d-flex flex-column placeholder-glow">
+                    <span class="placeholder col-8 mt-2"></span>
+                    <span class="placeholder col-6 mt-2"></span>
+                    <span class="placeholder col-4 mt-2"></span>
+                  </div>
+                </div>
               </div>
 
               <!-- content rendered in JS -->

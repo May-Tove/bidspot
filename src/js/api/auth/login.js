@@ -1,9 +1,9 @@
 import { api_auction_url } from "../constants.js";
 import * as storage from "../../storage/index.js";
+import { authError } from "../../error/error.js";
 
 const endpoint = "/auth/login";
 const method = "post";
-const responseContainer = document.querySelector(".response-container");
 
 /**
  * This will log in a registered user and store profile information in localStorage
@@ -30,9 +30,13 @@ export async function login(profile) {
   storage.store("user", user);
 
   //Show error message if login failed or be redirected to homepage if login succeed
+  const responseContainer = document.querySelector(".response-container");
+
   if (!response.ok) {
-    responseContainer.classList.remove("d-none");
-    responseContainer.innerHTML = "Invalid email or password";
+    if (responseContainer) {
+      responseContainer.classList.remove("d-none");
+      responseContainer.innerHTML = authError("Invalid email or password");
+    }
   } else {
     location.href = "/src/pages/listings/index.html";
   }

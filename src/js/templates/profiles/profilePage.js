@@ -33,7 +33,7 @@ export const profilePage = (profile) => {
   </button>`;
   }
 
-  return `<div class="bg-white rounded p-4">
+  return `<div class="w-100 bg-white rounded p-4">
 <div
   class="d-flex flex-column align-items-center justify-content-center mb-3"
 >

@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BidSpot</title>
+    <meta name="description" content="Login to your account at BidSpot" />
+    <title>BidSpot | Login</title>
     <link rel="stylesheet" href="/dist/css/styles.css" />
     <link
       rel="stylesheet"
@@ -43,22 +44,24 @@
             <div class="bg-white rounded p-4">
               <form class="d-flex flex-column" id="loginForm">
                 <div class="mb-3">
-                  <label for="email">Email</label>
+                  <label for="loginEmail">Email</label>
                   <input
                     type="email"
                     class="form-control"
                     name="email"
+                    id="loginEmail"
                     required
                     pattern="^[\w\-.]+@(stud.)?noroff.no$"
                     title="Only users with a valid Noroff email account are allowed to login"
                   />
                 </div>
                 <div class="mb-3">
-                  <label for="password">Password</label>
+                  <label for="loginPassword">Password</label>
                   <input
                     type="password"
                     class="form-control"
                     name="password"
+                    id="loginPassword"
                     required
                     minlength="8"
                     title="Password must be at least 8 characters long"

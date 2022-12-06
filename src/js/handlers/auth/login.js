@@ -1,4 +1,4 @@
-import { login } from "../api/auth/login.js";
+import { login } from "../../api/auth/login.js";
 
 /**
  * This will log in a registered user when clicking the log in button
@@ -14,7 +14,6 @@ export function loginFormListener() {
       const user = Object.fromEntries(formData.entries());
 
       login(user);
-      console.log(user);
     });
   }
 }

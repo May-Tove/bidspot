@@ -10865,8 +10865,8 @@ textarea.form-control-lg {
 }
 
 .img-thumbnail {
-  width: 30px;
-  height: 30px !important;
+  width: 35px;
+  height: 35px !important;
   object-fit: cover;
 }
 
@@ -10888,6 +10888,11 @@ textarea.form-control-lg {
   object-fit: cover;
 }
 
+.listing-img {
+  height: 500px;
+  object-fit: cover;
+}
+
 .tab-content {
   background-color: #fff;
 }
@@ -10903,10 +10908,13 @@ textarea.form-control-lg {
   background-color: #fff !important;
 }
 
-.spinner-border {
-  color: #ea0087;
-  width: 60px !important;
-  height: 60px !important;
+.form-control:disabled {
+  cursor: not-allowed;
+}
+
+#fetchError {
+  background-color: #dc3545;
+  color: #fff;
 }
 
 @font-face {

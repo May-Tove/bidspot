@@ -1,4 +1,4 @@
-import { register } from "../api/auth/register.js";
+import { register } from "../../api/auth/register.js";
 
 /**
  * Event listener that register new users on submit
@@ -14,7 +14,6 @@ export function registerFormListener() {
       const user = Object.fromEntries(formData.entries());
 
       register(user);
-      console.log(user);
     });
   }
 }

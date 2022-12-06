@@ -1,14 +1,16 @@
 import * as render from "./render/index.js";
 import * as handlers from "./handlers/index.js";
 
-render.renderListings();
-render.renderProfile();
 render.navbar();
+render.renderProfile();
+render.renderListings();
 render.renderListingDetails();
 
 handlers.registerFormListener();
 handlers.loginFormListener();
 handlers.updateProfileListener();
-handlers.logoutListener();
 handlers.createListingFormListener();
+handlers.updateListingListener();
 handlers.removeListingListener();
+handlers.handleSearch();
+handlers.sortListings();

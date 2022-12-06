@@ -1,5 +1,6 @@
-import { getListings } from "../api/listings/get.js";
-import { listingCard } from "../templates/listings/listingCard.js";
+import { getListings } from "../../api/listings/getAllListings.js";
+import { listingCard } from "../../templates/listings/listingCard.js";
+import { noResultError } from "../../error/error.js";
 
 export async function renderListings() {
   const listings = await getListings();
@@ -9,10 +10,9 @@ export async function renderListings() {
 
   if (listingsContainer) {
     if (output.length === 0) {
-      listingsContainer.innerHTML = "No listings yet";
+      listingsContainer.innerHTML = noResultError("No listings yet");
     } else {
       listingsContainer.innerHTML = output.join("");
     }
   }
-  console.log(listings);
 }

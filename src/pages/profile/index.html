@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BidSpot</title>
+    <meta
+      name="description"
+      content="View all your active listings and all your wins in your profile details"
+    />
+    <title id="nameTitle">BidSpot</title>
     <link rel="stylesheet" href="/dist/css/styles.css" />
     <link
       rel="stylesheet"
@@ -85,30 +89,8 @@
                     <i class="fa-solid fa-plus"></i> New Listing
                   </button>
                 </li>
-                <li class="nav-item dropdown px-3" id="profileNav">
-                  <button
-                    id="profileDetail"
-                    class="nav-link dropdown-toggle btn border-0 active"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    <!-- Content rendered in JS -->
-                  </button>
-                  <ul class="dropdown-menu border-0">
-                    <button class="dropdown-item nav-link px-3" id="myPageLink">
-                      <!-- Link rendered in JS -->
-                    </button>
-                    <li><hr class="dropdown-divider" /></li>
-                    <li>
-                      <button
-                        class="dropdown-item nav-link px-3"
-                        id="logoutBtn"
-                      >
-                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                        Logout
-                      </button>
-                    </li>
-                  </ul>
+                <li class="nav-item dropdown px-3 active" id="profileNav">
+                  <!-- Content rendered in JS-->
                 </li>
               </ul>
             </div>
@@ -116,8 +98,18 @@
         </div>
       </nav>
     </header>
-    <main>
-      <div class="container p-0 d-flex justify-content-center pt-5">
+    <main id="main">
+      <div class="container pt-5">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a class="link" href="/index.html">Home</a>
+            </li>
+            <li class="breadcrumb-item">
+              <a class="link active" href="index.html">Profile</a>
+            </li>
+          </ol>
+        </nav>
         <!------ EDIT AVATAR FORM MODAL ------>
         <div
           class="modal fade"
@@ -191,7 +183,37 @@
 
         <div class="row w-100">
           <!-- PROFILE DETAILS -->
-          <div class="col-md-4 col-lg-3" id="profileDetailContainer">
+          <div
+            class="col-md-4 col-lg-3 d-flex align-items-start justify-content-center"
+            id="profileDetailContainer"
+          >
+            <div class="w-100 bg-white rounded p-4" aria-hidden="true">
+              <div
+                class="d-flex flex-column align-items-center justify-content-center mb-3"
+              >
+                <div class="position-relative placeholder-glow">
+                  <img
+                    src=" "
+                    alt=" "
+                    class="profile-picture rounded-circle placeholder"
+                  />
+                </div>
+              </div>
+              <div
+                class="d-flex flex-column justify-content-center align-items-center placeholder-glow"
+              >
+                <span class="placeholder col-8 mb-1"></span>
+                <span class="placeholder col-8 mb-3"></span>
+              </div>
+              <div
+                class="d-flex flex-column flex-lg-row align-items-center justify-content-around p-3 bg-light rounded placeholder-glow"
+              >
+                <span class="placeholder col-7 col-lg-2 my-1"></span>
+                <span class="placeholder col-7 col-lg-2 my-1"></span>
+                <span class="placeholder col-7 col-lg-2 my-1"></span>
+              </div>
+            </div>
+
             <!-- Content rendered in JS -->
           </div>
 
@@ -226,6 +248,19 @@
                     Wins
                     <span id="winCount"></span>
                   </button>
+                  <button
+                    class="nav-link border-0"
+                    id="nav-bids-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#nav-bids"
+                    type="button"
+                    role="tab"
+                    aria-controls="nav-bids"
+                    aria-selected="false"
+                  >
+                    Bids
+                    <span id="bidCount"></span>
+                  </button>
                 </div>
               </nav>
               <div class="tab-content p-4 rounded" id="nav-tabContent">
@@ -238,8 +273,100 @@
                 >
                   <div class="d-flex flex-wrap" id="profileListings">
                     <!-- Content rendered in JS -->
+                    <!-- Loading animation -->
+                    <div
+                      class="col-12 col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 py-3 px-2"
+                      aria-hidden="true"
+                    >
+                      <div
+                        class="bg-white rounded p-2 shadow-sm placeholder-glow"
+                      >
+                        <div class="placeholder-glow">
+                          <img
+                            src=" "
+                            alt=" "
+                            class="profile-picture w-100 rounded placeholder"
+                          />
+                        </div>
+
+                        <div class="d-flex flex-column placeholder-glow">
+                          <span class="placeholder col-8 mt-2"></span>
+                          <span class="placeholder col-6 mt-2"></span>
+                          <span class="placeholder col-4 mt-2"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="col-12 col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 py-3 px-2"
+                      aria-hidden="true"
+                    >
+                      <div
+                        class="bg-white rounded p-2 shadow-sm placeholder-glow"
+                      >
+                        <div class="placeholder-glow">
+                          <img
+                            src=" "
+                            alt=" "
+                            class="profile-picture w-100 rounded placeholder"
+                          />
+                        </div>
+
+                        <div class="d-flex flex-column placeholder-glow">
+                          <span class="placeholder col-8 mt-2"></span>
+                          <span class="placeholder col-6 mt-2"></span>
+                          <span class="placeholder col-4 mt-2"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="col-12 col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 py-3 px-2"
+                      aria-hidden="true"
+                    >
+                      <div
+                        class="bg-white rounded p-2 shadow-sm placeholder-glow"
+                      >
+                        <div class="placeholder-glow">
+                          <img
+                            src=" "
+                            alt=" "
+                            class="profile-picture w-100 rounded placeholder"
+                          />
+                        </div>
+
+                        <div class="d-flex flex-column placeholder-glow">
+                          <span class="placeholder col-8 mt-2"></span>
+                          <span class="placeholder col-6 mt-2"></span>
+                          <span class="placeholder col-4 mt-2"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="col-12 col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 py-3 px-2"
+                      aria-hidden="true"
+                    >
+                      <div
+                        class="bg-white rounded p-2 shadow-sm placeholder-glow"
+                      >
+                        <div class="placeholder-glow">
+                          <img
+                            src=" "
+                            alt=" "
+                            class="profile-picture w-100 rounded placeholder"
+                          />
+                        </div>
+
+                        <div class="d-flex flex-column placeholder-glow">
+                          <span class="placeholder col-8 mt-2"></span>
+                          <span class="placeholder col-6 mt-2"></span>
+                          <span class="placeholder col-4 mt-2"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- End of loading animation -->
                   </div>
                 </div>
+
+                <!-- Profile Wins -->
                 <div
                   class="tab-pane fade"
                   id="nav-win"
@@ -247,7 +374,30 @@
                   aria-labelledby="nav-win-tab"
                   tabindex="0"
                 >
-                  <div class="d-flex flex-wrap" id="winListings">
+                  <div class="d-flex justify-content-center">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Listing ID</th>
+                        </tr>
+                      </thead>
+                      <tbody id="winListings">
+                        <!-- Content rendered in JS -->
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <!-- Profile Bids -->
+                <div
+                  class="tab-pane fade"
+                  id="nav-bids"
+                  role="tabpanel"
+                  aria-labelledby="nav-bids-tab"
+                  tabindex="0"
+                >
+                  <div class="d-flex flex-column" id="profileBids">
                     <!-- Content rendered in JS -->
                   </div>
                 </div>

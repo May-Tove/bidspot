@@ -1,5 +1,5 @@
-import { get } from "../storage/index.js";
-import { options } from "../templates/listings/options.js";
+import { get } from "../../storage/index.js";
+import { options } from "../../templates/listings/options.js";
 
 /**
  * Function that checks if the user that is logged in is the same as the name of the owner of the post

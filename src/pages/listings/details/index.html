@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BidSpot</title>
+    <title id="listingTitle">BidSpot | Details</title>
     <link rel="stylesheet" href="/dist/css/styles.css" />
     <link
       rel="stylesheet"
@@ -86,36 +86,7 @@
                     <i class="fa-solid fa-plus"></i> New Listing
                   </button>
                 </li>
-                <li class="nav-item dropdown px-3" id="profileNav">
-                  <button
-                    id="profileDetail"
-                    class="nav-link dropdown-toggle btn border-0"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    <!-- Content rendered in JS -->
-                  </button>
-                  <ul class="dropdown-menu border-0">
-                    <li>
-                      <button
-                        class="dropdown-item nav-link px-3"
-                        id="myPageLink"
-                      >
-                        <!-- Link rendered in JS -->
-                      </button>
-                    </li>
-                    <li><hr class="dropdown-divider" /></li>
-                    <li>
-                      <button
-                        class="dropdown-item nav-link px-3"
-                        id="logoutBtn"
-                      >
-                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                        Logout
-                      </button>
-                    </li>
-                  </ul>
-                </li>
+                <li class="nav-item dropdown px-3" id="profileNav"></li>
               </ul>
             </div>
           </div>
@@ -141,11 +112,63 @@
             </li>
           </ol>
         </nav>
+        <div id="errorContainer"></div>
         <div
           class="row d-flex justify-content-center gap-2"
           id="listingContainer"
         >
           <!-- Content rendered in JS -->
+          <!-- Loading animation -->
+          <div class="col-12 col-lg-5" aria-hidden="true">
+            <div class="row">
+              <div class="placeholder-glow">
+                <img
+                  src=" "
+                  alt=" "
+                  class="listing-img w-100 rounded placeholder"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="bg-white p-3 rounded">
+              <div
+                class="d-flex align-items-top justify-content-between py-3 placeholder-glow"
+              >
+                <span class="placeholder col-9"></span>
+              </div>
+              <div
+                class="bg-light rounded p-4 d-flex flex-column gap-4 flex-sm-row align-items-center justify-content-around my-4 placeholder-glow"
+              >
+                <span class="placeholder col-4"></span>
+
+                <span class="placeholder col-4"></span>
+
+                <span class="placeholder col-4"></span>
+              </div>
+              <div class="my-3 placeholder-glow">
+                <form class="d-flex align-items-center gap-2">
+                  <div class="w-100">
+                    <input class="form-control placeholder col-10" />
+                  </div>
+                  <a
+                    href="#"
+                    tabindex="-1"
+                    class="btn btn-primary disabled placeholder col-1"
+                  ></a>
+                </form>
+              </div>
+
+              <div class="d-flex flex-column mt-4 gap-2 placeholder-glow">
+                <span class="placeholder col-8"></span>
+                <span class="placeholder col-6"></span>
+                <span class="placeholder col-4"></span>
+                <span class="placeholder col-6"></span>
+                <span class="placeholder col-3"></span>
+              </div>
+            </div>
+          </div>
+          <!-- End of loading animation -->
         </div>
 
         <!------ EDIT POST FORM MODAL ------>
@@ -167,6 +190,7 @@
                   id="btn-close"
                   data-bs-dismiss="modal"
                   aria-label="Close"
+                  class="btn"
                 >
                   <i class="fa-solid fa-xmark"></i>
                 </button>
@@ -179,7 +203,10 @@
                       type="text"
                       class="form-control"
                       name="title"
+                      id="title"
                       required
+                      maxlength="280"
+                      title="Please write a suitable title for your listing"
                     />
                   </div>
                   <div class="mb-3">
@@ -187,22 +214,37 @@
                     <input
                       type="url"
                       class="form-control"
-                      name="media[]"
-                      placeholder="Add image url"
+                      name="media"
+                      id="media"
+                      required
+                      title="Image is required, a maximum of 8 photos can be added and it must be a valid URL"
                     />
+                    <div class="form-text">
+                      Each image URL must be separated by a comma, maximum 8
+                      photos
+                    </div>
                   </div>
                   <div class="mb-3">
                     <label for="tags">Tags</label>
-                    <input type="text" class="form-control" name="tags[]" />
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="tags"
+                      id="tags"
+                      title="Maximum 8 tags can be added"
+                    />
+                    <div class="form-text">
+                      Each tag must be separated by a comma, maximum 8 tags
+                    </div>
                   </div>
                   <div class="mb-3">
-                    <label for="endsAt">Due Date</label>
+                    <label for="dueDate">Due Date</label>
                     <input
                       type="text"
                       class="form-control"
                       name="endsAt"
-                      placeholder="Due Date"
-                      required
+                      id="dueDate"
+                      disabled
                     />
                   </div>
                   <div class="mb-3">
@@ -210,9 +252,12 @@
                     <textarea
                       rows="4"
                       class="form-control"
-                      placeholder="Description"
                       name="description"
+                      id="description"
+                      maxlength="280"
+                      title="Description can not be greater than 280 characters"
                     ></textarea>
+                    <div class="form-text">Maximum of 280 characters</div>
                   </div>
                 </form>
               </div>
@@ -283,5 +328,13 @@
       </div>
     </main>
     <footer></footer>
+    <script>
+      const tooltipTriggerList = document.querySelectorAll(
+        '[data-bs-toggle="tooltip"]'
+      );
+      const tooltipList = [...tooltipTriggerList].map(
+        (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
+      );
+    </script>
   </body>
 </html>

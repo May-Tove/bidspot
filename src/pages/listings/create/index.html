@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BidSpot</title>
+    <meta
+      name="description"
+      content="Create a new listing and earn more credits"
+    />
+    <title>BidSpot | Create a Listing</title>
     <link rel="stylesheet" href="/dist/css/styles.css" />
     <link
       rel="stylesheet"
@@ -83,36 +87,7 @@
                     <i class="fa-solid fa-plus"></i> New Listing
                   </button>
                 </li>
-                <li class="nav-item dropdown px-3" id="profileNav">
-                  <button
-                    id="profileDetail"
-                    class="nav-link dropdown-toggle btn border-0"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    <!-- Content rendered in JS -->
-                  </button>
-                  <ul class="dropdown-menu border-0">
-                    <li>
-                      <button
-                        class="dropdown-item nav-link px-3"
-                        id="myPageLink"
-                      >
-                        <!-- Link rendered in JS -->
-                      </button>
-                    </li>
-                    <li><hr class="dropdown-divider" /></li>
-                    <li>
-                      <button
-                        class="dropdown-item nav-link px-3"
-                        id="logoutBtn"
-                      >
-                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                        Logout
-                      </button>
-                    </li>
-                  </ul>
-                </li>
+                <li class="nav-item dropdown px-3" id="profileNav"></li>
               </ul>
             </div>
           </div>
@@ -121,6 +96,16 @@
     </header>
     <main>
       <div class="container pt-5">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a class="link" href="/index.html">Home</a>
+            </li>
+            <li class="breadcrumb-item">
+              <a class="link active" href="index.html">Create new Listing</a>
+            </li>
+          </ol>
+        </nav>
         <div class="row d-flex justify-content-center">
           <div class="col col-lg-8">
             <h3 class="mb-3">Create a New Listing</h3>
@@ -132,7 +117,10 @@
                     type="text"
                     class="form-control"
                     name="title"
+                    id="title"
                     required
+                    maxlength="280"
+                    title="Please write a suitable title for your listing"
                   />
                 </div>
                 <div class="mb-3">
@@ -141,21 +129,38 @@
                     type="url"
                     class="form-control"
                     name="media"
-                    placeholder="Add image url"
+                    id="media"
+                    required
+                    title="Image is required, a maximum of 8 photos can be added and it must be a valid URL"
                   />
+                  <div class="form-text">
+                    Each image URL must be separated by a comma, maximum 8
+                    photos
+                  </div>
                 </div>
                 <div class="mb-3">
                   <label for="tags">Tags</label>
-                  <input type="text" class="form-control" name="tags" />
-                </div>
-                <div class="mb-3">
-                  <label for="endsAt">Due Date</label>
                   <input
                     type="text"
                     class="form-control"
+                    name="tags"
+                    id="tags"
+                    title="Maximum 8 tags can be added"
+                  />
+                  <div class="form-text">
+                    Each tag must be separated by a comma, maximum 8 tags
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="dueDate">Due Date</label>
+                  <input
+                    type="datetime-local"
+                    class="form-control"
                     name="endsAt"
+                    id="dueDate"
                     placeholder="Due Date"
                     required
+                    title="A due date for this listing must be added. For example 2022-12-3"
                   />
                 </div>
                 <div class="mb-3">
@@ -163,9 +168,11 @@
                   <textarea
                     rows="4"
                     class="form-control"
-                    placeholder="Description"
                     name="description"
+                    id="description"
+                    maxlength="280"
                   ></textarea>
+                  <div class="form-text">Maximum of 280 characters</div>
                 </div>
                 <button type="submit" class="btn btn-primary">Create</button>
               </form>
