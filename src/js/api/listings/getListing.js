@@ -1,5 +1,6 @@
 import { api_auction_url } from "../constants.js";
 import { fetchWithAuth } from "../fetchWithToken.js";
+import { fetchError } from "../../error/error.js";
 
 const endpoint = "/listings";
 
@@ -24,5 +25,13 @@ export async function getListing(id) {
   const getListingUrl = `${api_auction_url}${endpoint}/${id}?_seller=true&_bids=true`;
 
   const response = await fetchWithAuth(getListingUrl);
-  return await response.json();
+
+  if (!response.ok) {
+    const listingContainer = document.querySelector("#listingContainer");
+    listingContainer.innerHTML = fetchError(
+      "Oops, an error occurred, please try refreshing the page"
+    );
+  } else {
+    return await response.json();
+  }
 }

@@ -23,7 +23,7 @@ export function createListingFormListener() {
       populateForm(listing);
     });
 
-    form.addEventListener("submit", (event) => {
+    form.addEventListener("submit", async (event) => {
       event.preventDefault();
       const form = event.target;
       const data = new FormData(form);
@@ -35,7 +35,11 @@ export function createListingFormListener() {
 
       const listing = { title, description, endsAt, media, tags };
 
-      createListing(listing);
+      try {
+        await createListing(listing);
+      } catch {
+        return alert("There was a problem creating this listing");
+      }
     });
   }
 }

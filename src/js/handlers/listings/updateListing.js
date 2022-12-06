@@ -25,7 +25,7 @@ export async function updateListingListener() {
     form.media.value = currentListing.media.join(", ");
     form.tags.value = currentListing.tags.join(", ");
 
-    form.addEventListener("submit", (event) => {
+    form.addEventListener("submit", async (event) => {
       event.preventDefault();
       const form = event.target;
       const data = new FormData(form);
@@ -37,7 +37,13 @@ export async function updateListingListener() {
 
       const listing = { id, title, description, endsAt, media, tags };
 
-      updateListing(listing);
+      try {
+        await updateListing(listing);
+      } catch {
+        return alert(
+          "There was a problem updating this listing, please refresh the page and try again"
+        );
+      }
     });
   }
 }
