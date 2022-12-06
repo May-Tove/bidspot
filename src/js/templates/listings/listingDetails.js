@@ -58,14 +58,14 @@ export const listingDetails = (listing) => {
     <div class="d-flex align-items-top justify-content-between py-3">
       <div>
         <h1 class="fw-bold fs-3">${listing.title}</h1>
-        <a href="/src/pages/profile/index.html?name=${listing.seller.name}" class="d-flex align-items-center text-decoration-none">
+        <div class="d-flex align-items-center">
           <img
             src="${avatar}"
             class="img-thumbnail-small rounded-circle p-0 border-0 me-2"
             alt="Profile picture of ${listing.seller.name}"
           />
-            <p class="m-0 small text-muted">By ${listing.seller.name} <span>&#183;</span> ${listingCreated}</p>
-        </a>
+            <p class="m-0 small text-muted">By <span id="sellerLink">${listing.seller.name}</span> <span>&#183;</span> ${listingCreated}</p>
+        </div>
       </div>
       <div id="dropdownContainer"></div>
     </div>
@@ -91,16 +91,14 @@ export const listingDetails = (listing) => {
           <span class="fw-bold">${listingEnds}</span>
         </div>
       </div>
-      <div class="my-3">
-        <h2 class="fw-bold fs-5" id="bidFormContainer">Place a bid</h2>
-
-      </div>
-
-      <div class="d-flex flex-column mt-4">
-        <h2 class="fw-bold mt-3 fs-5">Description</h2>
+      <div class="d-flex flex-column my-3">
+        <h2 class="fw-bold fs-5">Description</h2>
         <p>${listing.description}</p>
         <div class="d-flex gap-1" id="tagContainer">
       </div>
+      </div>
+      <div class="mt-3" id="bidFormContainer">
+      <p class="m-0"> <a href="/src/pages/profile/login/index.html">Login</a> to place a bid on this listing</p>
       </div>
       <div class="mt-5">
         <h2 class="fw-bold fs-5">All bids</h2>

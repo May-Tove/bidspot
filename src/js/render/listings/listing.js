@@ -30,6 +30,7 @@ export async function renderListingDetails() {
       render.renderTags();
       render.displayListingOptions(result.seller.name);
       render.displayBidForm(result.seller.name);
+      render.activateSellerLink(result.seller.name);
 
       // calling function to create a bid after HTML bid form has been rendered together with listing details
       createBidListener();
