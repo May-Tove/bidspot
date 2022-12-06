@@ -98,8 +98,18 @@
         </div>
       </nav>
     </header>
-    <main>
-      <div class="container p-0 d-flex justify-content-center pt-5">
+    <main id="main">
+      <div class="container pt-5">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a class="link" href="/index.html">Home</a>
+            </li>
+            <li class="breadcrumb-item">
+              <a class="link active" href="index.html">Profile</a>
+            </li>
+          </ol>
+        </nav>
         <!------ EDIT AVATAR FORM MODAL ------>
         <div
           class="modal fade"
@@ -238,6 +248,19 @@
                     Wins
                     <span id="winCount"></span>
                   </button>
+                  <button
+                    class="nav-link border-0"
+                    id="nav-bids-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#nav-bids"
+                    type="button"
+                    role="tab"
+                    aria-controls="nav-bids"
+                    aria-selected="false"
+                  >
+                    Bids
+                    <span id="bidCount"></span>
+                  </button>
                 </div>
               </nav>
               <div class="tab-content p-4 rounded" id="nav-tabContent">
@@ -342,6 +365,8 @@
                     <!-- End of loading animation -->
                   </div>
                 </div>
+
+                <!-- Profile Wins -->
                 <div
                   class="tab-pane fade"
                   id="nav-win"
@@ -361,6 +386,19 @@
                         <!-- Content rendered in JS -->
                       </tbody>
                     </table>
+                  </div>
+                </div>
+
+                <!-- Profile Bids -->
+                <div
+                  class="tab-pane fade"
+                  id="nav-bids"
+                  role="tabpanel"
+                  aria-labelledby="nav-bids-tab"
+                  tabindex="0"
+                >
+                  <div class="d-flex flex-column" id="profileBids">
+                    <!-- Content rendered in JS -->
                   </div>
                 </div>
               </div>

@@ -23,5 +23,6 @@ export async function renderProfile() {
     profileContainer.innerHTML = templates.profilePage(profile);
     render.renderProfileListings();
     render.renderWins();
+    render.renderProfileBids();
   }
 }
