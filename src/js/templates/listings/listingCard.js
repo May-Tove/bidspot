@@ -30,7 +30,7 @@ export const listingCard = (listing) => {
       class="listing-card text-decoration-none"
       href="/src/pages/listings/details/index.html?id=${listing.id}"
     >
-      <div class="bg-white rounded p-2 shadow-sm">
+      <div class="bg-white rounded p-2">
         <div class="img-container rounded">
           <img
             src="${image}"
@@ -40,7 +40,7 @@ export const listingCard = (listing) => {
   
         </div>
         <div>
-          <h6 class="fw-bold m-0 py-2 border-bottom">${listing.title}</h6>
+          <h6 class="fw-bold m-0 py-2">${listing.title}</h6>
             <div class="d-flex align-items-center justify-content-between pt-2 rounded" id="cardDetails">
             <div class="d-flex flex-column">
             <p class="m-0 small text-muted">Auction Ends</p>

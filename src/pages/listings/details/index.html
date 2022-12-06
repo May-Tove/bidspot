@@ -112,6 +112,7 @@
             </li>
           </ol>
         </nav>
+        <div id="errorContainer"></div>
         <div
           class="row d-flex justify-content-center gap-2"
           id="listingContainer"
@@ -254,6 +255,7 @@
                       name="description"
                       id="description"
                       maxlength="280"
+                      title="Description can not be greater than 280 characters"
                     ></textarea>
                     <div class="form-text">Maximum of 280 characters</div>
                   </div>
@@ -326,5 +328,13 @@
       </div>
     </main>
     <footer></footer>
+    <script>
+      const tooltipTriggerList = document.querySelectorAll(
+        '[data-bs-toggle="tooltip"]'
+      );
+      const tooltipList = [...tooltipTriggerList].map(
+        (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
+      );
+    </script>
   </body>
 </html>
