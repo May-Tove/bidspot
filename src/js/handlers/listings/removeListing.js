@@ -13,8 +13,14 @@ export async function removeListingListener() {
     const listing = await getListing(id);
     listing.id = id;
 
-    deleteBtn.addEventListener("click", () => {
-      removeListing(id);
+    deleteBtn.addEventListener("click", async () => {
+      try {
+        await removeListing(id);
+      } catch {
+        return alert(
+          "There was a problem deleting this listing, please refresh the page and try again"
+        );
+      }
     });
   }
 }

@@ -1,5 +1,6 @@
 import { authError } from "../../error/error.js";
 import { api_auction_url } from "../constants.js";
+import { login } from "./login.js";
 
 const endpoint = "/auth/register";
 const method = "post";
@@ -20,8 +21,6 @@ export async function register(profile) {
     body,
   });
 
-  console.log(response);
-
   //Show error message if register failed or be redirected to login if register succeed
   const responseContainer = document.querySelector(".response-container");
 
@@ -31,9 +30,19 @@ export async function register(profile) {
       responseContainer.innerHTML = authError("User already exists");
     }
   } else {
-    window.location = "/src/pages/profile/login/index.html";
-  }
+    const form = document.querySelector("#registerForm");
 
-  const results = await response.json();
-  return results;
+    const formData = new FormData(form);
+    const user = Object.fromEntries(formData.entries());
+
+    const newUser = {
+      email: user.email,
+      password: user.password,
+    };
+
+    login(newUser);
+
+    const results = await response.json();
+    return results;
+  }
 }

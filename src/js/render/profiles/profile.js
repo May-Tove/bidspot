@@ -8,6 +8,7 @@ import * as templates from "../../templates/index.js";
  */
 export async function renderProfile() {
   const profileContainer = document.querySelector("#profileDetailContainer");
+  const pageTitle = document.querySelector("#nameTitle");
 
   if (isLoggedIn && profileContainer) {
     const url = new URL(location.href);
@@ -15,8 +16,13 @@ export async function renderProfile() {
 
     const profile = await getProfile(name);
 
+    if (pageTitle) {
+      pageTitle.innerHTML = `BidSpot | ${name}`;
+    }
+
     profileContainer.innerHTML = templates.profilePage(profile);
     render.renderProfileListings();
     render.renderWins();
+    render.renderProfileBids();
   }
 }
