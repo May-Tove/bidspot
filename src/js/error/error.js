@@ -22,5 +22,16 @@ export function noResultError(message = "No result") {
  * ```
  */
 export function authError(message) {
-  return `<div class='alert alert-danger p-2' role="alert">${message}</div>`;
+  return `<div class='p-2' id="fetchError">${message}</div>`;
+}
+
+export function fetchError(
+  message = "An unexpected error occurred, please refresh the page and try again"
+) {
+  return `<div class="container d-flex align-items-center justify-content-center mt-5 py-4 rounded" id="fetchError">
+    <div class="row d-flex align-items-center justify-content-center">
+   <p class="fw-bold text-center m-0"><i class="fa-solid fa-triangle-exclamation"></i> ${message}</p>
+   </div>
+  </div>
+  `;
 }
