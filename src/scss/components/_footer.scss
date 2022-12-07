@@ -1,0 +1,36 @@
+footer {
+  background-color: $dark;
+  color: $white;
+
+  & h6 {
+    position: relative;
+
+    &::before {
+      content: " ";
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+      background-color: $primary;
+      height: 2px;
+      width: 50px;
+    }
+  }
+
+  & a {
+    color: $white !important;
+
+    &:hover {
+      color: $primary !important;
+    }
+  }
+
+  & .border-bottom {
+    border-color: $gray-500 !important;
+  }
+
+  & .social-links a {
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+  }
+}
