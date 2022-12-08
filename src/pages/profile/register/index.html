@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Register your account at BidSpot today and get 1000 credits to start your bidding adventure with!"
+      content="Register your account at BidSpot today and get 1000 credits to get started!"
     />
     <title>BidSpot | Register</title>
     <link rel="stylesheet" href="/dist/css/styles.css" />
@@ -27,10 +27,10 @@
       crossorigin="anonymous"
     ></script>
     <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="module" defer src="/src/js/main.js"></script>
+    <script type="module" src="/src/js/main.js"></script>
   </head>
   <body>
-    <main>
+    <main class="min-vh-100">
       <div class="container pt-5">
         <div class="row d-flex justify-content-center">
           <div class="col col-lg-4">
@@ -38,9 +38,9 @@
               class="d-flex flex-column align-items-center justify-content-center"
             >
               <img class="logo" src="/images/logo2.svg" alt="" />
-              <h4 class="mt-4 fw-bold text-center">
+              <h1 class="mt-4 fw-bold text-center fs-4">
                 Register an account at BidSpot
-              </h4>
+              </h1>
               <div class="small text-muted mb-4">
                 Or
                 <a class="link" href="../login/index.html"
@@ -57,6 +57,7 @@
                     class="form-control"
                     name="name"
                     id="registerName"
+                    placeholder="username"
                     required
                     pattern="^[\w]+$"
                     title="Name must not contain punctuation symbols apart from underscore. Example: My_Username123"
@@ -69,6 +70,7 @@
                     class="form-control"
                     name="email"
                     id="registerEmail"
+                    placeholder="example@noroff.no"
                     required
                     pattern="^[\w\-.]+@(stud.)?noroff.no$"
                     title="Only users with a valid Noroff email account are allowed to login"
@@ -81,21 +83,23 @@
                     class="form-control"
                     name="password"
                     id="registerPassword"
+                    placeholder="Password"
                     required
                     minlength="8"
                     title="Password must be at least 8 characters long"
                   />
                 </div>
                 <div class="mb-3">
-                  <label for="registerAvatar">Avatar</label>
+                  <label for="registerAvatar">Avatar (URL)</label>
                   <input
                     type="url"
                     class="form-control"
                     name="avatar"
                     id="registerAvatar"
+                    placeholder="Image URL"
                   />
                 </div>
-                <div class="response-container"></div>
+                <div class="response-container mb-2"></div>
                 <button
                   type="submit"
                   class="btn btn-primary fw-bold d-flex align-items-center justify-content-center gap-1"
@@ -115,6 +119,5 @@
         </div>
       </div>
     </main>
-    <footer></footer>
   </body>
 </html>
