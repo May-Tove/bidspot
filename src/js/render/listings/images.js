@@ -14,7 +14,6 @@ export async function renderListingImg() {
     const listing = await getListing(id);
 
     const images = listing.media;
-    console.log(images);
     const output = images.map(listingImg);
     const small = images.map(indicator);
 

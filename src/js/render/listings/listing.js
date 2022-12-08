@@ -11,7 +11,6 @@ export async function renderListingDetails() {
   const id = url.searchParams.get("id");
   if (id) {
     const result = await getListing(id);
-    console.log(result);
 
     const listingContainer = document.querySelector("#listingContainer");
     const currentPage = document.querySelector("#currentPage");

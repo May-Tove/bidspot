@@ -40,7 +40,7 @@ export const listingDetails = (listing) => {
 
 
             </div>
-            <div class="d-flex align-items-center justify-content-center gap-1 mt-2 img-indicator" id="imagesSmall"></div>
+
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev" id="prevBtn">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
@@ -49,8 +49,9 @@ export const listingDetails = (listing) => {
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
         </button>
-  </div>
 
+  </div>
+  <div class="d-flex align-items-center justify-content-center gap-1 mt-2 img-indicator" id="imagesSmall"></div>
     </div>
   </div>
   <div class="col">
