@@ -7,13 +7,13 @@ export function registerFormListener() {
   const form = document.querySelector("#registerForm");
 
   if (form) {
-    form.addEventListener("submit", (e) => {
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
       const formData = new FormData(form);
       const user = Object.fromEntries(formData.entries());
 
-      register(user);
+      await register(user);
     });
   }
 }

@@ -1,4 +1,4 @@
-import { authError } from "../../error/error.js";
+import { fetchError } from "../../error/error.js";
 import { api_auction_url } from "../constants.js";
 import { login } from "./login.js";
 
@@ -11,25 +11,19 @@ const method = "post";
  */
 export async function register(profile) {
   const registerUrl = api_auction_url + endpoint;
-  const body = JSON.stringify(profile);
 
   const response = await fetch(registerUrl, {
     headers: {
       "Content-Type": "application/json",
     },
     method,
-    body,
+    body: JSON.stringify(profile),
   });
 
-  //Show error message if register failed or be redirected to login if register succeed
   const responseContainer = document.querySelector(".response-container");
 
-  if (!response.ok) {
-    if (responseContainer) {
-      responseContainer.classList.remove("d-none");
-      responseContainer.innerHTML = authError("User already exists");
-    }
-  } else {
+  if (response.ok) {
+    // Auto login user if response is OK
     const form = document.querySelector("#registerForm");
 
     const formData = new FormData(form);
@@ -44,5 +38,8 @@ export async function register(profile) {
 
     const results = await response.json();
     return results;
+  } else {
+    responseContainer.classList.remove("d-none");
+    responseContainer.innerHTML = await fetchError(response);
   }
 }

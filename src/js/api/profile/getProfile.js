@@ -1,5 +1,6 @@
 import { api_profile_url } from "../constants.js";
 import { fetchWithAuth } from "../fetchWithToken.js";
+import { fetchError } from "../../error/error.js";
 
 /**
  * Getting profile details from API
@@ -24,5 +25,11 @@ export async function getProfile(name) {
 
   const response = await fetchWithAuth(getProfileUrl);
 
-  return await response.json();
+  const mainContainer = document.querySelector("#main");
+
+  if (response.ok) {
+    return await response.json();
+  } else {
+    mainContainer.innerHTML = await fetchError(response);
+  }
 }

@@ -10,10 +10,11 @@ export async function getProfileBids(name) {
   const getProfileBidsUrl = `${api_profile_url}/${name}${endpoint}?sort=created&sortOrder=desc&_seller=true&_listings=true`;
   const response = await fetchWithAuth(getProfileBidsUrl);
 
+  const profileBidsContainer = document.querySelector("#profileBids");
+
   if (response.ok) {
     return await response.json();
   } else {
-    const main = document.querySelector("#main");
-    main.innerHTML = fetchError(response.statusText);
+    profileBidsContainer.innerHTML = await fetchError(response);
   }
 }

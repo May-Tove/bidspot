@@ -36,7 +36,6 @@ export async function updateProfile(profileData) {
 
   if (response.ok) {
     location.reload();
+    return await response.json();
   }
-
-  return await response.json();
 }

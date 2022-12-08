@@ -4,8 +4,6 @@ import { fetchError } from "../../error/error.js";
 
 const endpoint = "/listings";
 const method = "post";
-const errorContainer = document.querySelector("#errorContainer");
-console.log(errorContainer);
 
 export async function createBid(id, bidData) {
   const createBidUrl = `${api_auction_url}${endpoint}/${id}/bids`;
@@ -15,16 +13,14 @@ export async function createBid(id, bidData) {
     body: JSON.stringify(bidData),
   });
 
-  console.log(response);
   const form = document.querySelector("#bidForm");
+  const errorContainer = document.querySelector("#errorContainer");
+
   if (response.ok) {
     location.reload();
     form.reset();
     return await response.json();
   } else {
-    const message = await response.text();
-    errorContainer.innerHTML = fetchError(
-      `Error: ${response.status}, ${message}`
-    );
+    errorContainer.innerHTML = await fetchError(response);
   }
 }

@@ -31,7 +31,8 @@ export async function removeListing(id) {
   if (response.ok) {
     window.alert("Listing deleted");
     location.href = "/src/pages/listings/index.html";
+    return await response.json();
+  } else {
+    throw new Error("Could not update listing");
   }
-
-  return await response.json();
 }

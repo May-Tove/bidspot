@@ -35,11 +35,7 @@ export function createListingFormListener() {
 
       const listing = { title, description, endsAt, media, tags };
 
-      try {
-        await createListing(listing);
-      } catch {
-        return alert("There was a problem creating this listing");
-      }
+      await createListing(listing);
     });
   }
 }
