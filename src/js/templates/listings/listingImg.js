@@ -5,8 +5,7 @@ export const listingImg = (img, index) => {
     activeClass = "active";
   }
 
-  return ` 
-  <div class="carousel-item ${activeClass}">
-  <img src="${img}" data-index="${index}" class="d-block w-100 rounded listing-img" alt="Image of listing" >
-</div>`;
+  return `<div class="carousel-item ${activeClass}">
+            <img src="${img}" data-index="${index}" class="d-block w-100 rounded listing-img" alt="Image of listing" >
+          </div>`;
 };

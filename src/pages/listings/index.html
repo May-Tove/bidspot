@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Find your next deal, search through all listings and find a listing to place your bid on"
+      content="Find your next deal, search through hundreds of listings and find a listing to place your bid on"
     />
     <title>BidSpot | Listings</title>
     <link rel="stylesheet" href="/dist/css/styles.css" />
@@ -27,7 +27,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="../../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="module" defer src="../../js/main.js"></script>
+    <script type="module" src="../../js/main.js"></script>
   </head>
   <body>
     <header>
@@ -90,14 +90,16 @@
                     <i class="fa-solid fa-plus"></i> New Listing
                   </button>
                 </li>
-                <li class="nav-item dropdown px-3" id="profileNav"></li>
+                <li class="nav-item dropdown px-3" id="profileNav">
+                  <!-- Content rendered in JS -->
+                </li>
               </ul>
             </div>
           </div>
         </div>
       </nav>
     </header>
-    <main>
+    <main class="min-vh-100">
       <!-- ALL LISTINGS -->
       <div class="container my-5">
         <nav aria-label="breadcrumb">
@@ -113,7 +115,7 @@
         <div class="row">
           <h1 class="fw-bold border-bottom pb-4">Listings</h1>
           <!--  SEARCH, CATEGORIES AND FILTER -->
-          <div
+          <section
             class="d-flex justify-content-between align-items-center flex-lg-column justify-content-lg-start align-items-lg-start col-lg-2 py-3"
           >
             <div class="pb-lg-4">
@@ -130,55 +132,23 @@
                 />
               </form>
             </div>
-
-            <nav class="navbar-expand-lg">
-              <button
-                class="d-lg-none btn btn-sm btn-primary text-nowrap"
-                type="button"
-                data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasFilters"
-                aria-controls="offcanvasFilters"
+            <div>
+              <label for="sortListings">Sort by</label>
+              <select
+                name="sort-listings"
+                id="sortListings"
+                class="form-select w-auto"
+                aria-label="Filter Listings"
               >
-                <span><i class="fa-solid fa-sliders"></i> Filters</span>
-              </button>
-              <div
-                class="offcanvas offcanvas-start"
-                tabindex="-1"
-                id="offcanvasFilters"
-                aria-labelledby="offcanvasFiltersLabel"
-              >
-                <div class="offcanvas-header">
-                  <h5 class="offcanvas-title" id="offcanvasFiltersLabel">
-                    Sort
-                  </h5>
-                  <button
-                    type="button"
-                    class="btn-close btn-close-black"
-                    data-bs-dismiss="offcanvas"
-                    aria-label="Close"
-                  ></button>
-                </div>
-                <div
-                  class="offcanvas-body d-flex flex-column align-items-start"
-                >
-                  <h6 class="fw-bold pt-3">Sort</h6>
-                  <select
-                    name="sort-listings"
-                    id="sortListings"
-                    class="form-select w-auto"
-                    aria-label="Filter Listings"
-                  >
-                    <option value="newest" selected>Newest</option>
-                    <option value="oldest">Oldest</option>
-                    <option value="ending">Ending Soon</option>
-                  </select>
-                </div>
-              </div>
-            </nav>
-          </div>
+                <option value="newest" selected>Newest</option>
+                <option value="oldest">Oldest</option>
+                <option value="ending">Ending Soon</option>
+              </select>
+            </div>
+          </section>
 
           <!-- LISTINGS -->
-          <div class="col">
+          <section class="col">
             <div class="d-flex flex-wrap mb-4" id="listingsContainer">
               <!-- Content rendered in JS -->
               <!-- Loading animation -->
@@ -190,7 +160,7 @@
                   <div class="placeholder-glow">
                     <img
                       src=" "
-                      alt=" "
+                      alt="Placeholder loading indicator"
                       class="profile-picture w-100 rounded placeholder"
                     />
                   </div>
@@ -210,7 +180,7 @@
                   <div class="placeholder-glow">
                     <img
                       src=" "
-                      alt=" "
+                      alt="Placeholder loading indicator"
                       class="profile-picture w-100 rounded placeholder"
                     />
                   </div>
@@ -230,7 +200,7 @@
                   <div class="placeholder-glow">
                     <img
                       src=" "
-                      alt=" "
+                      alt="Placeholder loading indicator"
                       class="profile-picture w-100 rounded placeholder"
                     />
                   </div>
@@ -250,7 +220,7 @@
                   <div class="placeholder-glow">
                     <img
                       src=" "
-                      alt=" "
+                      alt="Placeholder loading indicator"
                       class="profile-picture w-100 rounded placeholder"
                     />
                   </div>
@@ -262,10 +232,9 @@
                   </div>
                 </div>
               </div>
-
-              <!-- content rendered in JS -->
+              <!-- End of loading animation -->
             </div>
-          </div>
+          </section>
         </div>
       </div>
     </main>
@@ -285,7 +254,7 @@
         >
           <div class="col d-flex justify-content-md-center pb-5">
             <div>
-              <h6 class="fw-bold mb-4">Sign up</h6>
+              <h5 class="fw-bold mb-4">Sign up</h5>
               <p>Sign up to BidSpot and get your 1000 credit points today!</p>
               <a
                 href="/src/pages/profile/register/index.html"
@@ -296,7 +265,7 @@
           </div>
           <div class="col d-flex justify-content-md-center pb-5">
             <nav>
-              <h6 class="fw-bold mb-4">Quick Links</h6>
+              <h5 class="fw-bold mb-4">Quick Links</h5>
               <ul class="nav d-flex flex-column">
                 <li class="nav-item">
                   <a class="nav-link p-0" href="index.html">Home</a>
@@ -311,10 +280,12 @@
           </div>
           <div class="col d-flex justify-content-md-center pb-5">
             <nav>
-              <h6 class="fw-bold mb-4">Contact</h6>
+              <h5 class="fw-bold mb-4">Contact</h5>
               <ul class="nav d-flex flex-column">
                 <li class="nav-item">
-                  <a class="nav-link p-0" href="#">support@bidspot.com</a>
+                  <a class="nav-link p-0" href="mailto: support@bidspot.com"
+                    >support@bidspot.com</a
+                  >
                 </li>
                 <li class="nav-item">
                   <a class="nav-link p-0" href="#">+47 12 34 56 78</a>
@@ -324,7 +295,7 @@
           </div>
           <div class="col d-flex justify-content-md-center pb-5">
             <div class="d-flex flex-column">
-              <h6 class="fw-bold mb-4">Address</h6>
+              <h5 class="fw-bold mb-4">Address</h5>
               <a href="#">4694 Gerald L. Bates Drive</a>
               <a href="#">02132, West Roxbury</a>
             </div>
@@ -332,7 +303,7 @@
 
           <div class="col d-flex justify-content-md-center pb-5">
             <div class="social-links">
-              <h6 class="fw-bold mb-4">Follow us</h6>
+              <h5 class="fw-bold mb-4">Follow us</h5>
               <a
                 class="d-inline-block rounded-circle border text-center me-1"
                 href="#"
