@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Explore our universe with hundreds of listings! Join us today and get 1000 credit points to bid with. Place a bid on your find or create a listing to earn more credits."
+      content="Find your next deal or sell your items to earn credit. Join us today and get 1000 credit points for free!"
     />
     <title>BidSpot | Home</title>
     <link rel="stylesheet" href="dist/css/styles.css" />
@@ -27,7 +27,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="module" defer src="/src/js/main.js"></script>
+    <script type="module" src="/src/js/main.js"></script>
   </head>
   <body>
     <header>
@@ -92,16 +92,18 @@
                     <i class="fa-solid fa-plus"></i> New Listing
                   </button>
                 </li>
-                <li class="nav-item dropdown px-3" id="profileNav"></li>
+                <li class="nav-item dropdown px-3" id="profileNav">
+                  <!-- Content rendered in JS -->
+                </li>
               </ul>
             </div>
           </div>
         </div>
       </nav>
     </header>
-    <main>
+    <main class="min-vh-100">
       <!-- HERO SECTION -->
-      <div class="container my-5">
+      <section class="container my-5">
         <div class="row flex-lg-row-reverse align-items-center">
           <div class="col-10 col-sm-8 col-lg-6">
             <img
@@ -135,14 +137,14 @@
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
       <!-- LATEST LISTINGS -->
       <section class="container-fluid my-5 latest-listings p-sm-5">
         <div class="container">
           <div class="d-flex align-items-center justify-content-between">
-            <h3 class="text-light">Latest Listings</h3>
-            <a class="link" href="/src/pages/listings/index.html"
+            <h2 class="fw-bold">Latest Listings</h2>
+            <a class="link fw-bold" href="/src/pages/listings/index.html"
               >View All <span><i class="fa-solid fa-arrow-right-long"></i></span
             ></a>
           </div>
@@ -161,7 +163,7 @@
                     <div class="placeholder-glow">
                       <img
                         src=" "
-                        alt=" "
+                        alt="placeholder loading indicator"
                         class="profile-picture w-100 rounded placeholder"
                       />
                     </div>
@@ -181,7 +183,7 @@
                     <div class="placeholder-glow">
                       <img
                         src=" "
-                        alt=" "
+                        alt="placeholder loading indicator"
                         class="profile-picture w-100 rounded placeholder"
                       />
                     </div>
@@ -201,7 +203,7 @@
                     <div class="placeholder-glow">
                       <img
                         src=" "
-                        alt=" "
+                        alt="placeholder loading indicator"
                         class="profile-picture w-100 rounded placeholder"
                       />
                     </div>
@@ -221,7 +223,7 @@
                     <div class="placeholder-glow">
                       <img
                         src=" "
-                        alt=" "
+                        alt="placeholder loading indicator"
                         class="profile-picture w-100 rounded placeholder"
                       />
                     </div>
@@ -234,15 +236,17 @@
                   </div>
                 </div>
               </div>
+              <!-- End of loading animation -->
             </div>
           </div>
         </div>
       </section>
+
       <!-- HOW IT WORKS -->
       <section class="container bg-light my-5 py-5">
         <div class="row">
           <div class="col">
-            <h2 class="text-center pb-5">How it Works</h2>
+            <h3 class="text-center pb-5 fw-bold">How it Works</h3>
             <div
               class="how-it-works d-flex flex-column flex-md-row justify-content-center align-items-center align-items-md-start text-center gap-3 px-md-5"
             >
@@ -252,7 +256,7 @@
                   src="/images/signup.svg"
                   alt="Sign up icon"
                 />
-                <h3 class="fs-5">Sign up</h3>
+                <h4 class="fs-5">Sign up</h4>
                 <p>
                   Register an account at Bidspot to be able to place bids and
                   sell items
@@ -264,7 +268,7 @@
                   src="/images/credit.svg"
                   alt="Credit icon"
                 />
-                <h3 class="fs-5">Get your Credit</h3>
+                <h4 class="fs-5">Get your Credit</h4>
                 <p>Earn credit by signing up and selling your items</p>
               </div>
               <div class="col d-flex flex-column align-items-center">
@@ -273,7 +277,7 @@
                   src="/images/gavel.svg"
                   alt="Gavel icon"
                 />
-                <h3 class="fs-5">Sell and Buy</h3>
+                <h4 class="fs-5">Sell and Buy</h4>
                 <p>Earn credit by signing up and selling your items</p>
               </div>
               <div class="col d-flex flex-column align-items-center">
@@ -282,7 +286,7 @@
                   src="/images/winner.svg"
                   alt="Winner icon"
                 />
-                <h3 class="fs-5">Win</h3>
+                <h4 class="fs-5">Win</h4>
                 <p>Earn credit by signing up and selling your items</p>
               </div>
             </div>
@@ -290,6 +294,7 @@
         </div>
       </section>
 
+      <!-- STATS SECTION -->
       <section class="container-fluid" id="stats">
         <div class="row">
           <div
@@ -319,7 +324,7 @@
         >
           <div class="col d-flex justify-content-md-center pb-5">
             <div>
-              <h6 class="fw-bold mb-4">Sign up</h6>
+              <h5 class="fw-bold mb-4">Sign up</h5>
               <p>Sign up to BidSpot and get your 1000 credit points today!</p>
               <a
                 href="/src/pages/profile/register/index.html"
@@ -330,7 +335,7 @@
           </div>
           <div class="col d-flex justify-content-md-center pb-5">
             <nav>
-              <h6 class="fw-bold mb-4">Quick Links</h6>
+              <h5 class="fw-bold mb-4">Quick Links</h5>
               <ul class="nav d-flex flex-column">
                 <li class="nav-item">
                   <a class="nav-link p-0" href="index.html">Home</a>
@@ -345,10 +350,12 @@
           </div>
           <div class="col d-flex justify-content-md-center pb-5">
             <nav>
-              <h6 class="fw-bold mb-4">Contact</h6>
+              <h5 class="fw-bold mb-4">Contact</h5>
               <ul class="nav d-flex flex-column">
                 <li class="nav-item">
-                  <a class="nav-link p-0" href="#">support@bidspot.com</a>
+                  <a class="nav-link p-0" href="mailto: support@bidspot.com"
+                    >support@bidspot.com</a
+                  >
                 </li>
                 <li class="nav-item">
                   <a class="nav-link p-0" href="#">+47 12 34 56 78</a>
@@ -358,7 +365,7 @@
           </div>
           <div class="col d-flex justify-content-md-center pb-5">
             <div class="d-flex flex-column">
-              <h6 class="fw-bold mb-4">Address</h6>
+              <h5 class="fw-bold mb-4">Address</h5>
               <a href="#">4694 Gerald L. Bates Drive</a>
               <a href="#">02132, West Roxbury</a>
             </div>
@@ -366,7 +373,7 @@
 
           <div class="col d-flex justify-content-md-center pb-5">
             <div class="social-links">
-              <h6 class="fw-bold mb-4">Follow us</h6>
+              <h5 class="fw-bold mb-4">Follow us</h5>
               <a
                 class="d-inline-block rounded-circle border text-center me-1"
                 href="#"

@@ -10814,10 +10814,10 @@ footer {
   background-color: #444f64;
   color: #fff;
 }
-footer h6, footer .h6 {
+footer h5, footer .h5 {
   position: relative;
 }
-footer h6::before, footer .h6::before {
+footer h5::before, footer .h5::before {
   content: " ";
   position: absolute;
   left: 0;

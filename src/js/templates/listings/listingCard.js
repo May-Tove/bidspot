@@ -25,7 +25,7 @@ export const listingCard = (listing) => {
     image = listing.media[0];
   }
 
-  return `<div class="col col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 py-3 px-2">
+  return `<article class="col col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 py-3 px-2">
     <a
       class="listing-card text-decoration-none"
       href="/src/pages/listings/details/index.html?id=${listing.id}"
@@ -55,5 +55,5 @@ export const listingCard = (listing) => {
 
       </div>
     </a>
-    </div>`;
+    </article>`;
 };
