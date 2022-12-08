@@ -1,18 +1,14 @@
-.latest-listings {
-  background-color: #cbc7b7;
-}
-
 .listing-card {
   color: $black;
 
   & .img-container {
     overflow: hidden;
-    min-height: 250px;
+    min-height: 230px;
   }
 
   & .listing-img {
     width: 100%;
-    height: 250px;
+    height: 230px;
     object-fit: cover;
   }
 
