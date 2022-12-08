@@ -5,9 +5,9 @@ const endpoint = "/listings";
 const method = "put";
 
 /**
- * Updating a post using PUT method
+ * Updating a listing using PUT method
  * @param {object} listingData - values from the inputs in the form create new object to be updated
- * @returns Updated value to existing post
+ * @returns Updated value to existing listing
  * @example
  * ```js
  * // When form is submitted, the function will be called.
@@ -38,7 +38,8 @@ export async function updateListing(listingData) {
 
   if (response.ok) {
     location.reload();
+    return await response.json();
+  } else {
+    alert("There was a problem updating the listing");
   }
-
-  return await response.json();
 }

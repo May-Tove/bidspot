@@ -6,13 +6,13 @@ export function createBidListener() {
   if (bidForm) {
     const url = new URL(location.href);
     const id = url.searchParams.get("id");
-    bidForm.addEventListener("submit", (e) => {
+    bidForm.addEventListener("submit", async (e) => {
       e.preventDefault();
       const form = e.target;
       const data = new FormData(form);
       const amount = JSON.parse(data.get("amount"));
 
-      createBid(id, { amount });
+      await createBid(id, { amount });
     });
   }
 }

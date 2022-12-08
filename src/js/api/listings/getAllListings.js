@@ -1,4 +1,5 @@
 import { api_auction_url } from "../constants.js";
+import { fetchError } from "../../error/error.js";
 
 const endpoint = "/listings";
 /**
@@ -11,6 +12,7 @@ export async function getListings() {
   if (response.ok) {
     return await response.json();
   } else {
-    throw new Error(response.status);
+    const listingsContainer = document.querySelector("#listingsContainer");
+    listingsContainer.innerHTML = await fetchError(response);
   }
 }

@@ -20,18 +20,16 @@ const endpoint = "/listings";
  */
 export async function getListing(id) {
   if (!id) {
-    throw new Error("Get requires a postID");
+    throw new Error("Get requires a listing ID");
   }
   const getListingUrl = `${api_auction_url}${endpoint}/${id}?_seller=true&_bids=true`;
 
   const response = await fetchWithAuth(getListingUrl);
 
-  if (!response.ok) {
-    const listingContainer = document.querySelector("#listingContainer");
-    listingContainer.innerHTML = fetchError(
-      "Oops, an error occurred, please try refreshing the page"
-    );
-  } else {
+  if (response.ok) {
     return await response.json();
+  } else {
+    const listingContainer = document.querySelector("#listingContainer");
+    listingContainer.innerHTML = await fetchError(response);
   }
 }
