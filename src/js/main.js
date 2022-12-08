@@ -5,6 +5,7 @@ render.navbar();
 render.renderProfile();
 render.renderListings();
 render.renderListingDetails();
+render.latestListings();
 
 handlers.registerFormListener();
 handlers.loginFormListener();

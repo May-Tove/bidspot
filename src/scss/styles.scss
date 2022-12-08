@@ -3,15 +3,22 @@
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
 @import "./components/navbar.scss";
-@import "./components/hero.scss";
 @import "./components/card.scss";
+@import "./components/footer.scss";
+
+@import "./landing-page/hero.scss";
+@import "./landing-page/how-it-works.scss";
+@import "./landing-page/stats.scss";
+
 @import "./components/buttons.scss";
 @import "./components/links.scss";
 @import "./components/images.scss";
+@import "./components/icons.scss";
+
 @import "./components/tabs.scss";
 @import "./components/forms.scss";
+
 @import "./components/error.scss";
-@import "./components/footer.scss";
 
 @font-face {
   font-family: "Sonder";

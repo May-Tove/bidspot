@@ -10784,31 +10784,16 @@ textarea.form-control-lg {
   font-weight: 700 !important;
 }
 
-.hero-title {
-  font-family: "Sonder", sans-serif;
-  color: #282827;
-}
-
-.hero-img {
-  width: 100%;
-  object-fit: cover;
-  max-height: 800px;
-}
-
-.latest-listings {
-  background-color: #cbc7b7;
-}
-
 .listing-card {
   color: #282827;
 }
 .listing-card .img-container {
   overflow: hidden;
-  min-height: 250px;
+  min-height: 230px;
 }
 .listing-card .listing-img {
   width: 100%;
-  height: 250px;
+  height: 230px;
   object-fit: cover;
 }
 .listing-card:hover {
@@ -10823,6 +10808,63 @@ textarea.form-control-lg {
 }
 .listing-card .listing-img {
   transition: 0.25s ease;
+}
+
+footer {
+  background-color: #444f64;
+  color: #fff;
+}
+footer h6, footer .h6 {
+  position: relative;
+}
+footer h6::before, footer .h6::before {
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  background-color: #ea0087;
+  height: 2px;
+  width: 50px;
+}
+footer a {
+  color: #fff !important;
+}
+footer a:hover {
+  color: #ea0087 !important;
+}
+footer .border-bottom {
+  border-color: #babbbb !important;
+}
+footer .social-links a {
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+}
+
+.hero-title {
+  font-family: "Sonder", sans-serif;
+  color: #282827;
+}
+
+.hero-img {
+  width: 100%;
+  object-fit: cover;
+  max-height: 700px;
+}
+
+.latest-listings {
+  background-color: #babbbb;
+}
+
+.how-it-works p {
+  max-width: 200px;
+}
+
+#stats {
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), url("/images/landing-page-2.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 400px;
 }
 
 .btn-primary {
@@ -10895,6 +10937,11 @@ textarea.form-control-lg {
   object-fit: cover;
 }
 
+.svg {
+  width: 45px;
+  height: 45px;
+}
+
 .tab-content {
   background-color: #fff;
 }
@@ -10917,37 +10964,6 @@ textarea.form-control-lg {
 #fetchError {
   background-color: #dc3545;
   color: #fff;
-}
-
-footer {
-  background-color: #444f64;
-  color: #fff;
-}
-footer h6, footer .h6 {
-  position: relative;
-}
-footer h6::before, footer .h6::before {
-  content: " ";
-  position: absolute;
-  left: 0;
-  bottom: -10px;
-  background-color: #ea0087;
-  height: 2px;
-  width: 50px;
-}
-footer a {
-  color: #fff !important;
-}
-footer a:hover {
-  color: #ea0087 !important;
-}
-footer .border-bottom {
-  border-color: #babbbb !important;
-}
-footer .social-links a {
-  height: 40px;
-  width: 40px;
-  line-height: 40px;
 }
 
 @font-face {
