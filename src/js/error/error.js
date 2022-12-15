@@ -27,7 +27,7 @@ export async function fetchError(response) {
   const message = error.errors[0].message;
 
   if (!message) {
-    errorMessage = "An unexpected error occurred";
+    errorMessage = response.statusText;
   } else {
     errorMessage = message;
   }

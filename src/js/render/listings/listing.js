@@ -15,14 +15,16 @@ export async function renderListingDetails() {
     const listingContainer = document.querySelector("#listingContainer");
     const currentPage = document.querySelector("#currentPage");
     const listingTitle = document.querySelector("#listingTitle");
+    const metaDescription = document.querySelector("#metaDescription");
 
     if (listingTitle) {
       listingTitle.innerHTML = `BidSpot | ${result.title}`;
+      metaDescription.content = result.description;
     }
 
     if (listingContainer) {
       listingContainer.innerHTML = templates.listingDetails(result);
-      currentPage.innerHTML = `${result.title}`;
+      currentPage.innerHTML = `<a class="link text-decoration-none active" href="${result.id}">${result.title}</a>`;
 
       render.renderAllBids();
       render.renderListingImg();
