@@ -12,9 +12,10 @@ export const listingCard = (listing) => {
   );
 
   // Get the highest bid from the array (last bid)
-  let highestBid = "0";
+  let highestBid = "No bids";
   if (listing._count.bids !== 0) {
-    highestBid = listing.bids.pop().amount;
+    const sortedListings = listing.bids.sort((a, b) => a.amount - b.amount);
+    highestBid = sortedListings.pop().amount;
   }
 
   // image placeholder
@@ -36,7 +37,7 @@ export const listingCard = (listing) => {
                   />
                 </div>
               <div>
-                <h6 class="fw-bold m-0 py-2">${listing.title}</h6>
+                <p class="fw-bold fs-6 m-0 py-2">${listing.title}</p>
                   <div class="d-flex align-items-center justify-content-between pt-2 rounded text-nowrap" id="cardDetails">
                     <div class="d-flex flex-column">
                       <p class="m-0 small text-muted">Auction Ends</p>
@@ -44,7 +45,7 @@ export const listingCard = (listing) => {
                     </div>
                     <div class="d-flex flex-column">
                       <p class="m-0 small text-muted">Highest Bid</p>
-                      <span>${highestBid} $</span>
+                      <span>${highestBid}</span>
                     </div>
                   </div>
                 </div>

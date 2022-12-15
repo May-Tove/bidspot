@@ -13,6 +13,6 @@ export const allBids = (bid) => {
               <p class="m-0">${bid.bidderName}</p>
               <p class="m-0 small text-muted">${bidCreated}</p>
             </div>
-            <p class="m-0 fw-bold">${bid.amount} $</p>
+            <p class="m-0 fw-bold">$ ${bid.amount}</p>
           </div>`;
 };

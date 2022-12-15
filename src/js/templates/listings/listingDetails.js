@@ -1,7 +1,7 @@
 export const listingDetails = (listing) => {
   // avatar placeholder
   let avatar = "";
-  if (listing.seller.avatar === "") {
+  if (listing.seller.avatar === "" || listing.seller.avatar === null) {
     avatar = "../../../../images/avatar-placeholder.jpg";
   } else {
     avatar = listing.seller.avatar;
@@ -25,14 +25,15 @@ export const listingDetails = (listing) => {
   );
 
   // Get the highest bid from the array (last bid)
-  let highestBid = "N/A";
+  let highestBid = "No bids";
   if (listing._count.bids !== 0) {
-    highestBid = listing.bids.pop().amount;
+    const sortedListings = listing.bids.sort((a, b) => a.amount - b.amount);
+    highestBid = sortedListings.pop().amount;
   }
 
   return `<div class="col-12 col-lg-5">
             <div class="row">
-              <div id="carouselIndicators" class="carousel slide" data-bs-ride="true">
+              <div id="carouselIndicators" class="carousel slide">
                 <div class="carousel-inner" id="carouselContainer"></div>
                   <button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicators" data-bs-slide="prev" id="prevBtn">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -46,11 +47,11 @@ export const listingDetails = (listing) => {
                 <div class="d-flex align-items-center justify-content-center gap-1 mt-2 img-indicator" id="imagesSmall"></div>
               </div>
             </div>
-            <div class="col">
+            <div class="col mb-5">
               <div class="bg-white p-3 rounded">
                 <div class="d-flex align-items-top justify-content-between py-3">
                   <div>
-                      <h1 class="fw-bold fs-3">${listing.title}</h1>
+                      <h1 class="fw-bold fs-2">${listing.title}</h1>
                       <div class="d-flex align-items-center">
                         <img
                           src="${avatar}"
@@ -69,7 +70,7 @@ export const listingDetails = (listing) => {
                   </div>
                 <div class="d-flex flex-column align-items-center justify-content-center">
                   <p class="small m-0">Highest Bid</p>
-                  <span class="fw-bold">${highestBid}</span>
+                  <span class="fw-bold">$ ${highestBid}</span>
                 </div>
                 <div class="d-flex flex-column align-items-center justify-content-center">
                   <p class="small m-0">Auction Ends</p>

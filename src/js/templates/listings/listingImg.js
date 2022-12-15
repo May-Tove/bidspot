@@ -1,6 +1,5 @@
 export const listingImg = (img, index) => {
-  let activeClass;
-
+  let activeClass = "";
   if (index === 0) {
     activeClass = "active";
   }
