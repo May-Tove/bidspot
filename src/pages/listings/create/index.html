@@ -10,10 +10,6 @@
     />
     <title>BidSpot | Create a Listing</title>
     <link rel="stylesheet" href="/dist/css/styles.css" />
-    <link
-      rel="stylesheet"
-      href="/node_modules/bootstrap/dist/css/bootstrap.min.css"
-    />
     <link rel="stylesheet" href="https://use.typekit.net/lcg8ujg.css" />
     <link rel="stylesheet" href="https://use.typekit.net/lcg8ujg.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -30,8 +26,8 @@
     <script type="module" src="/src/js/main.js"></script>
   </head>
   <body>
-    <header>
-      <nav class="navbar navbar-expand-lg sticky-top">
+    <header class="sticky-top">
+      <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="/index.html"
             ><img
@@ -45,6 +41,7 @@
             data-bs-toggle="offcanvas"
             data-bs-target="#offcanvasLightNavbar"
             aria-controls="offcanvasLightNavbar"
+            aria-label="Hamburger menu"
           >
             <span><i class="fa-solid fa-bars"></i></span>
           </button>
@@ -55,13 +52,13 @@
             aria-labelledby="offcanvasLightNavbarLabel"
           >
             <div class="offcanvas-header">
-              <h5 class="offcanvas-title" id="offcanvasLightNavbarLabel">
+              <div class="offcanvas-title" id="offcanvasLightNavbarLabel">
                 <img
                   class="logo ms-3"
                   src="/images/logo2.svg"
                   alt="BidSpot logo"
                 />
-              </h5>
+              </div>
               <button
                 type="button"
                 class="btn-close btn-close-black"
@@ -87,7 +84,12 @@
                     <i class="fa-solid fa-plus"></i> New Listing
                   </button>
                 </li>
-                <li class="nav-item dropdown px-3" id="profileNav"></li>
+                <li class="nav-item dropdown px-3" id="profileNav">
+                  <!-- Content replaced in JS if user is logged in -->
+                  <a class="nav-link" href="/src/pages/profile/login/index.html"
+                    ><i class="fa-regular fa-circle-user"></i> Login</a
+                  >
+                </li>
               </ul>
             </div>
           </div>
@@ -95,87 +97,118 @@
       </nav>
     </header>
     <main class="min-vh-100">
-      <div class="container pt-5">
+      <div class="container my-5 col col-md-9">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
-              <a class="link" href="/index.html">Home</a>
+              <a class="link text-decoration-none" href="/index.html">Home</a>
             </li>
-            <li class="breadcrumb-item">
-              <a class="link active" href="index.html">Create new Listing</a>
+            <li class="breadcrumb-item" aria-current="page">
+              <a class="link text-decoration-none active" href="index.html"
+                >Create new Listing</a
+              >
             </li>
           </ol>
         </nav>
         <section class="row d-flex justify-content-center">
-          <div class="col col-lg-8">
-            <h1 class="mb-3 fs-4">Create a New Listing</h1>
-            <div class="bg-white rounded p-3">
-              <form id="createForm">
-                <div class="mb-3">
-                  <label for="createTitle">Title</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    name="title"
-                    id="createTitle"
-                    required
-                    maxlength="280"
-                    title="Please write a suitable title for your listing"
-                  />
-                </div>
-                <div class="mb-3">
-                  <label for="createMedia">Image</label>
-                  <input
-                    type="url"
-                    class="form-control"
-                    name="media"
-                    id="createMedia"
-                    required
-                    title="Image is required, a maximum of 8 photos can be added and it must be a valid URL"
-                  />
-                  <div class="form-text">
-                    Each image URL must be separated by a comma, maximum 8
-                    photos
+          <div class="col">
+            <div class="bg-white rounded">
+              <h1 class="fw-bold fs-2 p-4 border-bottom">Create new Listing</h1>
+              <form id="createForm" class="p-4">
+                <div class="row mb-3 p-sm-2">
+                  <label for="createTitle" class="col-sm-2 col-form-label"
+                    >Title</label
+                  >
+                  <div class="col-sm-10">
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="title"
+                      id="createTitle"
+                      required
+                      maxlength="280"
+                      title="Please write a suitable title for your listing"
+                    />
                   </div>
                 </div>
-                <div class="mb-3">
-                  <label for="createTags">Tags</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    name="tags"
-                    id="createTags"
-                    title="Maximum 8 tags can be added"
-                  />
-                  <div class="form-text">
-                    Each tag must be separated by a comma, maximum 8 tags
+                <div class="row mb-3 p-sm-2">
+                  <label for="createMedia" class="col-sm-2 col-form-label"
+                    >Image</label
+                  >
+                  <div class="col-sm-10">
+                    <input
+                      type="url"
+                      class="form-control"
+                      name="media"
+                      id="createMedia"
+                      required
+                      title="Image is required, a maximum of 8 photos can be added and it must be a valid URL"
+                      placeholder="hhtps://www.example.com/photo"
+                    />
+                    <div class="form-text">
+                      Each image URL must be separated by a comma, maximum 8
+                      photos
+                    </div>
                   </div>
                 </div>
-                <div class="mb-3">
-                  <label for="dueDate">Due Date</label>
-                  <input
-                    type="date"
-                    class="form-control"
-                    name="endsAt"
-                    id="dueDate"
-                    required
-                    title="A due date for this listing must be added. For example 2022-12-3"
-                  />
+                <div class="row mb-3 p-sm-2">
+                  <label for="createTags" class="col-sm-2 col-form-label"
+                    >Tags</label
+                  >
+                  <div class="col-sm-10">
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="tags"
+                      id="createTags"
+                      title="Maximum 8 tags can be added"
+                    />
+                    <div class="form-text">
+                      Each tag must be separated by a comma, maximum 8 tags
+                    </div>
+                  </div>
                 </div>
-                <div class="mb-3">
-                  <label for="createDescription">Description</label>
-                  <textarea
-                    rows="4"
-                    class="form-control"
-                    name="description"
-                    id="createDescription"
-                    maxlength="280"
-                  ></textarea>
-                  <div class="form-text">Maximum of 280 characters</div>
+                <div class="row mb-3 p-sm-2">
+                  <label for="dueDate" class="col-sm-2 col-form-label"
+                    >Due Date</label
+                  >
+                  <div class="col-sm-10">
+                    <input
+                      type="date"
+                      class="form-control"
+                      name="endsAt"
+                      id="dueDate"
+                      required
+                      title="A due date for this listing must be added. For example 2022-12-3"
+                    />
+                  </div>
+                </div>
+                <div class="row mb-3 p-sm-2">
+                  <label for="createDescription" class="col-sm-2 col-form-label"
+                    >Description</label
+                  >
+                  <div class="col-sm-10">
+                    <textarea
+                      rows="4"
+                      class="form-control"
+                      name="description"
+                      id="createDescription"
+                      maxlength="280"
+                    ></textarea>
+                    <div class="form-text">Maximum of 280 characters</div>
+                  </div>
                 </div>
                 <div id="errorContainer"></div>
-                <button type="submit" class="btn btn-primary">Create</button>
               </form>
+              <div class="d-flex justify-content-sm-end p-4 border-top">
+                <button
+                  type="submit"
+                  form="createForm"
+                  class="btn btn-primary fw-bold me-sm-2"
+                >
+                  Create
+                </button>
+              </div>
             </div>
           </div>
         </section>
@@ -197,7 +230,7 @@
         >
           <div class="col d-flex justify-content-md-center pb-5">
             <div>
-              <h5 class="fw-bold mb-4">Sign up</h5>
+              <p class="footer-section fw-bold mb-4">Sign up</p>
               <p>Sign up to BidSpot and get your 1000 credit points today!</p>
               <a
                 href="/src/pages/profile/register/index.html"
@@ -208,7 +241,7 @@
           </div>
           <div class="col d-flex justify-content-md-center pb-5">
             <nav>
-              <h5 class="fw-bold mb-4">Quick Links</h5>
+              <p class="footer-section fw-bold mb-4">Quick Links</p>
               <ul class="nav d-flex flex-column">
                 <li class="nav-item">
                   <a class="nav-link p-0" href="index.html">Home</a>
@@ -223,7 +256,7 @@
           </div>
           <div class="col d-flex justify-content-md-center pb-5">
             <nav>
-              <h5 class="fw-bold mb-4">Contact</h5>
+              <p class="footer-section fw-bold mb-4">Contact</p>
               <ul class="nav d-flex flex-column">
                 <li class="nav-item">
                   <a class="nav-link p-0" href="mailto: support@bidspot.com"
@@ -238,7 +271,7 @@
           </div>
           <div class="col d-flex justify-content-md-center pb-5">
             <div class="d-flex flex-column">
-              <h5 class="fw-bold mb-4">Address</h5>
+              <p class="footer-section fw-bold mb-4">Address</p>
               <a href="#">4694 Gerald L. Bates Drive</a>
               <a href="#">02132, West Roxbury</a>
             </div>
@@ -246,25 +279,28 @@
 
           <div class="col d-flex justify-content-md-center pb-5">
             <div class="social-links">
-              <h5 class="fw-bold mb-4">Follow us</h5>
+              <p class="footer-section fw-bold mb-4">Follow us</p>
               <a
                 class="d-inline-block rounded-circle border text-center me-1"
-                href="#"
+                href="https://www.facebook.com/"
+                aria-label="Facebook"
               >
-                <i class="fa-brands fa-facebook-f"></i
-              ></a>
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
               <a
                 class="d-inline-block rounded-circle border text-center me-1"
-                href="#"
+                href="https://www.instagram.com/"
+                aria-label="Instagram"
               >
-                <i class="fa-brands fa-instagram"></i
-              ></a>
+                <i class="fa-brands fa-instagram"></i>
+              </a>
               <a
                 class="d-inline-block rounded-circle border text-center"
-                href="#"
+                href="https://twitter.com/"
+                aria-label="Twitter"
               >
-                <i class="fa-brands fa-twitter"></i
-              ></a>
+                <i class="fa-brands fa-twitter"></i>
+              </a>
             </div>
           </div>
         </div>

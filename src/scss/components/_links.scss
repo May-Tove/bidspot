@@ -1,8 +1,13 @@
 .link {
   color: $primary;
-  text-decoration: none;
+  transition: 0.3s ease;
 
-  &:hover {
-    color: $indigo;
+  &.active {
+    font-weight: bold;
+  }
+
+  &:hover,
+  &:focus {
+    color: $dark-indigo;
   }
 }

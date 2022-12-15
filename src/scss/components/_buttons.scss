@@ -1,35 +1,29 @@
 .btn-primary {
-  background-color: $primary !important;
-  color: $white !important;
-  border: none !important;
-
   &:hover {
-    background-color: #bc0c73 !important;
-    color: $white !important;
+    background-color: $dark-indigo;
   }
 }
 
-.btn-outline-primary {
-  border-color: $primary !important;
-  color: $primary !important;
-
-  &:hover {
-    background-color: #bc0c73 !important;
-    border-color: #bc0c73 !important;
-    color: $gray-100 !important;
-  }
-}
-
-.btn-edit {
+#editProfileBtn {
   width: 35px;
   height: 35px;
 }
 
 .new-listing {
   pointer-events: all !important;
-  cursor: not-allowed !important;
+  cursor: not-allowed;
 
   &:hover {
-    background-color: $primary !important;
+    background-color: $primary;
+  }
+}
+
+#dropdownBtn,
+#indicatorBtn,
+#prevBtn,
+#nextBtn,
+.close-btn {
+  &:focus-visible {
+    border: 2px solid $primary;
   }
 }

@@ -10,22 +10,15 @@
     width: 100%;
     height: 230px;
     object-fit: cover;
+    transition: 0.25s ease;
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
     color: $black;
 
     & .listing-img {
       transform: scale(1.1);
     }
-  }
-
-  & .badge {
-    background-color: $secondary !important;
-    color: $black !important;
-  }
-
-  & .listing-img {
-    transition: 0.25s ease;
   }
 }

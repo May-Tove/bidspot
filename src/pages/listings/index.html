@@ -10,10 +10,6 @@
     />
     <title>BidSpot | Listings</title>
     <link rel="stylesheet" href="/dist/css/styles.css" />
-    <link
-      rel="stylesheet"
-      href="/node_modules/bootstrap/dist/css/bootstrap.min.css"
-    />
     <link rel="stylesheet" href="https://use.typekit.net/lcg8ujg.css" />
     <link rel="stylesheet" href="https://use.typekit.net/lcg8ujg.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -30,8 +26,8 @@
     <script type="module" src="../../js/main.js"></script>
   </head>
   <body>
-    <header>
-      <nav class="navbar navbar-expand-lg sticky-top">
+    <header class="sticky-top">
+      <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="/index.html"
             ><img
@@ -45,6 +41,7 @@
             data-bs-toggle="offcanvas"
             data-bs-target="#offcanvasLightNavbar"
             aria-controls="offcanvasLightNavbar"
+            aria-label="Hamburger menu"
           >
             <span><i class="fa-solid fa-bars"></i></span>
           </button>
@@ -55,13 +52,13 @@
             aria-labelledby="offcanvasLightNavbarLabel"
           >
             <div class="offcanvas-header">
-              <h5 class="offcanvas-title" id="offcanvasLightNavbarLabel">
+              <div class="offcanvas-title" id="offcanvasLightNavbarLabel">
                 <img
                   class="logo ms-3"
                   src="/images/logo2.svg"
                   alt="BidSpot logo"
                 />
-              </h5>
+              </div>
               <button
                 type="button"
                 class="btn-close btn-close-black"
@@ -84,14 +81,17 @@
                     data-bs-toggle="tooltip"
                     data-bs-placement="bottom"
                     data-bs-title="You must be logged in to create a listing"
-                    class="new-listing mb-2 mb-lg-0 btn btn-primary btn-sm"
+                    class="new-listing mb-2 mb-lg-0 btn btn-primary btn-sm fw-bold"
                     disabled
                   >
                     <i class="fa-solid fa-plus"></i> New Listing
                   </button>
                 </li>
                 <li class="nav-item dropdown px-3" id="profileNav">
-                  <!-- Content rendered in JS -->
+                  <!-- Content replaced in JS if user is logged in -->
+                  <a class="nav-link" href="/src/pages/profile/login/index.html"
+                    ><i class="fa-regular fa-circle-user"></i> Login</a
+                  >
                 </li>
               </ul>
             </div>
@@ -105,27 +105,30 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
-              <a class="link" href="/index.html">Home</a>
+              <a class="link text-decoration-none" href="/index.html">Home</a>
             </li>
-            <li class="breadcrumb-item">
-              <a class="link active" href="index.html">Listings</a>
+            <li class="breadcrumb-item active" aria-current="page">
+              <a class="link text-decoration-none active" href="index.html"
+                >Listings</a
+              >
             </li>
           </ol>
         </nav>
         <div class="row">
-          <h1 class="fw-bold border-bottom pb-4">Listings</h1>
+          <h1 class="fw-bold fs-2 text-center border-bottom pb-4">Listings</h1>
           <!--  SEARCH, CATEGORIES AND FILTER -->
           <section
-            class="d-flex justify-content-between align-items-center flex-lg-column justify-content-lg-start align-items-lg-start col-lg-2 py-3"
+            class="d-flex justify-content-between align-items-center py-3"
           >
-            <div class="pb-lg-4">
+            <div>
               <form class="input-group" role="search" id="searchForm">
-                <span class="input-group-text border-0 bg-white shadow-sm">
+                <span class="input-group-text">
                   <i class="fa-solid fa-magnifying-glass"></i>
                 </span>
+                <label for="search-input" hidden>Search</label>
                 <input
                   type="search"
-                  class="form-control search-form border-0 shadow-sm"
+                  class="form-control search-form"
                   placeholder="Search.."
                   aria-label="Search"
                   id="search-input"
@@ -133,7 +136,7 @@
               </form>
             </div>
             <div>
-              <label for="sortListings">Sort by</label>
+              <label for="sortListings" hidden>Sort by</label>
               <select
                 name="sort-listings"
                 id="sortListings"
@@ -143,6 +146,7 @@
                 <option value="newest" selected>Newest</option>
                 <option value="oldest">Oldest</option>
                 <option value="ending">Ending Soon</option>
+                <option value="popular">Most popular</option>
               </select>
             </div>
           </section>
@@ -254,7 +258,7 @@
         >
           <div class="col d-flex justify-content-md-center pb-5">
             <div>
-              <h5 class="fw-bold mb-4">Sign up</h5>
+              <p class="footer-section fw-bold mb-4">Sign up</p>
               <p>Sign up to BidSpot and get your 1000 credit points today!</p>
               <a
                 href="/src/pages/profile/register/index.html"
@@ -265,7 +269,7 @@
           </div>
           <div class="col d-flex justify-content-md-center pb-5">
             <nav>
-              <h5 class="fw-bold mb-4">Quick Links</h5>
+              <p class="footer-section fw-bold mb-4">Quick Links</p>
               <ul class="nav d-flex flex-column">
                 <li class="nav-item">
                   <a class="nav-link p-0" href="index.html">Home</a>
@@ -280,7 +284,7 @@
           </div>
           <div class="col d-flex justify-content-md-center pb-5">
             <nav>
-              <h5 class="fw-bold mb-4">Contact</h5>
+              <p class="footer-section fw-bold mb-4">Contact</p>
               <ul class="nav d-flex flex-column">
                 <li class="nav-item">
                   <a class="nav-link p-0" href="mailto: support@bidspot.com"
@@ -295,7 +299,7 @@
           </div>
           <div class="col d-flex justify-content-md-center pb-5">
             <div class="d-flex flex-column">
-              <h5 class="fw-bold mb-4">Address</h5>
+              <p class="footer-section fw-bold mb-4">Address</p>
               <a href="#">4694 Gerald L. Bates Drive</a>
               <a href="#">02132, West Roxbury</a>
             </div>
@@ -303,34 +307,37 @@
 
           <div class="col d-flex justify-content-md-center pb-5">
             <div class="social-links">
-              <h5 class="fw-bold mb-4">Follow us</h5>
+              <p class="footer-section fw-bold mb-4">Follow us</p>
               <a
                 class="d-inline-block rounded-circle border text-center me-1"
-                href="#"
+                href="https://www.facebook.com/"
+                aria-label="Facebook"
               >
-                <i class="fa-brands fa-facebook-f"></i
-              ></a>
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
               <a
                 class="d-inline-block rounded-circle border text-center me-1"
-                href="#"
+                href="https://www.instagram.com/"
+                aria-label="Instagram"
               >
-                <i class="fa-brands fa-instagram"></i
-              ></a>
+                <i class="fa-brands fa-instagram"></i>
+              </a>
               <a
                 class="d-inline-block rounded-circle border text-center"
-                href="#"
+                href="https://twitter.com/"
+                aria-label="Twitter"
               >
-                <i class="fa-brands fa-twitter"></i
-              ></a>
+                <i class="fa-brands fa-twitter"></i>
+              </a>
             </div>
           </div>
         </div>
-        <div class="row">
-          <div
-            class="col d-flex justify-content-md-center align-items-center p-4"
-          >
-            <p class="small m-0">&copy; 2022 BidSpot</p>
-          </div>
+      </div>
+      <div class="row">
+        <div
+          class="col d-flex justify-content-md-center align-items-center p-4"
+        >
+          <p class="small m-0">&copy; 2022 BidSpot</p>
         </div>
       </div>
     </footer>
