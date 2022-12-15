@@ -1,14 +1,20 @@
-.hero-title {
-  font-family: "Sonder", sans-serif;
-  color: #282827;
-}
+#hero {
+  background-color: $gray-200;
+  min-height: 60vh;
 
-.hero-img {
-  width: 100%;
-  object-fit: cover;
-  max-height: 700px;
-}
+  & .hero-title {
+    font-family: "Sonder", sans-serif;
+    max-width: 500px;
+    letter-spacing: 0.3rem;
+  }
 
-.latest-listings {
-  background-color: $gray-500;
+  & .lead {
+    max-width: 450px;
+  }
+
+  & .hero-img {
+    width: 100%;
+    height: 80vh;
+    object-fit: cover;
+  }
 }

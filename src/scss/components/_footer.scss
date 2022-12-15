@@ -1,8 +1,12 @@
 footer {
-  background-color: $dark;
-  color: $white;
+  background-color: $gray-300;
+  color: $dark;
 
-  & h6 {
+  & p {
+    max-width: 200px;
+  }
+
+  & .footer-section {
     position: relative;
 
     &::before {
@@ -16,11 +20,11 @@ footer {
     }
   }
 
-  & a {
-    color: $white !important;
+  & .nav-link {
+    color: $dark;
 
     &:hover {
-      color: $primary !important;
+      color: $primary;
     }
   }
 

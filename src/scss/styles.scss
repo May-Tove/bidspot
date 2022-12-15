@@ -8,7 +8,7 @@
 
 @import "./landing-page/hero.scss";
 @import "./landing-page/how-it-works.scss";
-@import "./landing-page/stats.scss";
+@import "./landing-page/signup.scss";
 
 @import "./components/buttons.scss";
 @import "./components/links.scss";
@@ -30,5 +30,5 @@
 }
 
 body {
-  background-color: $gray-100 !important;
+  background-color: $gray-100;
 }

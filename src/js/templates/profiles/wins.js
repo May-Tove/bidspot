@@ -1,13 +1,6 @@
-export const profileWins = (wins, index) => {
-  const winNumber = index + 1;
-  return `
-      <tr>
-        <th scope="row">${winNumber}</th>
-        <td><a
-        href="/src/pages/listings/details/index.html?id=${wins}"
-      >
-      ${wins}
-      </a>
-      </td>
-      </tr>`;
+export const profileWins = (wins) => {
+  return `<div class="p-3 m-2 bg-light rounded">
+            <span>Listing ID: </span>
+            <a class="link text-decoration-none" href="/src/pages/listings/details/index.html?id=${wins}"><i class="fa-solid fa-link"></i> ${wins}</a>
+          </div>`;
 };

@@ -7,10 +7,6 @@
     <meta name="description" content="Login to your account at BidSpot" />
     <title>BidSpot | Login</title>
     <link rel="stylesheet" href="/dist/css/styles.css" />
-    <link
-      rel="stylesheet"
-      href="/node_modules/bootstrap/dist/css/bootstrap.min.css"
-    />
     <link rel="stylesheet" href="https://use.typekit.net/lcg8ujg.css" />
     <link rel="stylesheet" href="https://use.typekit.net/lcg8ujg.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -24,7 +20,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="module" defer src="/src/js/main.js"></script>
+    <script type="module" src="/src/js/main.js"></script>
   </head>
   <body>
     <main>
@@ -35,9 +31,9 @@
               class="d-flex flex-column align-items-center justify-content-center"
             >
               <img class="logo" src="/images/logo2.svg" alt="" />
-              <h4 class="mt-4 fw-bold text-center">
+              <h1 class="mt-4 fw-bold text-center fs-4">
                 Login in to your BidSpot account
-              </h4>
+              </h1>
               <div class="small text-muted mb-4">
                 Or
                 <a class="link" href="../register/index.html">create account</a>
@@ -52,6 +48,7 @@
                     class="form-control"
                     name="email"
                     id="loginEmail"
+                    placeholder="example@noroff.no"
                     required
                     pattern="^[\w\-.]+@(stud.)?noroff.no$"
                     title="Only users with a valid Noroff email account are allowed to login"
@@ -64,6 +61,7 @@
                     class="form-control"
                     name="password"
                     id="loginPassword"
+                    placeholder="Password"
                     required
                     minlength="8"
                     title="Password must be at least 8 characters long"
@@ -89,6 +87,5 @@
         </div>
       </div>
     </main>
-    <footer></footer>
   </body>
 </html>

@@ -1,28 +1,50 @@
+img {
+  object-fit: cover;
+}
+
 .img-thumbnail {
   width: 35px;
-  height: 35px !important;
-  object-fit: cover;
+  height: 35px;
 }
 
 .img-thumbnail-small {
   width: 20px;
-  height: 20px !important;
-  object-fit: cover;
+  height: 20px;
 }
 
 .profile-picture {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
+  width: 140px;
+  height: 140px;
 }
 
 .small-img {
-  width: 80px !important;
-  height: 80px !important;
-  object-fit: cover;
+  width: 80px;
+  height: 80px;
+
+  &:focus-visible {
+    border: 2px solid $primary;
+  }
 }
 
 .listing-img {
   height: 500px;
-  object-fit: cover;
+}
+
+.bid-container {
+  & .img-container {
+    min-width: 80px;
+    min-height: 80px;
+    overflow: hidden;
+  }
+
+  & .small-img {
+    transition: 0.25s ease;
+  }
+
+  &:hover,
+  &:focus {
+    & .small-img {
+      transform: scale(1.1);
+    }
+  }
 }

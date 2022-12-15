@@ -14,13 +14,7 @@ export async function removeListingListener() {
     listing.id = id;
 
     deleteBtn.addEventListener("click", async () => {
-      try {
-        await removeListing(id);
-      } catch {
-        return alert(
-          "There was a problem deleting this listing, please refresh the page and try again"
-        );
-      }
+      await removeListing(id);
     });
   }
 }

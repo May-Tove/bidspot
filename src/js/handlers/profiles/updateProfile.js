@@ -25,13 +25,7 @@ export async function updateProfileListener() {
       profile.name = name;
       profile.email = email;
 
-      try {
-        await updateProfile(profile);
-      } catch {
-        return alert(
-          "There was a problem updating your profile picture, please refresh the page and try again"
-        );
-      }
+      await updateProfile(profile);
     });
   }
 }

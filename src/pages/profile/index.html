@@ -6,14 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="View all your active listings and all your wins in your profile details"
+      content="Keep track of your current credit, listings, wins and bids all in one place."
     />
     <title id="nameTitle">BidSpot</title>
     <link rel="stylesheet" href="/dist/css/styles.css" />
-    <link
-      rel="stylesheet"
-      href="/node_modules/bootstrap/dist/css/bootstrap.min.css"
-    />
     <link rel="stylesheet" href="https://use.typekit.net/lcg8ujg.css" />
     <link rel="stylesheet" href="https://use.typekit.net/lcg8ujg.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -26,12 +22,12 @@
       src="https://kit.fontawesome.com/155738729b.js"
       crossorigin="anonymous"
     ></script>
-    <script src="../../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="module" defer src="/src/js/main.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="/src/js/main.js"></script>
   </head>
   <body>
-    <header>
-      <nav class="navbar navbar-expand-lg sticky-top">
+    <header class="sticky-top">
+      <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="/index.html"
             ><img
@@ -45,6 +41,7 @@
             data-bs-toggle="offcanvas"
             data-bs-target="#offcanvasLightNavbar"
             aria-controls="offcanvasLightNavbar"
+            aria-label="Hamburger menu"
           >
             <span><i class="fa-solid fa-bars"></i></span>
           </button>
@@ -55,13 +52,13 @@
             aria-labelledby="offcanvasLightNavbarLabel"
           >
             <div class="offcanvas-header">
-              <h5 class="offcanvas-title" id="offcanvasLightNavbarLabel">
+              <div class="offcanvas-title" id="offcanvasLightNavbarLabel">
                 <img
                   class="logo ms-3"
                   src="/images/logo2.svg"
                   alt="BidSpot logo"
                 />
-              </h5>
+              </div>
               <button
                 type="button"
                 class="btn-close btn-close-black"
@@ -83,14 +80,17 @@
                 </li>
                 <li class="nav-item px-3" id="newListingBtn">
                   <button
-                    class="new-listing mb-2 mb-lg-0 btn btn-primary btn-sm"
+                    class="new-listing mb-2 mb-lg-0 btn btn-primary btn-sm fw-bold"
                     disabled
                   >
                     <i class="fa-solid fa-plus"></i> New Listing
                   </button>
                 </li>
                 <li class="nav-item dropdown px-3 active" id="profileNav">
-                  <!-- Content rendered in JS-->
+                  <!-- Content replaced in JS if user is logged in -->
+                  <a class="nav-link" href="/src/pages/profile/login/index.html"
+                    ><i class="fa-regular fa-circle-user"></i> Login</a
+                  >
                 </li>
               </ul>
             </div>
@@ -98,103 +98,39 @@
         </div>
       </nav>
     </header>
-    <main id="main">
+    <main id="main" class="min-vh-100">
       <div class="container pt-5">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
-              <a class="link" href="/index.html">Home</a>
+              <a class="link text-decoration-none" href="/index.html">Home</a>
             </li>
             <li class="breadcrumb-item">
-              <a class="link active" href="index.html">Profile</a>
+              <a
+                class="link text-decoration-none active"
+                href="index.html"
+                aria-current="page"
+                >Profile</a
+              >
             </li>
           </ol>
         </nav>
-        <!------ EDIT AVATAR FORM MODAL ------>
-        <div
-          class="modal fade"
-          id="editProfileModal"
-          tabindex="-1"
-          aria-labelledby="modalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="modalLabel">
-                  <i class="fa-regular fa-pen-to-square"></i> Edit Avatar
-                </h1>
-                <button
-                  class="btn"
-                  type="button"
-                  id="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                >
-                  <i class="fa-solid fa-xmark"></i>
-                </button>
-              </div>
-              <div class="modal-body">
-                <form id="editProfile">
-                  <div class="mb-3">
-                    <label for="name">Name</label>
-                    <input
-                      class="form-control user-form"
-                      type="text"
-                      name="name"
-                      disabled
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <label for="email">Email</label>
-                    <input
-                      class="form-control user-form"
-                      type="email"
-                      name="email"
-                      disabled
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <label for="avatar">Avatar</label>
-                    <input
-                      class="form-control user-form"
-                      type="url"
-                      name="avatar"
-                    />
-                  </div>
-                </form>
-              </div>
-              <div class="modal-footer">
-                <button
-                  type="submit"
-                  form="editProfile"
-                  class="btn btn-primary"
-                  id="editBtn"
-                >
-                  Save
-                </button>
-                <button class="btn btn-light" data-bs-dismiss="modal">
-                  Cancel
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <div class="row w-100">
-          <!-- PROFILE DETAILS -->
-          <div
-            class="col-md-4 col-lg-3 d-flex align-items-start justify-content-center"
+        <!-- PROFILE DETAILS -->
+        <div class="row align-items-start">
+          <section
+            class="col-12 col-lg-3 d-flex align-items-center mb-5"
             id="profileDetailContainer"
           >
             <div class="w-100 bg-white rounded p-4" aria-hidden="true">
-              <div
-                class="d-flex flex-column align-items-center justify-content-center mb-3"
-              >
+              <!-- Content rendered in JS -->
+
+              <!-- Loading indicator -->
+              <div class="d-flex align-items-center justify-content-start mb-3">
                 <div class="position-relative placeholder-glow">
                   <img
                     src=" "
-                    alt=" "
+                    alt="placeholder loading indicator"
                     class="profile-picture rounded-circle placeholder"
                   />
                 </div>
@@ -213,12 +149,11 @@
                 <span class="placeholder col-7 col-lg-2 my-1"></span>
               </div>
             </div>
+            <!-- End of loading indicator -->
+          </section>
 
-            <!-- Content rendered in JS -->
-          </div>
-
-          <!-- PROFILE LISTINGS -->
-          <div class="col-md-8 col-lg-9">
+          <!-- PROFILE TABS (listings, wins, bids) -->
+          <section class="col-12 col-lg-9 mb-5">
             <div>
               <nav>
                 <div class="nav nav-tabs border-0" id="nav-tab" role="tablist">
@@ -231,9 +166,12 @@
                     role="tab"
                     aria-controls="nav-listings"
                     aria-selected="true"
+                    tabindex="0"
                   >
                     Listings
-                    <span id="listingsCount"></span>
+                    <span id="listingsCount">
+                      <!-- Content rendered in JS -->
+                    </span>
                   </button>
                   <button
                     class="nav-link border-0"
@@ -244,9 +182,12 @@
                     role="tab"
                     aria-controls="nav-win"
                     aria-selected="false"
+                    tabindex="0"
                   >
                     Wins
-                    <span id="winCount"></span>
+                    <span id="winCount">
+                      <!-- Content rendered in JS -->
+                    </span>
                   </button>
                   <button
                     class="nav-link border-0"
@@ -257,22 +198,29 @@
                     role="tab"
                     aria-controls="nav-bids"
                     aria-selected="false"
+                    tabindex="0"
                   >
                     Bids
-                    <span id="bidCount"></span>
+                    <span id="bidCount">
+                      <!-- Content rendered in JS -->
+                    </span>
                   </button>
                 </div>
               </nav>
-              <div class="tab-content p-4 rounded" id="nav-tabContent">
+              <div
+                class="tab-content p-1 p-lg-4 rounded-bottom rounded-end"
+                id="nav-tabContent"
+              >
                 <div
                   class="tab-pane fade show active"
                   id="nav-listings"
                   role="tabpanel"
                   aria-labelledby="nav-listings-tab"
-                  tabindex="0"
                 >
-                  <div class="d-flex flex-wrap" id="profileListings">
+                  <!-- Listings -->
+                  <div class="d-flex flex-wrap p-2" id="profileListings">
                     <!-- Content rendered in JS -->
+
                     <!-- Loading animation -->
                     <div
                       class="col-12 col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 py-3 px-2"
@@ -284,7 +232,7 @@
                         <div class="placeholder-glow">
                           <img
                             src=" "
-                            alt=" "
+                            alt="placeholder loading indicator"
                             class="profile-picture w-100 rounded placeholder"
                           />
                         </div>
@@ -306,7 +254,7 @@
                         <div class="placeholder-glow">
                           <img
                             src=" "
-                            alt=" "
+                            alt="placeholder loading indicator"
                             class="profile-picture w-100 rounded placeholder"
                           />
                         </div>
@@ -328,7 +276,7 @@
                         <div class="placeholder-glow">
                           <img
                             src=" "
-                            alt=" "
+                            alt="placeholder loading indicator"
                             class="profile-picture w-100 rounded placeholder"
                           />
                         </div>
@@ -350,7 +298,7 @@
                         <div class="placeholder-glow">
                           <img
                             src=" "
-                            alt=" "
+                            alt="placeholder loading indicator"
                             class="profile-picture w-100 rounded placeholder"
                           />
                         </div>
@@ -366,42 +314,106 @@
                   </div>
                 </div>
 
-                <!-- Profile Wins -->
+                <!-- Wins -->
                 <div
                   class="tab-pane fade"
                   id="nav-win"
                   role="tabpanel"
                   aria-labelledby="nav-win-tab"
-                  tabindex="0"
                 >
                   <div class="d-flex justify-content-center">
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th scope="col">#</th>
-                          <th scope="col">Listing ID</th>
-                        </tr>
-                      </thead>
-                      <tbody id="winListings">
-                        <!-- Content rendered in JS -->
-                      </tbody>
-                    </table>
+                    <div class="d-flex flex-column p-2 w-100" id="winListings">
+                      <!-- Content rendered in JS -->
+                    </div>
                   </div>
                 </div>
 
-                <!-- Profile Bids -->
+                <!-- Bids -->
                 <div
                   class="tab-pane fade"
                   id="nav-bids"
                   role="tabpanel"
                   aria-labelledby="nav-bids-tab"
-                  tabindex="0"
                 >
-                  <div class="d-flex flex-column" id="profileBids">
+                  <div class="d-flex flex-wrap p-2" id="profileBids">
                     <!-- Content rendered in JS -->
                   </div>
                 </div>
               </div>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <!-- EDIT AVATAR FORM MODAL -->
+      <div
+        class="modal fade"
+        id="editProfileModal"
+        tabindex="-1"
+        aria-labelledby="modalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="modalLabel">
+                <i class="fa-regular fa-pen-to-square"></i> Edit Avatar
+              </h1>
+              <button
+                class="btn"
+                type="button"
+                id="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              >
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form id="editProfile">
+                <div class="mb-3">
+                  <label for="editProfileName">Name</label>
+                  <input
+                    class="form-control"
+                    type="text"
+                    name="name"
+                    id="editProfileName"
+                    disabled
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="editProfileEmail">Email</label>
+                  <input
+                    class="form-control"
+                    type="email"
+                    name="email"
+                    id="editProfileEmail"
+                    disabled
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="editProfileAvatar">Avatar</label>
+                  <input
+                    class="form-control"
+                    type="url"
+                    name="avatar"
+                    id="editProfileAvatar"
+                  />
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="submit"
+                form="editProfile"
+                class="btn btn-primary"
+                id="editBtn"
+              >
+                Save
+              </button>
+              <button class="btn btn-light" data-bs-dismiss="modal">
+                Cancel
+              </button>
             </div>
           </div>
         </div>
@@ -423,7 +435,7 @@
         >
           <div class="col d-flex justify-content-md-center pb-5">
             <div>
-              <h6 class="fw-bold mb-4">Sign up</h6>
+              <p class="footer-section fw-bold mb-4">Sign up</p>
               <p>Sign up to BidSpot and get your 1000 credit points today!</p>
               <a
                 href="/src/pages/profile/register/index.html"
@@ -434,7 +446,7 @@
           </div>
           <div class="col d-flex justify-content-md-center pb-5">
             <nav>
-              <h6 class="fw-bold mb-4">Quick Links</h6>
+              <p class="footer-section fw-bold mb-4">Quick Links</p>
               <ul class="nav d-flex flex-column">
                 <li class="nav-item">
                   <a class="nav-link p-0" href="index.html">Home</a>
@@ -449,10 +461,12 @@
           </div>
           <div class="col d-flex justify-content-md-center pb-5">
             <nav>
-              <h6 class="fw-bold mb-4">Contact</h6>
+              <p class="footer-section fw-bold mb-4">Contact</p>
               <ul class="nav d-flex flex-column">
                 <li class="nav-item">
-                  <a class="nav-link p-0" href="#">support@bidspot.com</a>
+                  <a class="nav-link p-0" href="mailto: support@bidspot.com"
+                    >support@bidspot.com</a
+                  >
                 </li>
                 <li class="nav-item">
                   <a class="nav-link p-0" href="#">+47 12 34 56 78</a>
@@ -462,7 +476,7 @@
           </div>
           <div class="col d-flex justify-content-md-center pb-5">
             <div class="d-flex flex-column">
-              <h6 class="fw-bold mb-4">Address</h6>
+              <p class="footer-section fw-bold mb-4">Address</p>
               <a href="#">4694 Gerald L. Bates Drive</a>
               <a href="#">02132, West Roxbury</a>
             </div>
@@ -470,35 +484,35 @@
 
           <div class="col d-flex justify-content-md-center pb-5">
             <div class="social-links">
-              <h6 class="fw-bold mb-4">Follow us</h6>
+              <p class="footer-section fw-bold mb-4">Follow us</p>
               <a
                 class="d-inline-block rounded-circle border text-center me-1"
-                href="#"
+                href="https://www.facebook.com/"
+                aria-label="Facebook"
               >
-                <i class="fa-brands fa-facebook-f"></i
-              ></a>
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
               <a
                 class="d-inline-block rounded-circle border text-center me-1"
-                href="#"
+                href="https://www.instagram.com/"
+                aria-label="Instagram"
               >
-                <i class="fa-brands fa-instagram"></i
-              ></a>
+                <i class="fa-brands fa-instagram"></i>
+              </a>
               <a
                 class="d-inline-block rounded-circle border text-center"
-                href="#"
+                href="https://twitter.com/"
+                aria-label="Twitter"
               >
-                <i class="fa-brands fa-twitter"></i
-              ></a>
+                <i class="fa-brands fa-twitter"></i>
+              </a>
             </div>
           </div>
         </div>
-        <div class="row">
-          <div
-            class="col d-flex justify-content-md-center align-items-center p-4"
-          >
-            <p class="small m-0">&copy; 2022 BidSpot</p>
-          </div>
-        </div>
+      </div>
+
+      <div class="col d-flex justify-content-md-center align-items-center p-4">
+        <p class="small m-0">&copy; 2022 BidSpot</p>
       </div>
     </footer>
     <script>

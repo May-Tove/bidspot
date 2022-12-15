@@ -37,13 +37,7 @@ export async function updateListingListener() {
 
       const listing = { id, title, description, endsAt, media, tags };
 
-      try {
-        await updateListing(listing);
-      } catch {
-        return alert(
-          "There was a problem updating this listing, please refresh the page and try again"
-        );
-      }
+      await updateListing(listing);
     });
   }
 }

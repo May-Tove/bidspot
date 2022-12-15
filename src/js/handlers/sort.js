@@ -29,6 +29,9 @@ export async function sortListings(event) {
           (a, b) => new Date(a.endsAt) - new Date(b.endsAt)
         );
         break;
+      case "popular":
+        sortedListings = listings.sort((a, b) => b._count.bids - a._count.bids);
+        break;
     }
 
     const output = sortedListings.map(listingCard);

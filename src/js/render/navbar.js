@@ -8,9 +8,7 @@ export async function navbar() {
   const newListingBtn = document.querySelector("#newListingBtn");
   const profileNav = document.querySelector("#profileNav");
 
-  if (!isLoggedIn()) {
-    profileNav.innerHTML = templates.loginLink();
-  } else {
+  if (isLoggedIn()) {
     const loggedInUser = await getProfile(get("user").name);
 
     profileNav.innerHTML = templates.profileLink(loggedInUser);

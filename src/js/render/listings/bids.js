@@ -11,7 +11,10 @@ export async function renderAllBids() {
     const listing = await getListing(id);
 
     const bids = listing.bids;
-    const output = bids.reverse().map(allBids);
+
+    bids.sort((a, b) => b.amount - a.amount);
+    const output = bids.map(allBids);
+
     if (bids.length === 0) {
       bidsContainer.innerHTML = noResultError("No bids yet");
     } else {
