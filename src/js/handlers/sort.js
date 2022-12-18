@@ -1,45 +1,43 @@
 import { getListings } from "../api/listings/getAllListings.js";
+import { listings_url, listings_flags } from "../api/constants.js";
 import { listingCard } from "../templates/index.js";
-
-const sortSelector = document.querySelector("#sortListings");
-let sortedListings = [];
+import { renderResult } from "../render/index.js";
 
 /**
  * Event listener that sorts posts on change
  */
-export async function sortListings(event) {
+export async function sortListings() {
   const listingContainer = document.querySelector("#listingsContainer");
+  const sortSelector = document.querySelector("#sortListings");
+  let sortedListings = [];
 
-  if (listingContainer) {
-    const sortSelected = event.target.value;
+  if (sortSelector) {
+    sortSelector.addEventListener("change", async (event) => {
+      const listings = await getListings(`${listings_url}?${listings_flags}`);
 
-    const listings = await getListings();
+      const sortSelected = event.target.value;
+      switch (sortSelected) {
+        case "newest":
+          sortedListings = listings;
+          break;
+        case "oldest":
+          sortedListings = listings.sort(
+            (a, b) => new Date(a.created) - new Date(b.created)
+          );
+          break;
+        case "ending":
+          sortedListings = listings.sort(
+            (a, b) => new Date(a.endsAt) - new Date(b.endsAt)
+          );
+          break;
+        case "popular":
+          sortedListings = listings.sort(
+            (a, b) => b._count.bids - a._count.bids
+          );
+          break;
+      }
 
-    switch (sortSelected) {
-      case "newest":
-        sortedListings = listings;
-        break;
-      case "oldest":
-        sortedListings = listings.sort(
-          (a, b) => new Date(a.created) - new Date(b.created)
-        );
-        break;
-      case "ending":
-        sortedListings = listings.sort(
-          (a, b) => new Date(a.endsAt) - new Date(b.endsAt)
-        );
-        break;
-      case "popular":
-        sortedListings = listings.sort((a, b) => b._count.bids - a._count.bids);
-        break;
-    }
-
-    const output = sortedListings.map(listingCard);
-
-    listingContainer.innerHTML = output.join("");
+      renderResult(sortedListings, listingContainer, listingCard);
+    });
   }
-}
-
-if (sortSelector) {
-  sortSelector.addEventListener("change", sortListings);
 }
