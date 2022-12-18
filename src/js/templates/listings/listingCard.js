@@ -39,7 +39,7 @@ export const listingCard = (listing) => {
                           onerror="src='/images/img-placeholder.jpeg'"
                         />
                         <div>
-                          <span class="position-absolute top-0 end-0 m-1 text-success small fw-bold bg-light p-2 rounded-pill" id="highestBid">${highestBid}</span>
+                          <span class="position-absolute top-0 end-0 m-1 small fw-bold p-2 rounded-pill" id="highestBid">${highestBid}</span>
                         </div>
                       </div>
                   </div>

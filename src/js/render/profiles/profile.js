@@ -10,6 +10,7 @@ import * as templates from "../../templates/index.js";
  */
 export async function renderProfile() {
   const profileContainer = document.querySelector("#profileDetailContainer");
+  const profileBreadcrumb = document.querySelector("#profileBreadcrumb");
   const pageTitle = document.querySelector("#nameTitle");
 
   if (isLoggedIn && profileContainer) {
@@ -17,8 +18,9 @@ export async function renderProfile() {
 
     const profile = await getProfile(name);
 
-    if (pageTitle) {
+    if (pageTitle && profileBreadcrumb) {
       pageTitle.innerHTML = `BidSpot | ${name}`;
+      profileBreadcrumb.innerHTML = name;
     }
 
     profileContainer.innerHTML = templates.profilePage(profile);

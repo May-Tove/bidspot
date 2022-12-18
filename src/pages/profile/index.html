@@ -107,15 +107,17 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
-              <a class="link text-decoration-none" href="/index.html">Home</a>
+              <a href="/index.html">Home</a>
             </li>
             <li class="breadcrumb-item">
               <a
-                class="link text-decoration-none active"
+                id="profileBreadcrumb"
+                class="active fw-bold"
                 href="index.html"
                 aria-current="page"
-                >Profile</a
               >
+                <!-- Content rendered in JS -->
+              </a>
             </li>
           </ol>
         </nav>
@@ -427,12 +429,12 @@
               <button
                 type="submit"
                 form="editProfile"
-                class="btn btn-primary"
+                class="btn btn-primary fw-bold"
                 id="editBtn"
               >
                 Save
               </button>
-              <button class="btn btn-light" data-bs-dismiss="modal">
+              <button class="btn btn-light fw-bold" data-bs-dismiss="modal">
                 Cancel
               </button>
             </div>

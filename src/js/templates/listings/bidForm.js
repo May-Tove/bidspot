@@ -10,7 +10,7 @@ export const bidForm = () => {
         id="bidInput"
         placeholder="Enter amount"/>
     </div>
-    <button class="btn btn-primary text-nowrap" type="submit">Place bid</button>
+    <button class="btn btn-primary text-nowrap fw-bold" type="submit">Place bid</button>
   </form>
   <div id="errorContainer"></div>`;
 };

@@ -22,6 +22,7 @@ footer {
 
   & .nav-link {
     color: $dark;
+    border-color: $dark !important;
 
     &:hover {
       color: $primary;

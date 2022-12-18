@@ -18,7 +18,7 @@ export const profilePage = (profile) => {
 
   if (loggedInUser === profile.name) {
     editBtn = `<button 
-                  class="btn btn-primary rounded-circle position-absolute bottom-0 end-0"
+                  class="btn btn-primary rounded-circle position-absolute bottom-0 end-0 m-1"
                   type="button"
                   data-bs-toggle="modal"
                   data-bs-target="#editProfileModal"
@@ -44,7 +44,7 @@ export const profilePage = (profile) => {
         </div>
         <div class="d-flex flex-column">
           <h1 class="mt-2 mb-0 fw-bold fs-2">${profile.name}</h1>
-          <a href="mailto: ${profile.email}" class="link text-decoration-none">${profile.email}</a>
+          <a href="mailto: ${profile.email}" class="link">${profile.email}</a>
           <span class="fw-bold fs-6 number pt-2"><i class="fa-solid fa-coins"></i> ${profile.credits} credit</span>
         </div>
     </div>`;

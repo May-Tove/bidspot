@@ -1,6 +1,7 @@
 .link {
-  color: $primary;
+  color: $indigo;
   transition: 0.3s ease;
+  text-decoration: none;
 
   &.active {
     font-weight: bold;
@@ -9,5 +10,19 @@
   &:hover,
   &:focus {
     color: $dark-indigo;
+    text-decoration: underline;
+  }
+}
+
+.breadcrumb-item {
+  & a {
+    color: $gray-700;
+    text-decoration: none;
+
+    &:hover,
+    &:focus,
+    &.active {
+      color: $primary;
+    }
   }
 }

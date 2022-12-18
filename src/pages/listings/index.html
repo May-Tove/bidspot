@@ -109,22 +109,39 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
-              <a class="link text-decoration-none" href="/index.html">Home</a>
+              <a href="/index.html">Home</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">
-              <a class="link text-decoration-none active" href="index.html"
-                >Listings</a
-              >
+              <a class="active fw-bold" href="index.html">Listings</a>
             </li>
           </ol>
         </nav>
         <div class="row">
+          <h1 class="fw-bold fs-2 py-2">Listings</h1>
           <!--  SEARCH, CATEGORIES AND FILTER -->
           <section>
             <div
-              class="d-flex align-items-center justify-content-between gap-1 border-bottom"
+              class="d-flex align-items-center justify-content-between gap-1"
             >
-              <h1 class="fw-bold fs-2 py-2">Listings</h1>
+              <div>
+                <form class="input-group py-3" role="search" id="searchForm">
+                  <label for="search-input" hidden>Search</label>
+                  <input
+                    type="search"
+                    class="form-control search-form rounded-start"
+                    placeholder="Search titles or tags"
+                    aria-label="Search"
+                    id="search-input"
+                    name="term"
+                    required
+                    minlength="2"
+                  />
+                  <button type="submit" class="btn btn-primary fw-bold">
+                    Search
+                  </button>
+                </form>
+              </div>
+
               <div>
                 <label for="sortListings" hidden>Sort by</label>
                 <select
@@ -140,24 +157,6 @@
                 </select>
               </div>
             </div>
-
-            <form class="input-group py-3" role="search" id="searchForm">
-              <span class="input-group-text">
-                <i class="fa-solid fa-magnifying-glass"></i>
-              </span>
-              <label for="search-input" hidden>Search</label>
-              <input
-                type="search"
-                class="form-control search-form"
-                placeholder="Search titles or tags"
-                aria-label="Search"
-                id="search-input"
-                name="term"
-                required
-                minlength="2"
-              />
-              <button type="submit" class="btn btn-primary">Search</button>
-            </form>
           </section>
 
           <!-- LISTINGS -->

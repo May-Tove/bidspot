@@ -105,12 +105,10 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
-              <a class="link text-decoration-none" href="/index.html">Home</a>
+              <a href="/index.html">Home</a>
             </li>
             <li class="breadcrumb-item">
-              <a class="link text-decoration-none" href="../index.html"
-                >Listings</a
-              >
+              <a href="../index.html">Listings</a>
             </li>
             <li class="breadcrumb-item" aria-current="page" id="currentPage">
               <!-- Content rendered in JS -->
@@ -271,12 +269,12 @@
                 <div>
                   <button
                     type="submit"
-                    class="btn btn-primary"
+                    class="btn btn-primary fw-bold"
                     form="editListingForm"
                   >
                     Save
                   </button>
-                  <button class="btn btn-light" data-bs-dismiss="modal">
+                  <button class="btn btn-light fw-bold" data-bs-dismiss="modal">
                     Cancel
                   </button>
                 </div>
@@ -317,12 +315,15 @@
                 <div class="d-flex align-items-center justify-content-center">
                   <button
                     type="button"
-                    class="btn btn-danger btn-sm me-2 text-light"
+                    class="btn btn-danger btn-sm me-2 text-light fw-bold"
                     id="deleteBtn"
                   >
                     Delete
                   </button>
-                  <button class="btn btn-light btn-sm" data-bs-dismiss="modal">
+                  <button
+                    class="btn btn-light btn-sm fw-bold"
+                    data-bs-dismiss="modal"
+                  >
                     Cancel
                   </button>
                 </div>

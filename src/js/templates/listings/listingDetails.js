@@ -81,7 +81,7 @@ export const listingDetails = (listing) => {
                   <div class="d-flex gap-1" id="tagContainer"></div>
               </div>
             <div class="mt-3" id="bidFormContainer">
-              <p class="m-0"> <a href="/src/pages/profile/login/index.html">Login</a> to place a bid on this listing</p>
+              <p class="m-0"> <a href="/src/pages/profile/login/index.html" class="link">Login</a> to place a bid on this listing</p>
             </div>
             <div class="mt-5">
               <h3 class="fw-bold fs-5">All bids</h3>
