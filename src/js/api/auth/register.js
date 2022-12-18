@@ -23,7 +23,7 @@ export async function register(profile) {
   const responseContainer = document.querySelector(".response-container");
 
   if (response.ok) {
-    // Auto login user if response is OK
+    // Auto login user if response is OK or show error message if response is not OK
     const form = document.querySelector("#registerForm");
 
     const formData = new FormData(form);

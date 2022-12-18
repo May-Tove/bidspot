@@ -13,20 +13,19 @@ export function headers() {
 }
 
 /**
- * Fetch with JWT access token to be able to get, create, update and remove posts and profile details
+ * Fetch with JWT access token to be able to get, create, update and remove listings and profile details
  * @param {String} url - API url to be passed in
  * @param {any} options - fetch options such as method and body
- * @returns
  * @example
  * ```js
- * async function createPost(postData) {
+ * async function createListing(listingData) {
  * // URL
- * const createPostUrl = api_social_url + endpoint;
+ * const createListingUrl = api_auction_url + endpoint;
  *
  * // Call fetch function and pass in url and options as parameters
- * const response = await fetchWithAuth(createPostUrl, {
+ * const response = await fetchWithAuth(createListingtUrl, {
  * method: "POST",
- * body: JSON.stringify(postData),
+ * body: JSON.stringify(listingData),
  * });
  *
  * return await response.json();

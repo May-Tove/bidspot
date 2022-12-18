@@ -1,5 +1,8 @@
+/**
+ * Function that format date
+ * @param {number} date - date to be formatted
+ */
 export function dateFormatted(date) {
-  // formatting date
   const options = {
     day: "numeric",
     month: "numeric",

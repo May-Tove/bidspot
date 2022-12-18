@@ -3,6 +3,9 @@ import { allBids } from "../../templates/index.js";
 import { getUrlSearchParam } from "../../tools/urlSearchParams.js";
 import { renderResult } from "./displayResults.js";
 
+/**
+ * Render all bids on a listing
+ */
 export async function renderAllBids() {
   const bidsContainer = document.querySelector("#allBidsContainer");
 

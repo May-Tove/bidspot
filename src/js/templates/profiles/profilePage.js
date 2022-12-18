@@ -1,8 +1,7 @@
 import { get } from "../../storage/index.js";
 
 export const profilePage = (profile) => {
-  const loggedInUser = get("user").name;
-
+  // Avatar placeholder if original value has any errors or do not exist
   let avatar = "";
   if (
     profile.avatar.length === 0 ||
@@ -14,8 +13,10 @@ export const profilePage = (profile) => {
     avatar = profile.avatar;
   }
 
-  let editBtn = "";
+  // Only display edit button on the logged in users profile
+  const loggedInUser = get("user").name;
 
+  let editBtn = "";
   if (loggedInUser === profile.name) {
     editBtn = `<button 
                   class="btn btn-primary rounded-circle position-absolute bottom-0 end-0 m-1"

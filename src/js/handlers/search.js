@@ -4,11 +4,11 @@ import { listingCard } from "../templates/index.js";
 import { renderResult } from "../render/index.js";
 
 /**
- * Search listings by title on keyup
- * @param {event} keyup - event listens for keyup
+ * Search listings by title or tags
+ * @param {event} submit - event on submit
  * @example
  * ```js
- * searchInput.addEventListener("keyup", handleSearch);
+ * searchInput.addEventListener("submit", handleSearch);
  * ```
  */
 

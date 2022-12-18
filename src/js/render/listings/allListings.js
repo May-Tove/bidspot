@@ -3,6 +3,9 @@ import { listings_url, listings_flags } from "../../api/constants.js";
 import { listingCard } from "../../templates/index.js";
 import { renderResult } from "./displayResults.js";
 
+/**
+ * Render all listings from API
+ */
 export async function allListings() {
   const listingsContainer = document.querySelector("#listingsContainer");
   const listings = await getListings(`${listings_url}?${listings_flags}`);

@@ -5,8 +5,8 @@ import { fetchMessage } from "../templates/error/index.js";
  * @param {string} message - error message to be entered
  * @example
  * ```js
- * // no search results, no comments yet or no posts yet
- * errorContainer.innerHtml = noResultError("No comments yet");
+ * // no results
+ * errorContainer.innerHtml = noResultError("No bids yet");
  * ```
  */
 export function noResultError(message = "No result") {

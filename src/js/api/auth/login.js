@@ -20,7 +20,6 @@ export async function login(profile) {
     body: JSON.stringify(profile),
   });
 
-  //Show error message if login failed or be redirected to homepage if login succeed
   const responseContainer = document.querySelector(".response-container");
 
   if (response.ok) {

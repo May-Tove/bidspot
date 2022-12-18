@@ -3,6 +3,9 @@ import { getUrlSearchParam } from "../../tools/urlSearchParams.js";
 import { listingCard } from "../../templates/index.js";
 import { renderResult } from "../listings/displayResults.js";
 
+/**
+ * Render all listings a user has created
+ */
 export async function renderProfileListings() {
   const profileListingsContainer = document.querySelector("#profileListings");
   const listingsCount = document.querySelector("#listingsCount");

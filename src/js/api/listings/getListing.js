@@ -5,7 +5,7 @@ import { fetchError } from "../../error/error.js";
 const endpoint = "/listings";
 
 /**
- * API call that gets one specific post by id
+ * API call that gets one specific listing by id
  * @param {number} id
  * @returns Specific post
  * @example
@@ -15,7 +15,7 @@ const endpoint = "/listings";
     const id = url.searchParams.get("id");
 
     // calling the function to get the post
-    const result = await getPost(id);
+    const result = await getListing(id);
  * ```
  */
 export async function getListing(id) {

@@ -16,11 +16,11 @@ const method = "put";
       e.preventDefault();
       const form = e.target;
       const formData = new FormData(form);
-      const post = Object.fromEntries(formData.entries());
-      post.id = id;
+      const listing = Object.fromEntries(formData.entries());
+      listing.id = id;
 
       // Calling function
-      updatePost(post);
+      updateListing(listing);
     });
  * ```
  */
@@ -36,6 +36,7 @@ export async function updateListing(listingData) {
     body: JSON.stringify(listingData),
   });
 
+  // Reload page if response is OK
   if (response.ok) {
     location.reload();
     return await response.json();

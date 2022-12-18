@@ -2,7 +2,7 @@ import { removeListing } from "../../api/listings/index.js";
 import { getUrlSearchParam } from "../../tools/urlSearchParams.js";
 
 /**
- * Event listener to delete a post on button click
+ * Event listener to delete a listing on button click
  */
 export async function removeListingListener() {
   const deleteBtn = document.querySelector("#deleteBtn");

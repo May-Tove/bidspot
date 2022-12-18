@@ -2,6 +2,9 @@ import { updateListing } from "../../api/listings/index.js";
 import { getUrlSearchParam } from "../../tools/urlSearchParams.js";
 import { dateFormatted } from "../../tools/formatDate.js";
 
+/**
+ * Updates listing on submit
+ */
 export async function updateListingListener(currentListing) {
   const form = document.querySelector("#editListingForm");
 

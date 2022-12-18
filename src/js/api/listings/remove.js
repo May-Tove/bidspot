@@ -5,13 +5,13 @@ const endpoint = "/listings";
 const method = "delete";
 
 /**
- * Delete post using DELETE method
- * @param {number} id - id of the post to be deleted
+ * Delete listing using DELETE method
+ * @param {number} id - id of the listing to be deleted
  * @example
  * ```js
- * // When clicking delete button, the function will be called, deleting the post by id
+ * // When clicking delete button, the function will be called, deleting the listing by id
  *  deleteBtn.addEventListener("click", () => {
-      removePost(id);
+      removeListing(id);
     });
  * ```
  */
@@ -26,13 +26,12 @@ export async function removeListing(id) {
     method,
   });
 
-  console.log(response);
-
+  // Alert that listing got successfully deleted and redirect to listings page if response is OK
   if (response.ok) {
     window.alert("Listing deleted");
     location.href = "/src/pages/listings/index.html";
     return await response.json();
   } else {
-    throw new Error("Could not update listing");
+    throw new Error("Could not delete listing");
   }
 }

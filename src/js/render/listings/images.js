@@ -1,9 +1,25 @@
 import { carouselImg, carouselThumbnail } from "../../templates/index.js";
 import { noResultError } from "../../error/error.js";
 
+/**
+ * Render all images on a listing
+ * @param {array} listing - Array with all listings from API
+ * @returns {array} Array with all images that belongs to the specific listing
+ * @example
+ * ```js
+ * async function renderListingDetails() {
+ * const id = getUrlSearchParam("id");
+ * const result = await getListing(id);
+ *
+ * const images = listing.media;
+ *
+ * renderListingImg(images);
+ * }}
+ * ```
+ */
 export async function renderListingImg(listing) {
   const carouselContainer = document.querySelector("#carouselContainer");
-  const smallImages = document.querySelector("#imagesSmall");
+  const thumbnails = document.querySelector("#imagesSmall");
 
   if (carouselContainer) {
     const images = listing.media;
@@ -14,7 +30,7 @@ export async function renderListingImg(listing) {
       carouselContainer.innerHTML = noResultError("No Images");
     } else {
       carouselContainer.innerHTML = output.join("");
-      smallImages.innerHTML = small.join("");
+      thumbnails.innerHTML = small.join("");
     }
 
     // Hide carousel elements if there is one or less images

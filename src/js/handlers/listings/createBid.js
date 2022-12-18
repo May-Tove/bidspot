@@ -1,6 +1,9 @@
 import { createBid } from "../../api/listings/index.js";
 import { getUrlSearchParam } from "../../tools/urlSearchParams.js";
 
+/**
+ * Placing bid on submit
+ */
 export function createBidListener() {
   const bidForm = document.querySelector("#bidForm");
 

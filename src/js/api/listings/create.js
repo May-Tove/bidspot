@@ -8,7 +8,7 @@ const method = "post";
 /**
  * Creating a listing using POST method
  * @param {object} listingData - values from form input creates this object
- * @returns A new listing to the API
+ * @returns An object with details from the form
  */
 export async function createListing(listingData) {
   const createPostUrl = api_auction_url + endpoint;

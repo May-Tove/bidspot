@@ -1,5 +1,8 @@
 import { get, remove } from "../../storage/index.js";
 
+/**
+ * This will log out user and delete profile information from localStorage
+ */
 export function logout() {
   remove("token");
   remove("user");

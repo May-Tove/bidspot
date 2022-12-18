@@ -1,11 +1,10 @@
 import { getUrlSearchParam } from "../../tools/index.js";
 
 export const profileLink = (profile) => {
-  // add active state to navbar link if you are on logged in users profile page
+  // Add active state to navbar link if you are on logged in users profile page
   const name = getUrlSearchParam("name");
 
   let activeClass = "";
-
   if (name === profile.name) {
     activeClass = "active";
   }

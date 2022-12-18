@@ -10,6 +10,9 @@ function populateForm(listing) {
   form.tags.value = listing.tags.join(", ");
 }
 
+/**
+ * Creates listing on submit
+ */
 export function createListingFormListener() {
   if (form) {
     form.addEventListener("input", () => {

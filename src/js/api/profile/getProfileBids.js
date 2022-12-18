@@ -3,8 +3,21 @@ import { fetchWithAuth } from "../fetchWithToken.js";
 import { fetchError } from "../../error/error.js";
 
 const endpoint = "/bids";
+
 /**
- * Get all listings from API using GET method(default)
+ * Getting all profile bids
+ * @param {string} name
+ * @returns Array with all bids the user had made on other listings
+ * @example
+ * ```js
+ * async function renderProfileBids() {
+ *  // get name from url
+ *  const url = new URL(location.href);
+    const name = url.searchParams.get("name");
+ * const bids = await getProfileBids(name);
+ *
+ * }
+ * ```
  */
 export async function getProfileBids(name) {
   const getProfileBidsUrl = `${api_profile_url}/${name}${endpoint}?sort=created&sortOrder=desc&_seller=true&_listings=true`;

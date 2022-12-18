@@ -6,7 +6,7 @@ import { getUrlSearchParam } from "../../tools/urlSearchParams.js";
 import { createBidListener } from "../../handlers/index.js";
 
 /**
- * Displaying a single post details on the page using API call
+ * Displaying a single listing details from the API
  */
 export async function renderListingDetails() {
   const id = getUrlSearchParam("id");

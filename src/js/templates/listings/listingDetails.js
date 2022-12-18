@@ -1,9 +1,10 @@
 import { dateFormatted, countdown } from "../../tools/index.js";
 
 export const listingDetails = (listing) => {
-  // formatting date
+  // Formatting date
   const listingCreated = dateFormatted(listing.created);
 
+  // Countdown timer
   const timer = countdown(listing.endsAt);
 
   // Get the highest bid from the array (last bid)
@@ -14,7 +15,7 @@ export const listingDetails = (listing) => {
     highestBid = `$ ${price}`;
   }
 
-  // Make sure to use placeholder image if original is null, undefined or not valid
+  // Avatar placeholder if original value has any errors or do not exist
   let avatar = "";
   if (
     listing.seller.avatar.length === 0 ||

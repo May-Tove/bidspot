@@ -1,3 +1,7 @@
+/**
+ * Function that takes the current time and subtracts the end date for a listing, the gap will be displayed as a countdown timer
+ * @param {number} date - End date for a listing
+ */
 export const countdown = (date) => {
   const countDate = new Date(date).getTime();
 

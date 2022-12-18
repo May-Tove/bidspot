@@ -4,7 +4,7 @@ export const profileBids = (bids) => {
   // formatting date
   const created = dateFormatted(bids.created);
 
-  // Make sure images are not null, undefined or not valid
+  // Image placeholder if original value has any errors or do not exist
   let media = "";
   if (
     bids.listing.media.length === 0 ||
