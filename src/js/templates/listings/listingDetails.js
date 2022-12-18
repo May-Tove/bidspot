@@ -1,50 +1,45 @@
+import { dateFormatted, countdown } from "../../tools/index.js";
+
 export const listingDetails = (listing) => {
-  // avatar placeholder
-  let avatar = "";
-  if (listing.seller.avatar === "" || listing.seller.avatar === null) {
-    avatar = "../../../../images/avatar-placeholder.jpg";
-  } else {
-    avatar = listing.seller.avatar;
-  }
-
   // formatting date
-  const options = {
-    day: "numeric",
-    month: "numeric",
-    year: "numeric",
-  };
+  const listingCreated = dateFormatted(listing.created);
 
-  const listingCreated = new Date(listing.created).toLocaleDateString(
-    "en-GB",
-    options
-  );
-
-  const listingEnds = new Date(listing.endsAt).toLocaleDateString(
-    "en-GB",
-    options
-  );
+  const timer = countdown(listing.endsAt);
 
   // Get the highest bid from the array (last bid)
   let highestBid = "No bids";
   if (listing._count.bids !== 0) {
     const sortedListings = listing.bids.sort((a, b) => a.amount - b.amount);
-    highestBid = sortedListings.pop().amount;
+    const price = sortedListings.pop().amount;
+    highestBid = `$ ${price}`;
+  }
+
+  // Make sure to use placeholder image if original is null, undefined or not valid
+  let avatar = "";
+  if (
+    listing.seller.avatar.length === 0 ||
+    listing.seller.avatar === null ||
+    listing.seller.avatar === ""
+  ) {
+    avatar = "/images/img-placeholder.jpeg";
+  } else {
+    avatar = listing.seller.avatar;
   }
 
   return `<div class="col-12 col-lg-5">
             <div class="row">
-              <div id="carouselIndicators" class="carousel slide">
+              <div id="mediaCarousel" class="carousel slide">
                 <div class="carousel-inner" id="carouselContainer"></div>
-                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicators" data-bs-slide="prev" id="prevBtn">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <button class="carousel-control-prev" type="button" data-bs-target="#mediaCarousel" data-bs-slide="prev" id="prevBtn">
+                  <i class="carousel-prev fs-2 rounded-circle p-1 text-center d-flex align-items-center justify-content-center fa-solid fa-chevron-left"></i>
                     <span class="visually-hidden">Previous</span>
                   </button>
-                  <button class="carousel-control-next" type="button" data-bs-target="#carouselIndicators" data-bs-slide="next" id="nextBtn">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <button class="carousel-control-next" type="button" data-bs-target="#mediaCarousel" data-bs-slide="next" id="nextBtn">
+                    <i class="carousel-next fs-2 rounded-circle p-1 text-center d-flex align-items-center justify-content-center fa-solid fa-chevron-right"></i>
                     <span class="visually-hidden">Next</span>
                   </button>
                 </div>
-                <div class="d-flex align-items-center justify-content-center gap-1 mt-2 img-indicator" id="imagesSmall"></div>
+                <div class="d-flex flex-wrap align-items-center justify-content-center gap-2 mt-2" id="imagesSmall"></div>
               </div>
             </div>
             <div class="col mb-5">
@@ -57,6 +52,7 @@ export const listingDetails = (listing) => {
                           src="${avatar}"
                           class="img-thumbnail-small rounded-circle p-0 border-0 me-2"
                           alt="Profile picture of ${listing.seller.name}"
+                          onerror="src='/images/avatar-placeholder.jpg'"
                         />
                         <p class="m-0 small text-muted">By <span id="sellerLink">${listing.seller.name}</span> <span>&#183;</span> ${listingCreated}</p>
                       </div>
@@ -70,11 +66,13 @@ export const listingDetails = (listing) => {
                   </div>
                 <div class="d-flex flex-column align-items-center justify-content-center">
                   <p class="small m-0">Highest Bid</p>
-                  <span class="fw-bold">$ ${highestBid}</span>
+                  <span class="fw-bold">${highestBid}</span>
                 </div>
                 <div class="d-flex flex-column align-items-center justify-content-center">
-                  <p class="small m-0">Auction Ends</p>
-                  <span class="fw-bold">${listingEnds}</span>
+                  <p class="small m-0">Auction Ends In</p>
+                  <div class="d-flex align-items-center gap-1 fw-bold">
+                  ${timer}
+                  </div>
                 </div>
               </div>
               <div class="d-flex flex-column my-3">

@@ -1,20 +1,20 @@
+import { dateFormatted } from "../../tools/index.js";
+
 export const profileBids = (bids) => {
-  // image placeholder
-  let image = "";
-  if (bids.listing.media.length === 0) {
-    image = "/images/img-placeholder.jpeg";
-  } else {
-    image = bids.listing.media[0];
-  }
-
   // formatting date
-  const options = {
-    day: "numeric",
-    month: "numeric",
-    year: "numeric",
-  };
+  const created = dateFormatted(bids.created);
 
-  const created = new Date(bids.created).toLocaleDateString("en-GB", options);
+  // Make sure images are not null, undefined or not valid
+  let media = "";
+  if (
+    bids.listing.media.length === 0 ||
+    bids.listing.media === null ||
+    bids.listing.media === ""
+  ) {
+    media = "/images/img-placeholder.jpeg";
+  } else {
+    media = bids.listing.media[0];
+  }
 
   return `<div class="col-12 col-lg-6">
             <a class="bid-container text-decoration-none text-dark" href="/src/pages/listings/details/index.html?id=${bids.listing.id}">
@@ -22,14 +22,15 @@ export const profileBids = (bids) => {
                 <div class="d-flex align-items-center">
                     <div class="img-container rounded me-2">
                         <img
-                          src="${image}"
+                          src="${media}"
                           alt="${bids.listing.title}"
                           class="small-img rounded"
+                          onerror="src='/images/img-placeholder.jpeg'"
                         />
                         </div>
                           <div>
                             <h6 class="m-0">${bids.listing.title}</h6>
-                            <p class="small text-muted m-0">${created}</p>
+                            <p class="small text-muted m-0">Placed: ${created}</p>
                           </div>
                       </div>
                   <div>

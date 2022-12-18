@@ -1,15 +1,8 @@
-export const profileLink = (profile) => {
-  // avatar placeholder
-  let avatar = "";
-  if (profile.avatar === "") {
-    avatar = "../../../../images/avatar-placeholder.jpg";
-  } else {
-    avatar = profile.avatar;
-  }
+import { getUrlSearchParam } from "../../tools/index.js";
 
+export const profileLink = (profile) => {
   // add active state to navbar link if you are on logged in users profile page
-  const url = new URL(location.href);
-  const name = url.searchParams.get("name");
+  const name = getUrlSearchParam("name");
 
   let activeClass = "";
 
@@ -17,8 +10,8 @@ export const profileLink = (profile) => {
     activeClass = "active";
   }
 
-  return `<button tabindex="0" id="profileDetail" class="d-flex align-items-center nav-link dropdown-toggle btn border-0 p-0 ${activeClass}" data-bs-toggle="dropdown" aria-expanded="false">
-            <img class="img-thumbnail rounded-circle border-0 p-0 me-2" src="${avatar}" alt="Profile picture of ${profile.name}"/>
+  return `<button tabindex="0" id="profileDetail" class="d-flex align-items-center nav-link dropdown-toggle btn border-0 ${activeClass}" data-bs-toggle="dropdown" aria-expanded="false">
+            <img class="img-thumbnail rounded-circle border-0 p-0 me-2" src="${profile.avatar}" alt="Profile picture of ${profile.name}" onerror="src='/images/avatar-placeholder.jpg'"/>
               <div class="d-flex flex-column align-items-start me-3 lh-sm">
                 <span class="m-0 p-0">${profile.name}</span>
                 <span class="small text-muted m-0 p-0"><i class="fa-solid fa-coins"></i> ${profile.credits} credit</span>

@@ -1,15 +1,19 @@
 import { get } from "../../storage/index.js";
 
 export const profilePage = (profile) => {
-  // avatar placeholder
+  const loggedInUser = get("user").name;
+
   let avatar = "";
-  if (profile.avatar === "" || profile.avatar === null) {
-    avatar = "../../../../images/avatar-placeholder.jpg";
+  if (
+    profile.avatar.length === 0 ||
+    profile.avatar === null ||
+    profile.avatar === ""
+  ) {
+    avatar = "/images/img-placeholder.jpeg";
   } else {
     avatar = profile.avatar;
   }
 
-  const loggedInUser = get("user").name;
   let editBtn = "";
 
   if (loggedInUser === profile.name) {
@@ -34,6 +38,7 @@ export const profilePage = (profile) => {
             src="${avatar}"
             alt="Profile picture of ${profile.name}"
             class="profile-picture rounded-circle"
+            onerror="src='/images/avatar-placeholder.jpg'"
           />
           ${editBtn}
         </div>
