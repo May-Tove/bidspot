@@ -3,8 +3,13 @@
   height: 45px;
 }
 
-.carousel-control-next-icon,
-.carousel-control-prev-icon {
+.carousel-next,
+.carousel-prev {
+  height: 40px;
+  width: 40px;
   background-color: $black;
-  border-radius: 50%;
+}
+
+.fa-coins {
+  color: $yellow;
 }

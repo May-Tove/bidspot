@@ -10893,11 +10893,17 @@ footer .social-links a {
 }
 
 #dropdownBtn:focus-visible,
-#indicatorBtn:focus-visible,
 #prevBtn:focus-visible,
+#indicatorBtn:focus-visible,
+#imgIndicator:focus-visible,
 #nextBtn:focus-visible,
-.close-btn:focus-visible {
+.close-btn:focus-visible,
+#profileDetails:focus-visible {
   border: 2px solid #6610f2;
+}
+
+#imgIndicator:focus {
+  opacity: 0.5;
 }
 
 .link {
@@ -10959,10 +10965,15 @@ img {
   height: 45px;
 }
 
-.carousel-control-next-icon,
-.carousel-control-prev-icon {
+.carousel-next,
+.carousel-prev {
+  height: 40px;
+  width: 40px;
   background-color: #282827;
-  border-radius: 50%;
+}
+
+.fa-coins {
+  color: #ffc107;
 }
 
 .tab-content {

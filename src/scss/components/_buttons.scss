@@ -19,11 +19,19 @@
 }
 
 #dropdownBtn,
-#indicatorBtn,
 #prevBtn,
+#indicatorBtn,
+#imgIndicator,
 #nextBtn,
-.close-btn {
+.close-btn,
+#profileDetails {
   &:focus-visible {
     border: 2px solid $primary;
+  }
+}
+
+#imgIndicator {
+  &:focus {
+    opacity: 0.5;
   }
 }
