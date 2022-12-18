@@ -1,5 +1,6 @@
 import * as listeners from "./handlers/index.js";
 import * as render from "./render/index.js";
+import { validateDate } from "./tools/validateDatePicker.js";
 
 const path = location.pathname;
 
@@ -7,7 +8,7 @@ export function router() {
   switch (path) {
     case "/index.html":
       render.navbar();
-      render.popularListings();
+      render.latestListings();
       break;
     case "/src/pages/profile/register/index.html":
       listeners.registerFormListener();
@@ -17,23 +18,21 @@ export function router() {
       break;
     case "/src/pages/listings/index.html":
       render.navbar();
-      render.renderListings();
+      render.allListings();
       listeners.handleSearch();
       listeners.sortListings();
       break;
     case "/src/pages/listings/details/index.html":
       render.navbar();
       render.renderListingDetails();
-      listeners.updateListingListener();
-      listeners.removeListingListener();
       break;
     case "/src/pages/listings/create/index.html":
       render.navbar();
       listeners.createListingFormListener();
+      validateDate();
       break;
     case "/src/pages/profile/index.html":
       render.navbar();
       render.renderProfile();
-      listeners.updateProfileListener();
   }
 }
