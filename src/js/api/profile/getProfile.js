@@ -9,10 +9,11 @@ import { fetchError } from "../../error/error.js";
  * @example
  * ```js
  * async function renderProfile() {
- * const profileContainer = document.querySelector("#profileDetailContainer");
- * const profile = await getProfile();
+ * // get name from url
+ * const url = new URL(location.href);
+ * const name = url.searchParams.get("name");
+ * const bids = await getProfile(name);
  *
- * profileContainer.innerHTML = templates.profileTemplate(profile);
  * }
  * ```
  */
