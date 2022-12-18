@@ -10814,7 +10814,7 @@ textarea.form-control-lg {
 }
 
 footer {
-  background-color: #dee2e6;
+  background-color: #e9ecef;
   color: #444f64;
 }
 footer p {
@@ -10874,7 +10874,7 @@ footer .social-links a {
 }
 
 #signUp {
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), url("/images/landing-page-2.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url("/images/landing-page-2.jpg");
   background-position: center;
   background-size: cover;
   height: 400px;
