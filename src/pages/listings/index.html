@@ -74,18 +74,18 @@
               <ul
                 class="navbar-nav justify-content-end align-items-lg-center flex-grow-1 pe-3"
               >
-                <li class="nav-item px-3">
+                <li class="nav-item px-3 mb-4 mb-lg-0">
                   <a class="nav-link" href="/index.html">Home</a>
                 </li>
-                <li class="nav-item px-3">
+                <li class="nav-item px-3 mb-4 mb-lg-0">
                   <a class="nav-link active" href="index.html">Listings</a>
                 </li>
-                <li class="nav-item px-3" id="newListingBtn">
+                <li class="nav-item px-3 mb-4 mb-lg-0" id="newListingBtn">
                   <button
                     data-bs-toggle="tooltip"
                     data-bs-placement="bottom"
                     data-bs-title="You must be logged in to create a listing"
-                    class="new-listing mb-2 mb-lg-0 btn btn-primary btn-sm fw-bold"
+                    class="new-listing btn btn-primary btn-sm fw-bold"
                     disabled
                   >
                     <i class="fa-solid fa-plus"></i> New Listing
@@ -119,124 +119,174 @@
           </ol>
         </nav>
         <div class="row">
-          <h1 class="fw-bold fs-2 text-center border-bottom pb-4">Listings</h1>
           <!--  SEARCH, CATEGORIES AND FILTER -->
-          <section
-            class="d-flex justify-content-between align-items-center py-3"
-          >
-            <div>
-              <form class="input-group" role="search" id="searchForm">
-                <span class="input-group-text">
-                  <i class="fa-solid fa-magnifying-glass"></i>
-                </span>
-                <label for="search-input" hidden>Search</label>
-                <input
-                  type="search"
-                  class="form-control search-form"
-                  placeholder="Search.."
-                  aria-label="Search"
-                  id="search-input"
-                />
-              </form>
+          <section>
+            <div
+              class="d-flex align-items-center justify-content-between gap-1 border-bottom"
+            >
+              <h1 class="fw-bold fs-2 py-2">Listings</h1>
+              <div>
+                <label for="sortListings" hidden>Sort by</label>
+                <select
+                  name="sort-listings"
+                  id="sortListings"
+                  class="form-select w-auto"
+                  aria-label="Filter Listings"
+                >
+                  <option value="newest" selected>Newest</option>
+                  <option value="oldest">Oldest</option>
+                  <option value="ending">Ending Soon</option>
+                  <option value="popular">Most popular</option>
+                </select>
+              </div>
             </div>
-            <div>
-              <label for="sortListings" hidden>Sort by</label>
-              <select
-                name="sort-listings"
-                id="sortListings"
-                class="form-select w-auto"
-                aria-label="Filter Listings"
-              >
-                <option value="newest" selected>Newest</option>
-                <option value="oldest">Oldest</option>
-                <option value="ending">Ending Soon</option>
-                <option value="popular">Most popular</option>
-              </select>
-            </div>
+
+            <form class="input-group py-3" role="search" id="searchForm">
+              <span class="input-group-text">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </span>
+              <label for="search-input" hidden>Search</label>
+              <input
+                type="search"
+                class="form-control search-form"
+                placeholder="Search titles or tags"
+                aria-label="Search"
+                id="search-input"
+                name="term"
+                required
+                minlength="2"
+              />
+              <button type="submit" class="btn btn-primary">Search</button>
+            </form>
           </section>
 
           <!-- LISTINGS -->
           <section class="col">
-            <div class="d-flex flex-wrap mb-4" id="listingsContainer">
+            <div
+              class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4"
+              id="listingsContainer"
+            >
               <!-- Content rendered in JS -->
               <!-- Loading animation -->
               <div
-                class="col-12 col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 py-3 px-2"
+                class="row row-cols-1 row-cols-sm-2 ow-cols-md-3 row-cols-lg-4 g-4"
                 aria-hidden="true"
               >
-                <div class="bg-white rounded p-2 shadow-sm placeholder-glow">
-                  <div class="placeholder-glow">
-                    <img
-                      src=" "
-                      alt="Placeholder loading indicator"
-                      class="profile-picture w-100 rounded placeholder"
-                    />
-                  </div>
+                <div class="w-100">
+                  <div
+                    class="listing-card card border-0 shadow-sm placeholder-glow"
+                  >
+                    <div class="p-2">
+                      <div
+                        class="card-img img-container rounded placeholder-glow"
+                      >
+                        <img
+                          src=" "
+                          alt="placeholder loading indicator"
+                          class="listing-img w-100 rounded placeholder"
+                        />
+                      </div>
+                    </div>
 
-                  <div class="d-flex flex-column placeholder-glow">
-                    <span class="placeholder col-8 mt-2"></span>
-                    <span class="placeholder col-6 mt-2"></span>
-                    <span class="placeholder col-4 mt-2"></span>
+                    <div
+                      class="card-body p-2 pt-0 d-flex flex-column placeholder-glow"
+                    >
+                      <span class="placeholder col-3 my-2"></span>
+                      <span class="placeholder col-8"></span>
+                    </div>
+                    <div class="card-footer border-0 placeholder-glow"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="row row-cols-1 row-cols-sm-2 ow-cols-md-3 row-cols-lg-4 g-4"
+                aria-hidden="true"
+              >
+                <div class="w-100">
+                  <div
+                    class="listing-card card border-0 shadow-sm placeholder-glow"
+                  >
+                    <div class="p-2">
+                      <div
+                        class="card-img img-container rounded placeholder-glow"
+                      >
+                        <img
+                          src=" "
+                          alt="placeholder loading indicator"
+                          class="listing-img w-100 rounded placeholder"
+                        />
+                      </div>
+                    </div>
+
+                    <div
+                      class="card-body p-2 pt-0 d-flex flex-column placeholder-glow"
+                    >
+                      <span class="placeholder col-3 my-2"></span>
+                      <span class="placeholder col-8"></span>
+                    </div>
+                    <div class="card-footer border-0 placeholder-glow"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="row row-cols-1 row-cols-sm-2 ow-cols-md-3 row-cols-lg-4 g-4"
+                aria-hidden="true"
+              >
+                <div class="w-100">
+                  <div
+                    class="listing-card card border-0 shadow-sm placeholder-glow"
+                  >
+                    <div class="p-2">
+                      <div
+                        class="card-img img-container rounded placeholder-glow"
+                      >
+                        <img
+                          src=" "
+                          alt="placeholder loading indicator"
+                          class="listing-img w-100 rounded placeholder"
+                        />
+                      </div>
+                    </div>
+
+                    <div
+                      class="card-body p-2 pt-0 d-flex flex-column placeholder-glow"
+                    >
+                      <span class="placeholder col-3 my-2"></span>
+                      <span class="placeholder col-8"></span>
+                    </div>
+                    <div class="card-footer border-0 placeholder-glow"></div>
                   </div>
                 </div>
               </div>
               <div
-                class="col-12 col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 py-3 px-2"
+                class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4"
                 aria-hidden="true"
               >
-                <div class="bg-white rounded p-2 shadow-sm placeholder-glow">
-                  <div class="placeholder-glow">
-                    <img
-                      src=" "
-                      alt="Placeholder loading indicator"
-                      class="profile-picture w-100 rounded placeholder"
-                    />
-                  </div>
+                <div class="w-100">
+                  <div
+                    class="listing-card card border-0 shadow-sm placeholder-glow"
+                  >
+                    <div class="p-2">
+                      <div
+                        class="card-img img-container rounded placeholder-glow"
+                      >
+                        <img
+                          src=" "
+                          alt="placeholder loading indicator"
+                          class="listing-img w-100 rounded placeholder"
+                        />
+                      </div>
+                    </div>
 
-                  <div class="d-flex flex-column placeholder-glow">
-                    <span class="placeholder col-8 mt-2"></span>
-                    <span class="placeholder col-6 mt-2"></span>
-                    <span class="placeholder col-4 mt-2"></span>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="col-12 col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 py-3 px-2"
-                aria-hidden="true"
-              >
-                <div class="bg-white rounded p-2 shadow-sm placeholder-glow">
-                  <div class="placeholder-glow">
-                    <img
-                      src=" "
-                      alt="Placeholder loading indicator"
-                      class="profile-picture w-100 rounded placeholder"
-                    />
-                  </div>
-
-                  <div class="d-flex flex-column placeholder-glow">
-                    <span class="placeholder col-8 mt-2"></span>
-                    <span class="placeholder col-6 mt-2"></span>
-                    <span class="placeholder col-4 mt-2"></span>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="col-12 col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 py-3 px-2"
-                aria-hidden="true"
-              >
-                <div class="bg-white rounded p-2 shadow-sm placeholder-glow">
-                  <div class="placeholder-glow">
-                    <img
-                      src=" "
-                      alt="Placeholder loading indicator"
-                      class="profile-picture w-100 rounded placeholder"
-                    />
-                  </div>
-
-                  <div class="d-flex flex-column placeholder-glow">
-                    <span class="placeholder col-8 mt-2"></span>
-                    <span class="placeholder col-6 mt-2"></span>
-                    <span class="placeholder col-4 mt-2"></span>
+                    <div
+                      class="card-body p-2 pt-0 d-flex flex-column placeholder-glow"
+                    >
+                      <span class="placeholder col-3 my-2"></span>
+                      <span class="placeholder col-8"></span>
+                    </div>
+                    <div class="card-footer border-0 placeholder-glow"></div>
                   </div>
                 </div>
               </div>
