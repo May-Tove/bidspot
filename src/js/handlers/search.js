@@ -1,38 +1,43 @@
-import { listingCard } from "../templates/index.js";
 import { getListings } from "../api/listings/getAllListings.js";
-import { noResultError } from "../error/error.js";
-
-const searchInput = document.querySelector("#search-input");
+import { listings_url, listings_flags } from "../api/constants.js";
+import { listingCard } from "../templates/index.js";
+import { renderResult } from "../render/index.js";
 
 /**
- * Search for posts by title, body and/or author name on keyup
+ * Search listings by title on keyup
  * @param {event} keyup - event listens for keyup
  * @example
  * ```js
  * searchInput.addEventListener("keyup", handleSearch);
  * ```
  */
-export async function handleSearch(e) {
+
+export async function handleSearch() {
   const listingsContainer = document.querySelector("#listingsContainer");
+  const searchForm = document.querySelector("form#searchForm");
 
-  if (listingsContainer) {
-    const inputValue = e.target.value.toLowerCase();
+  if (searchForm) {
+    searchForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const listings = await getListings(`${listings_url}?${listings_flags}`);
+      const form = event.target;
 
-    const listings = await getListings();
+      const searchTerm = form.term.value.toLowerCase();
 
-    const searchResult = listings.filter((listing) =>
-      listing.title.toLowerCase().includes(inputValue)
-    );
-    const output = searchResult.map(listingCard);
+      const searchResult = listings.filter(function (listing) {
+        const title = listing.title.toLowerCase();
 
-    if (searchResult.length === 0) {
-      listingsContainer.innerHTML = noResultError("No results found");
-    } else {
-      listingsContainer.innerHTML = output.join("");
-    }
+        const tags = Boolean(
+          listing.tags
+            .map((tag) => tag.toLowerCase())
+            .filter((tag) => tag.includes(searchTerm)).length
+        );
+
+        return title.includes(searchTerm) || tags;
+      });
+
+      renderResult(searchResult, listingsContainer, listingCard);
+      form.reset();
+    });
   }
-}
-
-if (searchInput) {
-  searchInput.addEventListener("keyup", handleSearch);
 }
