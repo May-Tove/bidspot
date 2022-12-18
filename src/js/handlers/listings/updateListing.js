@@ -1,23 +1,14 @@
-import { getListing, updateListing } from "../../api/listings/index.js";
+import { updateListing } from "../../api/listings/index.js";
+import { getUrlSearchParam } from "../../tools/urlSearchParams.js";
+import { dateFormatted } from "../../tools/formatDate.js";
 
-export async function updateListingListener() {
+export async function updateListingListener(currentListing) {
   const form = document.querySelector("#editListingForm");
 
-  const url = new URL(location.href);
-  const id = url.searchParams.get("id");
+  const id = getUrlSearchParam("id");
 
   if (form) {
-    const currentListing = await getListing(id);
-    const options = {
-      day: "numeric",
-      month: "numeric",
-      year: "numeric",
-    };
-
-    const endDate = new Date(currentListing.endsAt).toLocaleDateString(
-      "en-GB",
-      options
-    );
+    const endDate = dateFormatted(currentListing.endsAt);
 
     form.title.value = currentListing.title;
     form.description.value = currentListing.description;

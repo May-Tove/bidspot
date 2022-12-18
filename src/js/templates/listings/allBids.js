@@ -1,12 +1,8 @@
+import { dateFormatted } from "../../tools/index.js";
+
 export const allBids = (bid) => {
   // formatting date
-  const options = {
-    weekday: "short",
-    month: "short",
-    day: "numeric",
-  };
-
-  const bidCreated = new Date(bid.created).toLocaleDateString("en-GB", options);
+  const bidCreated = dateFormatted(bid.created);
 
   return `<div class="d-flex align-items-center justify-content-between py-2 px-3 my-2 bg-light rounded">
             <div class="d-flex flex-column">

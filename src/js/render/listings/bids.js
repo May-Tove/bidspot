@@ -1,24 +1,18 @@
 import { getListing } from "../../api/listings/index.js";
 import { allBids } from "../../templates/index.js";
-import { noResultError } from "../../error/error.js";
+import { getUrlSearchParam } from "../../tools/urlSearchParams.js";
+import { renderResult } from "./displayResults.js";
 
 export async function renderAllBids() {
   const bidsContainer = document.querySelector("#allBidsContainer");
 
   if (bidsContainer) {
-    const url = new URL(location.href);
-    const id = url.searchParams.get("id");
+    const id = getUrlSearchParam("id");
     const listing = await getListing(id);
-
     const bids = listing.bids;
 
     bids.sort((a, b) => b.amount - a.amount);
-    const output = bids.map(allBids);
 
-    if (bids.length === 0) {
-      bidsContainer.innerHTML = noResultError("No bids yet");
-    } else {
-      bidsContainer.innerHTML = output.join("");
-    }
+    renderResult(bids, bidsContainer, allBids);
   }
 }

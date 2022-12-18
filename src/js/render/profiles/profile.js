@@ -1,6 +1,8 @@
 import { getProfile } from "../../api/profile/index.js";
 import { isLoggedIn } from "../../api/auth/state.js";
+import { getUrlSearchParam } from "../../tools/urlSearchParams.js";
 import * as render from "../../render/index.js";
+import * as listener from "../../handlers/index.js";
 import * as templates from "../../templates/index.js";
 
 /**
@@ -11,8 +13,7 @@ export async function renderProfile() {
   const pageTitle = document.querySelector("#nameTitle");
 
   if (isLoggedIn && profileContainer) {
-    const url = new URL(location.href);
-    const name = url.searchParams.get("name");
+    const name = getUrlSearchParam("name");
 
     const profile = await getProfile(name);
 
@@ -22,7 +23,9 @@ export async function renderProfile() {
 
     profileContainer.innerHTML = templates.profilePage(profile);
     render.renderProfileListings();
-    render.renderWins();
+    render.renderWins(profile);
     render.renderProfileBids();
+
+    listener.updateProfileListener(profile);
   }
 }

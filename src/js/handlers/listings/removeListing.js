@@ -1,4 +1,5 @@
-import { getListing, removeListing } from "../../api/listings/index.js";
+import { removeListing } from "../../api/listings/index.js";
+import { getUrlSearchParam } from "../../tools/urlSearchParams.js";
 
 /**
  * Event listener to delete a post on button click
@@ -6,13 +7,9 @@ import { getListing, removeListing } from "../../api/listings/index.js";
 export async function removeListingListener() {
   const deleteBtn = document.querySelector("#deleteBtn");
 
-  const url = new URL(location.href);
-  const id = url.searchParams.get("id");
+  const id = getUrlSearchParam("id");
 
   if (deleteBtn) {
-    const listing = await getListing(id);
-    listing.id = id;
-
     deleteBtn.addEventListener("click", async () => {
       await removeListing(id);
     });

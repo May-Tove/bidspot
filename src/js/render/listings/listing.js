@@ -1,14 +1,15 @@
 import { getListing } from "../../api/listings/getListing.js";
 import * as render from "../../render/index.js";
+import * as listener from "../../handlers/index.js";
 import * as templates from "../../templates/listings/index.js";
+import { getUrlSearchParam } from "../../tools/urlSearchParams.js";
 import { createBidListener } from "../../handlers/index.js";
 
 /**
  * Displaying a single post details on the page using API call
  */
 export async function renderListingDetails() {
-  const url = new URL(location.href);
-  const id = url.searchParams.get("id");
+  const id = getUrlSearchParam("id");
   if (id) {
     const result = await getListing(id);
 
@@ -22,19 +23,20 @@ export async function renderListingDetails() {
       metaDescription.content = result.description;
     }
 
-    if (listingContainer) {
-      listingContainer.innerHTML = templates.listingDetails(result);
-      currentPage.innerHTML = `<a class="link text-decoration-none active" href="${result.id}">${result.title}</a>`;
+    listingContainer.innerHTML = templates.listingDetails(result);
+    currentPage.innerHTML = `<a class="link text-decoration-none active" href="${result.id}">${result.title}</a>`;
 
-      render.renderAllBids();
-      render.renderListingImg();
-      render.renderTags();
-      render.displayListingOptions(result.seller.name);
-      render.displayBidForm(result.seller.name);
-      render.activateSellerLink(result.seller.name);
+    render.renderAllBids();
+    render.renderListingImg(result);
+    render.renderTags(result.tags);
+    render.displayListingOptions(result.seller.name);
+    render.displayBidForm(result.seller.name);
+    render.activateSellerLink(result.seller.name);
 
-      // calling function to create a bid after HTML bid form has been rendered together with listing details
-      createBidListener();
-    }
+    listener.updateListingListener(result);
+    listener.removeListingListener(result);
+
+    // calling function to create a bid after HTML bid form has been rendered together with listing details
+    createBidListener();
   }
 }

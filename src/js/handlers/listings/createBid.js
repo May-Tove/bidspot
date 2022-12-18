@@ -1,11 +1,12 @@
 import { createBid } from "../../api/listings/index.js";
+import { getUrlSearchParam } from "../../tools/urlSearchParams.js";
 
 export function createBidListener() {
   const bidForm = document.querySelector("#bidForm");
 
   if (bidForm) {
-    const url = new URL(location.href);
-    const id = url.searchParams.get("id");
+    const id = getUrlSearchParam("id");
+
     bidForm.addEventListener("submit", async (e) => {
       e.preventDefault();
       const form = e.target;

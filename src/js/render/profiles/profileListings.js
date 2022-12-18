@@ -1,24 +1,21 @@
 import { getProfileListings } from "../../api/profile/getProfileListings.js";
+import { getUrlSearchParam } from "../../tools/urlSearchParams.js";
 import { listingCard } from "../../templates/index.js";
-import { noResultError } from "../../error/error.js";
+import { renderResult } from "../listings/displayResults.js";
 
 export async function renderProfileListings() {
   const profileListingsContainer = document.querySelector("#profileListings");
   const listingsCount = document.querySelector("#listingsCount");
 
-  const url = new URL(location.href);
-  const name = url.searchParams.get("name");
+  const name = getUrlSearchParam("name");
 
   const profileListings = await getProfileListings(name);
-  const output = profileListings.map(listingCard);
 
-  if (profileListingsContainer) {
-    listingsCount.innerHTML = `(${profileListings.length})`;
+  // Sort order so that active listings come first
+  const sortedListings = profileListings.sort(
+    (a, b) => new Date(b.endsAt) - new Date(a.endsAt)
+  );
 
-    if (profileListings.length === 0) {
-      profileListingsContainer.innerHTML = noResultError("No listings yet");
-    } else {
-      profileListingsContainer.innerHTML = output.join("");
-    }
-  }
+  listingsCount.innerHTML = `(${profileListings.length})`;
+  renderResult(sortedListings, profileListingsContainer, listingCard);
 }

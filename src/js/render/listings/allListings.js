@@ -1,18 +1,13 @@
 import { getListings } from "../../api/listings/getAllListings.js";
-import { listingCard } from "../../templates/listings/listingCard.js";
-import { noResultError } from "../../error/error.js";
+import { listings_url, listings_flags } from "../../api/constants.js";
+import { listingCard } from "../../templates/index.js";
+import { renderResult } from "./displayResults.js";
 
-export async function renderListings() {
-  const listings = await getListings();
-  const output = listings.map(listingCard);
-
+export async function allListings() {
   const listingsContainer = document.querySelector("#listingsContainer");
+  const listings = await getListings(`${listings_url}?${listings_flags}`);
 
-  if (listingsContainer) {
-    if (output.length === 0) {
-      listingsContainer.innerHTML = noResultError("No listings yet");
-    } else {
-      listingsContainer.innerHTML = output.join("");
-    }
+  if (listings.length) {
+    renderResult(listings, listingsContainer, listingCard);
   }
 }
