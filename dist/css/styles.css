@@ -10809,8 +10809,8 @@ textarea.form-control-lg {
   transform: scale(1.1);
 }
 .listing-card #highestBid {
-  background-color: #dc3545;
-  color: #fff;
+  background-color: rgba(241, 241, 241, 0.928);
+  color: rgb(0, 95, 25);
 }
 
 footer {
@@ -10899,16 +10899,11 @@ footer .social-links a {
 
 #dropdownBtn:focus-visible,
 #prevBtn:focus-visible,
-#indicatorBtn:focus-visible,
-#imgIndicator:focus-visible,
+.indicator-btn:focus-visible,
 #nextBtn:focus-visible,
 .close-btn:focus-visible,
 #profileDetails:focus-visible {
   border: 2px solid #6610f2;
-}
-
-#imgIndicator:focus {
-  opacity: 0.5;
 }
 
 .link {
@@ -10996,7 +10991,7 @@ img {
 }
 
 .nav-tabs .nav-link {
-  color: #6c757d;
+  color: #495057;
 }
 .nav-tabs .nav-link:hover {
   color: #6610f2;

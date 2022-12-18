@@ -34,7 +34,7 @@ export async function renderListingImg(listing) {
     }
 
     // Hide carousel elements if there is one or less images
-    const indicatorBtn = document.querySelector("#indicatorBtn");
+    const indicatorBtn = document.querySelector(".indicator-btn");
     const nextBtn = document.querySelector("#nextBtn");
     const prevBtn = document.querySelector("#prevBtn");
 

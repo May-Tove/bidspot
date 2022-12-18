@@ -1,7 +1,7 @@
 // Buttons with option to edit or delete owners post
 export const options = () => {
   return `<div class="dropdown">
-                <button tabindex="0" class="btn p-1" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="dropdownBtn">
+                <button tabindex="0" class="btn p-1" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="dropdownBtn" aria-label="options">
                     <i class="fa-solid fa-ellipsis"></i>
                 </button>
                 <ul class="dropdown-menu">
