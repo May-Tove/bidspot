@@ -25,6 +25,6 @@ export async function renderWins(profile) {
 
   const wins = profile.wins;
 
-  renderResult(wins, winsContainer, profileWins);
+  renderResult(wins, winsContainer, profileWins, "No wins yet");
   winCount.innerHTML = `(${profile.wins.length})`;
 }

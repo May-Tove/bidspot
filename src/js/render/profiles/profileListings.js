@@ -20,5 +20,10 @@ export async function renderProfileListings() {
   );
 
   listingsCount.innerHTML = `(${profileListings.length})`;
-  renderResult(sortedListings, profileListingsContainer, listingCard);
+  renderResult(
+    sortedListings,
+    profileListingsContainer,
+    listingCard,
+    "No listings yet"
+  );
 }

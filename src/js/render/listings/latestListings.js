@@ -12,5 +12,5 @@ export async function latestListings() {
 
   const listingsContainer = document.querySelector("#latestListings");
 
-  renderResult(listings, listingsContainer, listingCard);
+  renderResult(listings, listingsContainer, listingCard, "No listings yet");
 }

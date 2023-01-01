@@ -3,12 +3,8 @@ import { get } from "../../storage/index.js";
 export const profilePage = (profile) => {
   // Avatar placeholder if original value has any errors or do not exist
   let avatar = "";
-  if (
-    profile.avatar.length === 0 ||
-    profile.avatar === null ||
-    profile.avatar === ""
-  ) {
-    avatar = "/images/img-placeholder.jpeg";
+  if (profile.avatar === null || profile.avatar === "") {
+    avatar = "/images/avatar-placeholder.jpg.jpeg";
   } else {
     avatar = profile.avatar;
   }

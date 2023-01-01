@@ -17,12 +17,8 @@ export const listingDetails = (listing) => {
 
   // Avatar placeholder if original value has any errors or do not exist
   let avatar = "";
-  if (
-    listing.seller.avatar.length === 0 ||
-    listing.seller.avatar === null ||
-    listing.seller.avatar === ""
-  ) {
-    avatar = "/images/img-placeholder.jpeg";
+  if (listing.seller.avatar === null || listing.seller.avatar === "") {
+    avatar = "/images/avatar-placeholder.jpg";
   } else {
     avatar = listing.seller.avatar;
   }

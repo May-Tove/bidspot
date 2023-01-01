@@ -36,7 +36,12 @@ export async function handleSearch() {
         return title.includes(searchTerm) || tags;
       });
 
-      renderResult(searchResult, listingsContainer, listingCard);
+      renderResult(
+        searchResult,
+        listingsContainer,
+        listingCard,
+        "No results found"
+      );
       form.reset();
     });
   }

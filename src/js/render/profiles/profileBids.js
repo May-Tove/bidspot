@@ -15,5 +15,5 @@ export async function renderProfileBids() {
   const bids = await getProfileBids(name);
 
   bidsCount.innerHTML = `(${bids.length})`;
-  renderResult(bids, profileBidsContainer, profileBids);
+  renderResult(bids, profileBidsContainer, profileBids, "No bids yet");
 }

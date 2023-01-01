@@ -16,6 +16,6 @@ export async function renderAllBids() {
 
     bids.sort((a, b) => b.amount - a.amount);
 
-    renderResult(bids, bidsContainer, allBids);
+    renderResult(bids, bidsContainer, allBids, "No bids yet");
   }
 }

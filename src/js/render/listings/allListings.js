@@ -11,6 +11,6 @@ export async function allListings() {
   const listings = await getListings(`${listings_url}?${listings_flags}`);
 
   if (listings.length) {
-    renderResult(listings, listingsContainer, listingCard);
+    renderResult(listings, listingsContainer, listingCard, "No listings");
   }
 }
