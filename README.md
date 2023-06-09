@@ -2,6 +2,10 @@
 
 ![Preview](./images/bidspot_layer_mockup.png)
 
+### Hosted with Netlify
+
+[Live site](https://bidspot.netlify.app/)
+
 ## Goal
 
 To take the skills learned over the past three semesters at the Noroff Front End Development course and create an auction website.
@@ -25,10 +29,10 @@ BidSpot is an online auction house marketplace. Users can list items for sale an
 
 ## Built With
 
-- Bootstrap
-- SCSS
-- Vanilla JavaScript
-- Noroff Auction API
+- [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
+- [SCSS](https://sass-lang.com/documentation/)
+- [Vanilla JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [Noroff Auction API](https://noroff-api-docs.netlify.app/auctionhouse-endpoints/authentication)
 
 ## How to install and run the project
 
@@ -49,6 +53,4 @@ npm run build
 - [Linkedin](https://www.linkedin.com/in/may-tove-hovdal-24b406153/)
 - maytoveh@gmail.com
 
-## Link to demo website
 
-https://bidspot.netlify.app/
